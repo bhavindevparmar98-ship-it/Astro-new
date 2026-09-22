@@ -1,0 +1,92 @@
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">What is Savio</p>
+      <h2>A platform built to simplify growth.</h2>
+    </div>
+
+    <div class="content-grid">
+      <div class="info-card">
+        <h3>Unified workflow</h3>
+        <p>
+          Bring your product, sales, and marketing efforts together in one place so your team stays aligned and moves faster.
+        </p>
+      </div>
+      <div class="info-card">
+        <h3>Data-backed clarity</h3>
+        <p>
+          Monitor the metrics that matter most and understand the signals behind every customer action.
+        </p>
+      </div>
+      <div class="info-card">
+        <h3>Faster execution</h3>
+        <p>
+          Reduce busywork with automation, reusable playbooks, and streamlined collaboration across departments.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 0;
+    background: #ffffff;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .section-heading {
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    color: #4f46e5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #111827;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: #f8fafc;
+    padding: 1.75rem;
+    border-radius: 22px;
+    border: 1px solid #e5e7eb;
+  }
+
+  h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1.3rem;
+    color: #111827;
+  }
+
+  p {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

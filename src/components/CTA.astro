@@ -1,0 +1,69 @@
+<section id="cta" class="section">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <p class="eyebrow">Launch faster</p>
+        <h2>Ready to see Savio in action?</h2>
+      </div>
+      <a class="button" href="#contact">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .cta-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.25rem;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.5rem;
+    color: #a5b4fc;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+    color: white;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .cta-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

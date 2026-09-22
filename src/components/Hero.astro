@@ -1,0 +1,216 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <p class="eyebrow">Smart digital experiences</p>
+      <h1>Build better products with Savio.</h1>
+      <p class="subtitle">
+        Savio helps teams launch faster, automate routine work, and create meaningful customer experiences.
+      </p>
+      <div class="actions">
+        <a class="button button-primary" href="#cta">Book a demo</a>
+        <a class="button button-secondary" href="#about">Learn more</a>
+      </div>
+      <ul class="stats">
+        <li><strong>25k+</strong><span>Users</span></li>
+        <li><strong>4.9/5</strong><span>Rating</span></li>
+        <li><strong>99.9%</strong><span>Uptime</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-visual" aria-label="Product preview">
+      <div class="card card-main">
+        <span class="badge">Live</span>
+        <h3>Growth Dashboard</h3>
+        <div class="bars">
+          <span style="height: 35%;"></span>
+          <span style="height: 55%;"></span>
+          <span style="height: 70%;"></span>
+          <span style="height: 90%;"></span>
+          <span style="height: 78%;"></span>
+          <span style="height: 100%;"></span>
+        </div>
+      </div>
+      <div class="card card-floating">
+        <p>Conversion</p>
+        <strong>+42%</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 5rem 0 4rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: #4f46e5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    color: #111827;
+  }
+
+  .subtitle {
+    margin: 1.25rem 0 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4b5563;
+    max-width: 590px;
+  }
+
+  .actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+
+  .button-primary {
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
+    color: white;
+  }
+
+  .button-secondary {
+    background: white;
+    color: #111827;
+    border: 1px solid #dbe3f0;
+  }
+
+  .stats {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 2rem 0 0;
+    flex-wrap: wrap;
+  }
+
+  .stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stats strong {
+    font-size: 1.5rem;
+    color: #111827;
+  }
+
+  .stats span {
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+  }
+
+  .card {
+    background: white;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+    border-radius: 24px;
+  }
+
+  .card-main {
+    width: min(100%, 480px);
+    padding: 1.5rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    background: #ecfeff;
+    color: #0f766e;
+    font-weight: 700;
+  }
+
+  .card-main h3 {
+    margin: 1rem 0 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .bars {
+    height: 180px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+  }
+
+  .bars span {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, #8b5cf6, #4f46e5);
+    border-radius: 10px 10px 0 0;
+  }
+
+  .card-floating {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 1rem 1.2rem;
+    background: linear-gradient(135deg, #111827, #1f2937);
+    color: white;
+  }
+
+  .card-floating p {
+    margin: 0 0 0.35rem;
+    color: #cbd5e1;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .card-floating strong {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding-top: 4rem;
+    }
+  }
+</style>

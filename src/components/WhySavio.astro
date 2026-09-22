@@ -1,0 +1,104 @@
+<section id="why" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Why Savio</p>
+      <h2>Built to help teams scale with confidence.</h2>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature">
+        <div class="icon">01</div>
+        <h3>Simple onboarding</h3>
+        <p>Get your team set up quickly without heavy implementation overhead.</p>
+      </article>
+
+      <article class="feature">
+        <div class="icon">02</div>
+        <h3>Actionable insights</h3>
+        <p>Spot growth patterns earlier and make smarter decisions in real time.</p>
+      </article>
+
+      <article class="feature">
+        <div class="icon">03</div>
+        <h3>Team collaboration</h3>
+        <p>Keep everyone aligned with shared visibility across the full workflow.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, #f8fafc, #eef2ff);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .section-heading {
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.75rem;
+    color: #4f46e5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #111827;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature {
+    background: white;
+    border-radius: 22px;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1rem;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #e0e7ff, #ddd6fe);
+    color: #312e81;
+    font-weight: 800;
+  }
+
+  h3 {
+    margin: 0 0 0.7rem;
+    font-size: 1.35rem;
+    color: #111827;
+  }
+
+  p {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
