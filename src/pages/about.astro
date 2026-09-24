@@ -21,6 +21,26 @@ import savioHeroImage from '../assets/ab savio img.png';
     <div class="savio-page">
       <header class="hero-shell">
         <div class="hero-frame">
+          <svg class="card-grid-overlay" viewBox="0 0 1408 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <mask id="hero-grid-mask" maskUnits="userSpaceOnUse">
+                <rect width="1408" height="640" fill="black"/>
+                <path d="M0 0 L0 640 M64 0 L64 640 M128 0 L128 640 M192 0 L192 640 M256 0 L256 640 M320 0 L320 640 M384 0 L384 640 M448 0 L448 640 M512 0 L512 640 M576 0 L576 640 M640 0 L640 640 M704 0 L704 640 M768 0 L768 640 M832 0 L832 640 M896 0 L896 640 M960 0 L960 640 M1024 0 L1024 640 M1088 0 L1088 640 M1152 0 L1152 640 M1216 0 L1216 640 M1280 0 L1280 640 M1344 0 L1344 640 M1408 0 L1408 640 M0 0 L1408 0 M0 64 L1408 64 M0 128 L1408 128 M0 192 L1408 192 M0 256 L1408 256 M0 320 L1408 320 M0 384 L1408 384 M0 448 L1408 448 M0 512 L1408 512 M0 576 L1408 576 M0 640 L1408 640" stroke="white" stroke-opacity="0.2" stroke-width="1.5" fill="none"/>
+              </mask>
+              <filter id="hero-soft-blur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="225"/>
+              </filter>
+              <clipPath id="hero-grid-clip">
+                <rect width="1408" height="640" rx="24"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#hero-grid-clip)">
+              <g mask="url(#hero-grid-mask)">
+                <ellipse cx="920" cy="330" rx="360" ry="250" fill="#FF4800" filter="url(#hero-soft-blur)"/>
+              </g>
+            </g>
+          </svg>
+
           <nav class="floating-nav navbar" aria-label="Main navigation">
             <a href="/" class="nav-logo" aria-label="Savio home">
               <img src="/savio-logo.svg" alt="Savio logo" />
@@ -140,13 +160,51 @@ import savioHeroImage from '../assets/ab savio img.png';
 
         <section class="section reason-section" id="how-it-works">
           <div class="reason-card">
+            <svg class="card-grid-overlay" viewBox="0 0 1280 661" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <mask id="reason-grid-mask" maskUnits="userSpaceOnUse">
+                  <rect width="1280" height="661" fill="black"/>
+                  <path d="M0 0 L0 661 M64 0 L64 661 M128 0 L128 661 M192 0 L192 661 M256 0 L256 661 M320 0 L320 661 M384 0 L384 661 M448 0 L448 661 M512 0 L512 661 M576 0 L576 661 M640 0 L640 661 M704 0 L704 661 M768 0 L768 661 M832 0 L832 661 M896 0 L896 661 M960 0 L960 661 M1024 0 L1024 661 M1088 0 L1088 661 M1152 0 L1152 661 M1216 0 L1216 661 M1280 0 L1280 661 M0 0 L1280 0 M0 64 L1280 64 M0 128 L1280 128 M0 192 L1280 192 M0 256 L1280 256 M0 320 L1280 320 M0 384 L1280 384 M0 448 L1280 448 M0 512 L1280 512 M0 576 L1280 576 M0 640 L1280 640 M0 661 L1280 661" stroke="white" stroke-opacity="0.2" stroke-width="1.5" fill="none"/>
+                </mask>
+                <filter id="reason-soft-blur" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="225"/>
+                </filter>
+                <clipPath id="reason-grid-clip">
+                  <rect width="1280" height="661" rx="24"/>
+                </clipPath>
+              </defs>
+              <g clip-path="url(#reason-grid-clip)">
+                <g mask="url(#reason-grid-mask)">
+                  <ellipse cx="880" cy="150" rx="280" ry="220" fill="#FFFFFF" filter="url(#reason-soft-blur)"/>
+                </g>
+              </g>
+            </svg>
+
             <div class="reason-copy">
-              <span class="eyebrow">THE REASON</span>
-              <h2>Why does Savio exist?</h2>
+              <div class="reason-header">
+                <span class="eyebrow">THE REASON</span>
+                <h2>Why does Savio exist?</h2>
+              </div>
+
               <ol class="reason-list">
-                <li>Because saving is a promise to your future self that most apps never help you keep. The habit even has a name — <span class="highlight-link">digital hoarding</span> — and the <span class="highlight-link">attention economy</span> makes saving effortless while quietly ensuring you never come back.</li>
-                <li>Savio's whole reason to exist is the return trip: a reel-style watch mode, watched and unwatched tracking, an optional once-a-day digest, and gentle nudges about saves you haven't gotten to.</li>
-                <li>It's 100% private by default and free to download ($0), on <strong>iOS and Android.</strong></li>
+                <li>
+                  <span class="reason-number">1.</span>
+                  <span class="reason-text">
+                    Because saving is a promise to your future self that most apps never help you keep. The habit even has a name — <span class="highlight-link">digital hoarding</span> — and the <span class="highlight-link">attention economy</span> makes saving effortless while quietly ensuring you never come back.
+                  </span>
+                </li>
+                <li>
+                  <span class="reason-number">2.</span>
+                  <span class="reason-text">
+                    Savio's whole reason to exist is the return trip: a reel-style watch mode, watched and unwatched tracking, an optional once-a-day digest, and gentle nudges about saves you haven't gotten to.
+                  </span>
+                </li>
+                <li>
+                  <span class="reason-number">3.</span>
+                  <span class="reason-text">
+                    It's 100% private by default and free to download ($0), on <strong>iOS and Android.</strong>
+                  </span>
+                </li>
               </ol>
             </div>
 
@@ -161,7 +219,7 @@ import savioHeroImage from '../assets/ab savio img.png';
           <div class="team-header">
             <span class="eyebrow eyebrow-dark">THE PEOPLE</span>
             <h2>Who builds Savio?</h2>
-            <p>Made by Rovae, a small product studio building calm software for the way modern life actually works.</p>
+            <p>Made by Rovae, a small product studio founded in 2020 by three university classmates from Pune, India. We build the whole thing ourselves — and use Savio every day.</p>
           </div>
 
           <div class="team-grid">
@@ -190,11 +248,31 @@ import savioHeroImage from '../assets/ab savio img.png';
             </article>
           </div>
 
-          <p class="team-footer-line">More about the team and our other work is on the Rovae about page.</p>
+          <p class="team-footer-line">More about the team and our other work is on the <a href="/about" class="highlight-link">Rovae about page.</a></p>
         </section>
 
         <section class="cta-strip" id="download">
           <div class="cta-card">
+            <svg class="card-grid-overlay" viewBox="0 0 1062 401" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <mask id="cta-grid-mask" maskUnits="userSpaceOnUse">
+                  <rect width="1062" height="401" fill="black"/>
+                  <path d="M0 0 L0 401 M64 0 L64 401 M128 0 L128 401 M192 0 L192 401 M256 0 L256 401 M320 0 L320 401 M384 0 L384 401 M448 0 L448 401 M512 0 L512 401 M576 0 L576 401 M640 0 L640 401 M704 0 L704 401 M768 0 L768 401 M832 0 L832 401 M896 0 L896 401 M960 0 L960 401 M1024 0 L1024 401 M1062 0 L1062 401 M0 0 L1062 0 M0 64 L1062 64 M0 128 L1062 128 M0 192 L1062 192 M0 256 L1062 256 M0 320 L1062 320 M0 384 L1062 384 M0 401 L1062 401" stroke="white" stroke-opacity="0.2" stroke-width="1.5" fill="none"/>
+                </mask>
+                <filter id="cta-soft-blur" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="225"/>
+                </filter>
+                <clipPath id="cta-grid-clip">
+                  <rect width="1062" height="401" rx="24"/>
+                </clipPath>
+              </defs>
+              <g clip-path="url(#cta-grid-clip)">
+                <g mask="url(#cta-grid-mask)">
+                  <ellipse cx="812.5" cy="201" rx="281.5" ry="224" fill="#FFFFFF" filter="url(#cta-soft-blur)"/>
+                </g>
+              </g>
+            </svg>
+
             <div class="cta-copy-block">
               <span class="eyebrow">FREE TO DOWNLOAD</span>
               <h2>Give your saves a home.</h2>
@@ -283,13 +361,23 @@ import savioHeroImage from '../assets/ab savio img.png';
 
   .hero-frame {
     position: relative;
-    max-width: 1408px;
+    width: 100%;
     min-height: 640px;
     margin: 0 auto;
     border-radius: 24px;
     background: linear-gradient(133.06deg, rgba(255, 199, 176, 0.4) 0%, rgba(255, 72, 0, 0.4) 94.86%), #ffffff;
     overflow: hidden;
     isolation: isolate;
+  }
+
+  .card-grid-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .hero-frame::before {
@@ -387,6 +475,18 @@ import savioHeroImage from '../assets/ab savio img.png';
     align-items: center;
     min-height: 640px;
     padding: 128px 80px 40px;
+    margin: 0 auto;
+    max-width: 1242px;
+  }
+
+  .navbar,
+  .hero-content,
+  .reason-copy,
+  .quote-card,
+  .cta-copy-block,
+  .cta-phone {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-copy { max-width: 622px; }
@@ -452,7 +552,7 @@ import savioHeroImage from '../assets/ab savio img.png';
     min-height: 460px;
   }
 
-  .glow-ring {
+  /* .glow-ring {
     position: absolute;
     width: 520px;
     height: 520px;
@@ -460,7 +560,7 @@ import savioHeroImage from '../assets/ab savio img.png';
     background: radial-gradient(circle, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.18) 35%, rgba(255,72,0,0.04) 72%, rgba(255,72,0,0.0) 100%);
     filter: blur(12px);
     z-index: 1;
-  }
+  } */
 
   .hero-phone-mockup {
     position: absolute;
@@ -508,6 +608,7 @@ import savioHeroImage from '../assets/ab savio img.png';
     border-radius: 24px;
     overflow: hidden;
     background: #fff;
+    gap: 0;
   }
 
   .feature-cell {
@@ -566,66 +667,106 @@ import savioHeroImage from '../assets/ab savio img.png';
   .reason-section { padding: 64px 80px 96px; }
   .reason-card {
     position: relative;
-    max-width: 1280px;
+    width: min(1280px, calc(100% - 160px));
+    min-height: 661px;
     margin: 0 auto;
     padding: 80px;
     border-radius: 24px;
     background: linear-gradient(132.6deg, rgba(255, 199, 176, 0.4) 0%, rgba(255, 72, 0, 0.4) 100%), #ffffff;
     overflow: hidden;
+    isolation: isolate;
+  }
+
+  .reason-card .card-grid-overlay,
+  .cta-card .card-grid-overlay,
+  .hero-frame .card-grid-overlay {
+    z-index: 0;
   }
 
   .reason-card::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 64px 64px;
-    opacity: 0.35;
+    left: -1026px;
+    top: -150px;
+    width: 3114px;
+    height: 2373px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    transform: rotate(8deg);
     z-index: 0;
   }
 
   .reason-card::after {
     content: "";
     position: absolute;
-    width: 755px;
-    height: 474px;
-    background: var(--savio-orange);
+    width: 563px;
+    height: 448px;
+    background: rgba(255, 255, 255, 0.9);
     filter: blur(225px);
     border-radius: 50%;
-    left: 32%;
-    top: 18%;
-    opacity: 0.14;
+    left: 531px;
+    top: 107px;
+    opacity: 0.9;
     z-index: 0;
   }
 
   .reason-copy {
     position: relative;
     z-index: 1;
-    max-width: 1120px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .reason-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .reason-copy .eyebrow {
+    margin: 0;
   }
 
   .reason-copy h2 {
+    margin: 0;
     font-size: 48px;
     line-height: 58px;
-    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
   }
 
   .reason-list {
     list-style: none;
-    counter-reset: reason-counter;
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 0;
     margin: 0;
+    width: 100%;
   }
 
   .reason-list li {
-    counter-increment: reason-counter;
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     gap: 8px;
+    width: 100%;
+  }
+
+  .reason-number {
+    flex-shrink: 0;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 160%;
+    color: rgba(35, 31, 32, 0.8);
+  }
+
+  .reason-text {
+    flex: 1;
+    min-width: 0;
     font-family: 'Cabin', sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -633,19 +774,8 @@ import savioHeroImage from '../assets/ab savio img.png';
     color: rgba(35, 31, 32, 0.8);
   }
 
-  .reason-list li::before {
-    content: counter(reason-counter) ".";
-    flex-shrink: 0;
-    font-weight: 500;
-    color: rgba(35, 31, 32, 0.8);
-  }
-
-  .reason-list strong,
-  .reason-copy strong {
-    font-weight: 700;
-    color: inherit;
-    font-size: inherit;
-    line-height: inherit;
+  .reason-list li:last-child .reason-text {
+    color: #231F20;
   }
 
   .highlight-link {
@@ -656,21 +786,34 @@ import savioHeroImage from '../assets/ab savio img.png';
     cursor: default;
   }
 
+  .reason-text strong {
+    font-weight: 700;
+    color: inherit;
+  }
+
   .quote-card {
     position: relative;
     z-index: 1;
     width: 1120px;
     max-width: 100%;
-    margin: 32px auto 0;
+    height: 152px;
+    margin: 40px auto 0;
     padding: 40px;
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(12px);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
   }
 
   .quote-text {
+    width: 1040px;
+    max-width: 100%;
     margin: 0;
     font-size: 28px;
     line-height: 34px;
@@ -684,7 +827,9 @@ import savioHeroImage from '../assets/ab savio img.png';
   }
 
   .quote-meta {
-    margin-top: 16px;
+    width: 359px;
+    max-width: 100%;
+    margin: 0;
     font-size: 18px;
     line-height: 22px;
     color: rgba(35, 31, 32, 0.8);
@@ -898,6 +1043,46 @@ import savioHeroImage from '../assets/ab savio img.png';
     .cta-phone { opacity: 0.75; right: -120px; }
   }
 
+  @media (max-width: 1024px) {
+    .reason-section {
+      padding: 48px 16px 64px;
+    }
+
+    .reason-card {
+      width: 100%;
+      min-height: auto;
+      padding: 40px 24px;
+    }
+
+    .reason-copy {
+      width: 100%;
+      gap: 20px;
+    }
+
+    .quote-card {
+      width: 100%;
+      height: auto;
+      margin-top: 28px;
+      padding: 24px 20px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .quote-text {
+      width: 100%;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .quote-meta {
+      width: 100%;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
+    }
+  }
+
   @media (max-width: 768px) {
     .navbar {
       position: relative;
@@ -1006,9 +1191,27 @@ import savioHeroImage from '../assets/ab savio img.png';
       padding-right: 16px;
     }
 
+    .reason-copy h2 {
+      font-size: 36px;
+      line-height: 42px;
+    }
+
+    .reason-list {
+      gap: 20px;
+    }
+
+    .reason-number,
+    .reason-text {
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+    .reason-list li {
+      gap: 6px;
+    }
+
     .hero-copy h1,
     .product-copy h2,
-    .reason-copy h2,
     .team-header h2,
     .cta-copy-block h2 {
       font-size: 40px;
