@@ -143,17 +143,15 @@ import savioHeroImage from '../assets/ab savio img.png';
             <div class="reason-copy">
               <span class="eyebrow">THE REASON</span>
               <h2>Why does Savio exist?</h2>
-              <p>
-                The internet is endless, and the content we save keeps multiplying — links, videos, articles, ideas, thumbnails, and threads we meant to revisit. It all gets buried under more urgency, more noise, more tabs.
-              </p>
-              <p>
-                Savio is designed to reverse that cycle. It turns saved content into something you can actually return to: watch mode, digest views, and gentle nudges that remind you what matters before it disappears again.
-              </p>
-              <p class="emphasis-line">100% private, free, iOS and Android</p>
+              <ol class="reason-list">
+                <li>Because saving is a promise to your future self that most apps never help you keep. The habit even has a name — <span class="highlight-link">digital hoarding</span> — and the <span class="highlight-link">attention economy</span> makes saving effortless while quietly ensuring you never come back.</li>
+                <li>Savio's whole reason to exist is the return trip: a reel-style watch mode, watched and unwatched tracking, an optional once-a-day digest, and gentle nudges about saves you haven't gotten to.</li>
+                <li>It's 100% private by default and free to download ($0), on <strong>iOS and Android.</strong></li>
+              </ol>
             </div>
 
             <div class="quote-card">
-              <p class="quote-text">“The best tools don’t just store your attention — they make it easy to come back to it.”</p>
+              <p class="quote-text">"Saving is easy. <span class="highlight-word">Returning</span> is the hard part — so we built the entire app around the return."</p>
               <div class="quote-meta">~ The Savio team at Rovae · About the founders</div>
             </div>
           </div>
@@ -614,17 +612,48 @@ import savioHeroImage from '../assets/ab savio img.png';
     margin-bottom: 16px;
   }
 
-  .reason-copy p {
-    margin: 0 0 16px;
+  .reason-list {
+    list-style: none;
+    counter-reset: reason-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .reason-list li {
+    counter-increment: reason-counter;
+    display: flex;
+    gap: 8px;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 400;
     font-size: 20px;
     line-height: 160%;
     color: rgba(35, 31, 32, 0.8);
   }
 
-  .reason-copy .emphasis-line {
-    margin-top: 10px;
-    color: var(--text-primary);
-    font-weight: 400;
+  .reason-list li::before {
+    content: counter(reason-counter) ".";
+    flex-shrink: 0;
+    font-weight: 500;
+    color: rgba(35, 31, 32, 0.8);
+  }
+
+  .reason-list strong,
+  .reason-copy strong {
+    font-weight: 700;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .highlight-link {
+    color: #FF4800;
+    text-decoration: underline;
+    text-decoration-color: #FF4800;
+    text-underline-offset: 2px;
+    cursor: default;
   }
 
   .quote-card {
@@ -632,7 +661,7 @@ import savioHeroImage from '../assets/ab savio img.png';
     z-index: 1;
     width: 1120px;
     max-width: 100%;
-    margin: 40px auto 0;
+    margin: 32px auto 0;
     padding: 40px;
     border-radius: 24px;
     background: rgba(255, 255, 255, 0.65);
@@ -648,6 +677,10 @@ import savioHeroImage from '../assets/ab savio img.png';
     font-style: italic;
     font-weight: 400;
     color: var(--text-primary);
+  }
+
+  .highlight-word {
+    color: #FF4800;
   }
 
   .quote-meta {
