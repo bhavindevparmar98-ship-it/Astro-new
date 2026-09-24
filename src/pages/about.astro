@@ -1,262 +1,1017 @@
 ---
+import { Image } from 'astro:assets';
 import '../components/styles.astro/global.css';
+import appStoreBadge from '../assets/app-store-apple-logo.svg';
+import googlePlayBadge from '../assets/google-play-badge-logo1.svg';
+import heroPhoneMockup from '../assets/iphone-15-pro-max-hand-mockup.png';
+import savioHeroImage from '../assets/ab savio img.png';
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="About Savio" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>About Savio</title>
   </head>
-  <body class="about-page">
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="container container-1110 topbar-wrap">
-          <div class="brand-wrap">
-            <div class="brand-mark">S</div>
-            <span class="brand-text">savio</span>
-          </div>
+  <body>
+    <div class="savio-page">
+      <header class="hero-shell">
+        <div class="hero-frame">
+          <nav class="floating-nav navbar" aria-label="Main navigation">
+            <a href="/" class="nav-logo" aria-label="Savio home">
+              <img src="/savio-logo.svg" alt="Savio logo" />
+            </a>
 
-          <nav class="main-nav" aria-label="Main navigation">
-            <a href="#story">Features</a>
-            <a href="#vision">How it works</a>
-            <a href="#values">App</a>
-            <a href="#team">Testimonials</a>
+            <div class="nav-links-desktop">
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How it works</a>
+              <a href="#app">App</a>
+              <a href="#testimonials">Testimonials</a>
+            </div>
+
+            <button class="signup-btn signup-btn-desktop" type="button">Signup</button>
+
+            <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <div class="mobile-menu" hidden>
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How it works</a>
+              <a href="#app">App</a>
+              <a href="#testimonials">Testimonials</a>
+              <button class="signup-btn-mobile" type="button">Signup</button>
+            </div>
           </nav>
 
-          <a class="btn btn-primary" href="#contact">Signup</a>
+          <div class="hero-content">
+            <div class="hero-copy">
+              <span class="eyebrow">ABOUT SAVIO</span>
+              <h1>Why we built <span class="accent">Savio.</span></h1>
+              <p>
+                Reels in Instagram, videos on YouTube, threads in X, links in a dozen notes — all bookmarked with the best intentions, none of them ever seen again. So we built a calmer way.
+              </p>
+
+              <div class="app-badges" aria-label="Download app badges">
+                <Image src={appStoreBadge} alt="Download on the App Store" width={161} height={48} class="store-badge" />
+                <Image src={googlePlayBadge} alt="Get it on Google Play" width={161} height={48} class="store-badge" />
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-label="Savio app preview">
+              <Image src={savioHeroImage} alt="Savio app preview" class="hero-phone-mockup" />
+              <div class="glow-ring"></div>
+            </div>
+          </div>
         </div>
       </header>
 
-      <main class="about-main">
-        <section class="hero-section section-padding-96">
-          <div class="container container-1110 hero-grid">
-            <div class="hero-copy">
-              <span class="eyebrow">About Savio</span>
-              <h1>Why we built <span>Savio.</span></h1>
-              <p class="hero-text">
-                Reels in Instagram, videos in YouTube, threads in X, links in a dozen notes — all bookmarked with the best intentions, none of them ever seen again. So we built a calmer way.
+      <main>
+        <section class="section product-section" id="features">
+          <div class="section-inner product-inner">
+            <div class="product-copy">
+              <span class="eyebrow eyebrow-dark">THE PRODUCT</span>
+              <h2>What is Savio?</h2>
+              <p>
+                Savio captures the things you save from the internet, organizes them instantly, and keeps them easy to find when you need them again.
               </p>
-
-              <div class="store-row">
-                <a class="store-badge app-store" href="#contact">
-                  <span class="app-icon"></span>
-                  <span>
-                    <small>Download on the</small>
-                    <strong>App Store</strong>
-                  </span>
-                </a>
-                <a class="store-badge play-store" href="#contact">
-                  <span class="app-icon">▶</span>
-                  <span>
-                    <small>GET IT ON</small>
-                    <strong>Google Play</strong>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div class="hero-visual">
-              <div class="phone-shell">
-                <div class="phone-topbar">
-                  <span class="camera"></span>
-                  <span class="signal">▣</span>
-                  <span class="signal">◐</span>
-                </div>
-
-                <div class="screen-header">
-                  <span class="play-pill">▶</span>
-                  <span class="time">12:30</span>
-                  <div class="status-icons">
-                    <span>◔</span>
-                    <span>◍</span>
-                    <span>◉</span>
-                  </div>
-                </div>
-
-                <div class="mini-app-card main-cta">
-                  <div class="mini-card-header">
-                    <span class="brand-mini">savio</span>
-                    <div class="user-stack">
-                      <span>18</span>
-                    </div>
-                  </div>
-
-                  <div class="share-box">
-                    <div class="share-head">
-                      <div class="avatars">
-                        <span class="a1">A</span>
-                        <span class="a2">M</span>
-                        <span class="a3">S</span>
-                      </div>
-                      <span class="share-label">Share with friends</span>
-                    </div>
-
-                    <div class="share-row">
-                      <div class="share-copy">
-                        <strong>What you have been saving now</strong>
-                        <span>Apr 2026</span>
-                      </div>
-                      <button class="pill-button">Share</button>
-                    </div>
-                  </div>
-
-                  <button class="watch-button">Watch Today’s Digest</button>
-                </div>
-
-                <div class="mini-card saved-card">
-                  <div class="saved-icon">🛡</div>
-                  <div class="saved-copy">
-                    <strong>Recently saved</strong>
-                    <span>What can I do to make this easier?</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="floating-badge">
-                <span class="badge-label">🔔</span>
-                <strong>1</strong>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="story" class="story-section section-padding-80">
-          <div class="container container-1110 story-grid">
-            <div class="story-copy">
-              <span class="eyebrow">Our story</span>
-              <h2 class="heading-h2 text-primary">We made the complex feel simple.</h2>
-              <p class="para-large text-light-70">
-                Savio started with a simple idea: modern teams should not have to stitch together scattered tools just to operate effectively.
-              </p>
-              <p class="para-regular text-light-70">
-                We designed Savio to deliver a unified experience for planning, reporting, execution, and customer-facing work—so every team can align around one clear source of truth.
+              <p>
+                Instead of scattered bookmarks, notes, and screenshots, everything lives in one place with searchable collections, durable previews, and one-tap sharing.
               </p>
             </div>
 
-            <div class="story-image-wrap">
-              <div class="media-placeholder tall-placeholder">
-                <span>Product image</span>
+            <div class="feature-grid" aria-label="Savio features grid">
+              <div class="feature-cell cell-one">
+                <div class="icon-wrap">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.7522 11.1748L12.2958 6.87046C11.779 6.52566 11.0827 6.86961 11.0425 7.48958C11.0413 7.50736 11.0408 7.52518 11.0408 7.54301V16.1516C11.0399 16.7729 11.7118 17.1622 12.2503 16.8524C12.2658 16.8435 12.2809 16.8341 12.2958 16.8242L18.7522 12.5199C19.2335 12.2006 19.2335 11.494 18.7522 11.1748ZM12.6549 14.6438V9.05086L16.8489 11.8473L12.6549 14.6438ZM25.8369 2.43164H2.16315C1.12312 2.43164 0.28001 3.27475 0.28001 4.31477V19.3799C0.28001 20.4199 1.12308 21.2631 2.16315 21.263H25.8369C26.8769 21.263 27.72 20.4199 27.72 19.3799V4.31477C27.72 3.27475 26.8769 2.43164 25.8369 2.43164ZM26.1059 19.3799C26.1059 19.5284 25.9854 19.6489 25.8369 19.6489H2.16315C2.01457 19.6489 1.89412 19.5285 1.89412 19.3799V4.31477C1.89412 4.1662 2.01457 4.04574 2.16315 4.04575H25.8369C25.9854 4.04576 26.1059 4.16621 26.1059 4.31477V19.3799ZM27.72 24.7603C27.72 25.206 27.3587 25.5673 26.913 25.5673H1.08707C0.465794 25.5673 0.0775021 24.8948 0.388138 24.3567C0.532305 24.107 0.798732 23.9532 1.08707 23.9532H26.913C27.3587 23.9532 27.72 24.3145 27.72 24.7603Z" fill="#FF4800"/>
+</svg>
+                </div>
+                <h3>One-tap capture</h3>
+                <p>From 8+ apps plus any URL</p>
+              </div>
+
+              <div class="feature-cell cell-two">
+                <div class="icon-wrap">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.8692 8.04859L18.3366 0.516039C18.1854 0.364642 17.9803 0.279483 17.7663 0.279297H4.85337C3.81335 0.279297 2.97024 1.1224 2.97024 2.16243V11.8471C2.97024 12.4684 3.64279 12.8567 4.18082 12.5461C4.43053 12.4019 4.58435 12.1355 4.58435 11.8471V2.16244C4.58435 2.01385 4.7048 1.89341 4.85337 1.89341H16.9593V8.6189C16.9593 9.06464 17.3206 9.42597 17.7663 9.42597H24.4918V25.8362C24.4918 25.9847 24.3714 26.1052 24.2228 26.1052H23.1467C22.5254 26.1052 22.1371 26.7777 22.4478 27.3158C22.5919 27.5655 22.8584 27.7193 23.1467 27.7193H24.2228C25.2628 27.7193 26.1059 26.8762 26.1059 25.8362V8.6189C26.1057 8.40493 26.0206 8.19979 25.8692 8.04859ZM18.5734 3.03406L23.3512 7.81184H18.5734V3.03406ZM18.1577 16.5214C17.9011 16.3791 17.5874 16.3873 17.3386 16.5429L14.2691 18.461V18.3036C14.2691 17.2636 13.426 16.4205 12.3859 16.4205H3.7773C2.73727 16.4205 1.89417 17.2636 1.89417 18.3036V24.7601C1.89417 25.8001 2.73727 26.6432 3.7773 26.6432H12.3859C13.426 26.6432 14.2691 25.8001 14.2691 24.7601V24.6027L17.3386 26.5208C17.8654 26.8501 18.5511 26.4856 18.5729 25.8647C18.5732 25.8552 18.5734 25.8457 18.5734 25.8362V17.2275C18.5735 16.9341 18.4144 16.6637 18.1577 16.5214ZM12.6549 24.7601C12.6549 24.9087 12.5345 25.0291 12.3859 25.0291H3.7773C3.62872 25.0291 3.50828 24.9087 3.50828 24.7601V18.3036C3.50828 18.155 3.62872 18.0346 3.7773 18.0346H12.3859C12.5345 18.0346 12.6549 18.155 12.6549 18.3036V24.7601ZM16.9593 24.3794L14.2691 22.698V20.3656L16.9593 18.6843V24.3794Z" fill="#FF4800"/>
+</svg>
+                </div>
+                <h3>Auto-organized</h3>
+                <p>Searchable collections, no manual work</p>
+              </div>
+
+              <div class="feature-cell cell-three">
+                <div class="icon-wrap">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.7608 2.43266H21.2635V1.08755C21.2635 0.466283 20.591 0.0779904 20.0529 0.388626C19.8032 0.532793 19.6494 0.79922 19.6494 1.08755V2.43266H8.35059V1.08755C8.35059 0.466283 7.67804 0.0779904 7.14 0.388626C6.8903 0.532793 6.73648 0.79922 6.73648 1.08755V2.43266H3.23922C2.1992 2.43266 1.35608 3.27577 1.35608 4.31579V25.8374C1.35608 26.8774 2.1992 27.7205 3.23922 27.7205H24.7608C25.8008 27.7205 26.6439 26.8774 26.6439 25.8374V4.31579C26.6439 3.27577 25.8008 2.43266 24.7608 2.43266ZM3.23922 4.04677H6.73648V5.39187C6.73648 6.01315 7.40902 6.40144 7.94706 6.0908C8.19676 5.94664 8.35059 5.6802 8.35059 5.39187V4.04677H19.6494V5.39187C19.6494 6.01315 20.322 6.40144 20.86 6.0908C21.1097 5.94664 21.2635 5.6802 21.2635 5.39187V4.04677H24.7608C24.9094 4.04678 25.0298 4.16723 25.0298 4.31579V8.88912H2.9702V4.31579C2.9702 4.16722 3.09064 4.04676 3.23922 4.04677ZM24.7608 26.1064H3.23922C3.09064 26.1064 2.9702 25.9859 2.9702 25.8374V10.5032H25.0298V25.8374C25.0298 25.9859 24.9094 26.1064 24.7608 26.1064ZM19.4127 14.5063C19.7274 14.8213 19.7274 15.3318 19.4127 15.6469L12.9562 22.1034C12.6411 22.4181 12.1307 22.4181 11.8156 22.1034L8.58733 18.8751C8.16379 18.4206 8.3911 17.678 8.9965 17.5385C9.25775 17.4783 9.53184 17.5517 9.72797 17.7345L12.3859 20.3911L18.272 14.5063C18.5871 14.1916 19.0976 14.1916 19.4127 14.5063Z" fill="#FF4800"/>
+</svg>
+                </div>
+                <h3>Durable previews</h3>
+                <p>Still work when the original vanishes</p>
+              </div>
+
+              <div class="feature-cell cell-four">
+                <div class="icon-wrap">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1046_6159)">
+<path d="M22.75 14.5127V12.25H21V14.875C21 15.107 21.0923 15.3296 21.2564 15.4936L23.625 17.8623V19.25H4.375V17.8623L6.74362 15.4936C6.90773 15.3296 6.99995 15.107 7 14.875V11.375C6.99775 10.1455 7.31995 8.93722 7.93407 7.8721C8.54819 6.80698 9.43248 5.92277 10.4977 5.30874C11.5628 4.69471 12.7712 4.37262 14.0006 4.37498C15.2301 4.37734 16.4372 4.70407 17.5 5.32219V3.36586C16.6671 2.9971 15.7812 2.76207 14.875 2.66945V0.875H13.125V2.66945C10.9678 2.88893 8.96868 3.90047 7.51409 5.50847C6.0595 7.11647 5.25281 9.20671 5.25 11.375V14.5127L2.88137 16.8814C2.71727 17.0454 2.62505 17.268 2.625 17.5V20.125C2.625 20.3571 2.71719 20.5796 2.88128 20.7437C3.04538 20.9078 3.26794 21 3.5 21H9.625V21.875C9.625 23.0353 10.0859 24.1481 10.9064 24.9686C11.7269 25.7891 12.8397 26.25 14 26.25C15.1603 26.25 16.2731 25.7891 17.0936 24.9686C17.9141 24.1481 18.375 23.0353 18.375 21.875V21H24.5C24.7321 21 24.9546 20.9078 25.1187 20.7437C25.2828 20.5796 25.375 20.3571 25.375 20.125V17.5C25.375 17.268 25.2827 17.0454 25.1186 16.8814L22.75 14.5127ZM16.625 21.875C16.625 22.5712 16.3484 23.2389 15.8562 23.7312C15.3639 24.2234 14.6962 24.5 14 24.5C13.3038 24.5 12.6361 24.2234 12.1438 23.7312C11.6516 23.2389 11.375 22.5712 11.375 21.875V21H16.625V21.875Z" fill="#FF4800"/>
+<path d="M19.25 7C19.25 7.92826 19.6187 8.8185 20.2751 9.47487C20.9315 10.1313 21.8217 10.5 22.75 10.5C23.6783 10.5 24.5685 10.1313 25.2249 9.47487C25.8813 8.8185 26.25 7.92826 26.25 7C26.25 6.07174 25.8813 5.1815 25.2249 4.52513C24.5685 3.86875 23.6783 3.5 22.75 3.5C21.8217 3.5 20.9315 3.86875 20.2751 4.52513C19.6187 5.1815 19.25 6.07174 19.25 7Z" fill="#FF4800"/>
+</g>
+<defs>
+<clipPath id="clip0_1046_6159">
+<rect width="28" height="28" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+                </div>
+                <h3>Shared collections</h3>
+                <p>Collaborate with friends</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="vision" class="values-section section-padding-80 bg-grey">
-          <div class="container container-1110">
-            <div class="section-head">
-              <span class="eyebrow">Vision</span>
-              <h2 class="heading-h2 text-primary">A smarter way to scale work.</h2>
+        <section class="section reason-section" id="how-it-works">
+          <div class="reason-card">
+            <div class="reason-copy">
+              <span class="eyebrow">THE REASON</span>
+              <h2>Why does Savio exist?</h2>
+              <p>
+                The internet is endless, and the content we save keeps multiplying — links, videos, articles, ideas, thumbnails, and threads we meant to revisit. It all gets buried under more urgency, more noise, more tabs.
+              </p>
+              <p>
+                Savio is designed to reverse that cycle. It turns saved content into something you can actually return to: watch mode, digest views, and gentle nudges that remind you what matters before it disappears again.
+              </p>
+              <p class="emphasis-line">100% private, free, iOS and Android</p>
             </div>
 
-            <div class="value-grid">
-              <article class="value-card">
-                <div class="card-number">01</div>
-                <h3 class="heading-h5 text-primary">Clarity</h3>
-                <p class="para-regular text-light-70">See what matters with clean, actionable data and shared visibility across the business.</p>
-              </article>
-
-              <article class="value-card">
-                <div class="card-number">02</div>
-                <h3 class="heading-h5 text-primary">Speed</h3>
-                <p class="para-regular text-light-70">Automate the routine, connect the teams, and ship initiatives without unnecessary friction.</p>
-              </article>
-
-              <article class="value-card">
-                <div class="card-number">03</div>
-                <h3 class="heading-h5 text-primary">Trust</h3>
-                <p class="para-regular text-light-70">Build resilient workflows that are transparent, measurable, and easy for teams to rely on.</p>
-              </article>
+            <div class="quote-card">
+              <p class="quote-text">“The best tools don’t just store your attention — they make it easy to come back to it.”</p>
+              <div class="quote-meta">~ The Savio team at Rovae · About the founders</div>
             </div>
           </div>
         </section>
 
-        <section id="values" class="principles-section section-padding-80">
-          <div class="container container-1110">
-            <div class="section-head center-head">
-              <span class="eyebrow">Why teams choose Savio</span>
-              <h2 class="heading-h2 text-primary">Every workflow built around outcomes.</h2>
-            </div>
-
-            <div class="principles-grid">
-              <div class="principle-box">
-                <div class="icon-box">A</div>
-                <div>
-                  <h3 class="heading-h6 text-primary">A single system of action</h3>
-                  <p class="para-regular text-light-70">Replace fragmented tools with one connected operating layer.</p>
-                </div>
-              </div>
-
-              <div class="principle-box">
-                <div class="icon-box">B</div>
-                <div>
-                  <h3 class="heading-h6 text-primary">Better collaboration</h3>
-                  <p class="para-regular text-light-70">Keep teams aligned with shared context and clearer decisions.</p>
-                </div>
-              </div>
-
-              <div class="principle-box">
-                <div class="icon-box">C</div>
-                <div>
-                  <h3 class="heading-h6 text-primary">Growth without friction</h3>
-                  <p class="para-regular text-light-70">Scale routines, reporting, and experiments without operational drag.</p>
-                </div>
-              </div>
-            </div>
+        <section class="section team-section" id="testimonials">
+          <div class="team-header">
+            <span class="eyebrow eyebrow-dark">THE PEOPLE</span>
+            <h2>Who builds Savio?</h2>
+            <p>Made by Rovae, a small product studio building calm software for the way modern life actually works.</p>
           </div>
+
+          <div class="team-grid">
+            <article class="member-card">
+              <img src="/src/assets/Team Member image-1.png" alt="Dhrumil Bhojani" />
+              <div class="member-copy">
+                <h3>Dhrumil Bhojani</h3>
+                <p>Co-Founder · Design</p>
+              </div>
+            </article>
+
+            <article class="member-card">
+              <img src="/src/assets/Team Member image-2.png" alt="Chintan Kamani" />
+              <div class="member-copy">
+                <h3>Chintan Kamani</h3>
+                <p>Co-Founder · Engineering</p>
+              </div>
+            </article>
+
+            <article class="member-card">
+              <img src="/src/assets/Team Member image-3.png" alt="Ravi Bhagyoday" />
+              <div class="member-copy">
+                <h3>Ravi Bhagyoday</h3>
+                <p>Co-Founder · Growth</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="team-footer-line">More about the team and our other work is on the Rovae about page.</p>
         </section>
 
-        <section id="team" class="team-section section-padding-80 bg-primary">
-          <div class="container container-1110">
-            <div class="section-head team-head">
-              <span class="eyebrow light">Leadership</span>
-              <h2 class="heading-h2 text-white">The people behind the platform.</h2>
+        <section class="cta-strip" id="download">
+          <div class="cta-card">
+            <div class="cta-copy-block">
+              <span class="eyebrow">FREE TO DOWNLOAD</span>
+              <h2>Give your saves a home.</h2>
+              <p>Capture, organize, and actually come back to what matters.</p>
+              <div class="cta-store-row" aria-label="App download options">
+                <Image src={appStoreBadge} alt="Download on the App Store" width={134} height={40} class="cta-badge" />
+                <Image src={googlePlayBadge} alt="Get it on Google Play" width={134} height={40} class="cta-badge" />
+              </div>
             </div>
-
-            <div class="team-grid">
-              <article class="team-card">
-                <div class="team-avatar avatar-one">AR</div>
-                <h3 class="heading-h6 text-white">Ana Ross</h3>
-                <p class="para-regular text-white-70">Product Lead</p>
-              </article>
-
-              <article class="team-card">
-                <div class="team-avatar avatar-two">MK</div>
-                <h3 class="heading-h6 text-white">Mike Kline</h3>
-                <p class="para-regular text-white-70">Design Director</p>
-              </article>
-
-              <article class="team-card">
-                <div class="team-avatar avatar-three">SL</div>
-                <h3 class="heading-h6 text-white">Sara Lee</h3>
-                <p class="para-regular text-white-70">Growth Strategy</p>
-              </article>
-            </div>
+            <Image src={heroPhoneMockup} alt="Savio hand-held phone mockup" class="cta-phone" />
           </div>
         </section>
       </main>
 
-      <footer id="contact" class="site-footer">
-        <div class="container container-1110 footer-wrap">
-          <div>
-            <div class="brand-wrap footer-brand">
-              <div class="brand-mark">S</div>
-              <span class="brand-text text-white">Savio</span>
-            </div>
-            <p class="para-regular text-white-70">Helping teams move from ideas to measurable outcomes.</p>
+      <footer class="site-footer" id="app">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <img src="/savio-logo.svg" alt="Savio logo" />
           </div>
 
-          <div class="footer-links">
-            <a href="#story">Our story</a>
-            <a href="#vision">Vision</a>
-            <a href="#values">Values</a>
-            <a href="#team">Team</a>
-          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#app">App</a>
+            <a href="#testimonials">Testimonials</a>
+          </nav>
         </div>
       </footer>
     </div>
+
+    <script>
+      const hamburger = document.querySelector('.hamburger-btn');
+      const menu = document.querySelector('.mobile-menu');
+
+      if (hamburger && menu) {
+        hamburger.addEventListener('click', () => {
+          const isOpen = !menu.hidden;
+          menu.hidden = isOpen;
+          hamburger.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            menu.hidden = true;
+            hamburger.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    </script>
   </body>
 </html>
+
+<style is:global>
+  :root {
+    --savio-orange: #ff4800;
+    --text-primary: #231f20;
+    --text-60: rgba(35, 31, 32, 0.6);
+    --text-70: rgba(35, 31, 32, 0.7);
+    --text-80: rgba(35, 31, 32, 0.8);
+    --white: #ffffff;
+    --soft-gray: #f4f4f4;
+    --soft-peach: rgba(255, 199, 176, 0.4);
+    --soft-peach-strong: rgba(255, 199, 176, 0.6);
+    --card-border: rgba(35, 31, 32, 0.1);
+    --card-border-strong: rgba(35, 31, 32, 0.2);
+    --shadow-soft: rgba(255, 72, 0, 0.2);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #ffffff;
+    color: var(--text-primary);
+    font-family: 'Cabin', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button { font: inherit; }
+
+  .savio-page { width: 100%; background: #fff; }
+  .hero-shell { background: #fff; padding: 16px 0 0; }
+
+  .hero-frame {
+    position: relative;
+    max-width: 1408px;
+    min-height: 640px;
+    margin: 0 auto;
+    border-radius: 24px;
+    background: linear-gradient(133.06deg, rgba(255, 199, 176, 0.4) 0%, rgba(255, 72, 0, 0.4) 94.86%), #ffffff;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .hero-frame::after {
+    content: "";
+    position: absolute;
+    width: 755px;
+    height: 474px;
+    background: var(--savio-orange);
+    filter: blur(225px);
+    border-radius: 50%;
+    left: 52%;
+    top: 25%;
+    opacity: 0.18;
+    z-index: 0;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1110px, calc(100% - 96px));
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px 0 20px;
+    border-radius: 24px;
+    border: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.96);
+    z-index: 10;
+    box-shadow: 0 14px 28px rgba(35, 31, 32, 0.04);
+  }
+
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    z-index: 2;
+  }
+
+  .nav-logo img { height: 32px; width: auto; }
+
+  .nav-links-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .nav-links-desktop a {
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
+    color: rgba(35, 31, 32, 0.8);
+  }
+
+  .signup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 43px;
+    border-radius: 12px;
+    border: none;
+    background: var(--savio-orange);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    cursor: pointer;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 622px 1fr;
+    gap: 48px;
+    align-items: center;
+    min-height: 640px;
+    padding: 128px 80px 40px;
+  }
+
+  .hero-copy { max-width: 622px; }
+
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 24px;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--savio-orange);
+  }
+
+  .eyebrow-dark { color: var(--savio-orange); }
+
+  .hero-copy h1,
+  .product-copy h2,
+  .reason-copy h2,
+  .team-header h2,
+  .cta-copy-block h2 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
+  .hero-copy h1 {
+    font-size: 64px;
+    line-height: 78px;
+    margin-bottom: 24px;
+  }
+
+  .hero-copy h1 .accent { color: var(--savio-orange); }
+
+  .hero-copy p {
+    margin: 0;
+    width: 100%;
+    max-width: 622px;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(35, 31, 32, 0.6);
+  }
+
+  .app-badges {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .store-badge {
+    width: 161.34px;
+    height: 48px;
+    object-fit: cover;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 460px;
+  }
+
+  .glow-ring {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.68) 0%, rgba(255,255,255,0.18) 35%, rgba(255,72,0,0.04) 72%, rgba(255,72,0,0.0) 100%);
+    filter: blur(12px);
+    z-index: 1;
+  }
+
+  .hero-phone-mockup {
+    position: absolute;
+    width: 588px;
+    height: 588px;
+    right: 40px;
+    z-index: 1;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 30px rgba(35, 31, 32, 0.12));
+  }
+
+  .section { background: #fff; }
+
+  .product-section { padding: 80px 0; }
+  .product-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .product-copy { width: 477px; }
+  .product-copy h2 {
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .product-copy p {
+    margin: 0 0 16px;
+    color: rgba(35, 31, 32, 0.6);
+    font-size: 20px;
+    line-height: 130%;
+  }
+
+  .feature-grid {
+    width: 680px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--card-border-strong);
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .feature-cell {
+    min-height: 205px;
+    padding: 24px;
+    border: 1px solid var(--card-border-strong);
+    background: #fff;
+  }
+
+  .cell-one { border-top-left-radius: 24px; }
+  .cell-two { border-top-right-radius: 24px; }
+  .cell-three { border-bottom-left-radius: 24px; }
+  .cell-four { border-bottom-right-radius: 24px; }
+
+  .feature-cell:nth-child(1),
+  .feature-cell:nth-child(2),
+  .feature-cell:nth-child(3),
+  .feature-cell:nth-child(4) {
+    border-width: 0 1px 1px 0;
+  }
+
+  .feature-cell:nth-child(1) { border-top: 0; border-left: 0; }
+  .feature-cell:nth-child(2) { border-top: 0; border-right: 0; }
+  .feature-cell:nth-child(3) { border-bottom: 0; border-left: 0; }
+  .feature-cell:nth-child(4) { border-bottom: 0; border-right: 0; }
+
+  .icon-wrap {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(255, 72, 0, 0.15);
+    color: var(--savio-orange);
+    margin-bottom: 32px;
+  }
+
+  .icon-wrap svg { width: 28px; height: 28px; }
+
+  .feature-cell h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .feature-cell p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 150%;
+    color: rgba(35, 31, 32, 0.7);
+  }
+
+  .reason-section { padding: 64px 80px 96px; }
+  .reason-card {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px;
+    border-radius: 24px;
+    background: linear-gradient(132.6deg, rgba(255, 199, 176, 0.4) 0%, rgba(255, 72, 0, 0.4) 100%), #ffffff;
+    overflow: hidden;
+  }
+
+  .reason-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .reason-card::after {
+    content: "";
+    position: absolute;
+    width: 755px;
+    height: 474px;
+    background: var(--savio-orange);
+    filter: blur(225px);
+    border-radius: 50%;
+    left: 32%;
+    top: 18%;
+    opacity: 0.14;
+    z-index: 0;
+  }
+
+  .reason-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+  }
+
+  .reason-copy h2 {
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 16px;
+  }
+
+  .reason-copy p {
+    margin: 0 0 16px;
+    font-size: 20px;
+    line-height: 160%;
+    color: rgba(35, 31, 32, 0.8);
+  }
+
+  .reason-copy .emphasis-line {
+    margin-top: 10px;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .quote-card {
+    position: relative;
+    z-index: 1;
+    width: 1120px;
+    max-width: 100%;
+    margin: 40px auto 0;
+    padding: 40px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    text-align: center;
+  }
+
+  .quote-text {
+    margin: 0;
+    font-size: 28px;
+    line-height: 34px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-primary);
+  }
+
+  .quote-meta {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(35, 31, 32, 0.8);
+  }
+
+  .team-section { padding: 96px 80px; text-align: center; }
+
+  .team-header {
+    max-width: 820px;
+    margin: 0 auto 60px;
+  }
+
+  .team-header h2 {
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .team-header p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(35, 31, 32, 0.6);
+  }
+
+  .team-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .member-card { width: 100%; }
+  .member-card img {
+    width: 100%;
+    height: 402px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+  }
+
+  .member-copy { margin-top: 24px; }
+  .member-copy h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .member-copy p {
+    margin: 16px 0 0;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(35, 31, 32, 0.6);
+  }
+
+  .team-footer-line {
+    max-width: 1280px;
+    margin: 80px auto 0;
+    font-size: 24px;
+    line-height: 160%;
+    color: var(--text-primary);
+  }
+
+  .cta-strip { background: var(--soft-gray); padding: 96px 0; }
+  .cta-card {
+    position: relative;
+    max-width: 1062px;
+    min-height: 378px;
+    margin: 0 auto;
+    padding: 80px 100px;
+    border-radius: 24px;
+    background: linear-gradient(132.6deg, rgba(255, 199, 176, 0.6) 0%, rgba(255, 72, 0, 0.6) 100%), #ffffff;
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .cta-card::after {
+    content: "";
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(255,255,255,0.7), rgba(255,255,255,0.05) 55%, rgba(255,72,0,0.0) 100%);
+    filter: blur(20px);
+    z-index: 0;
+  }
+
+  .cta-copy-block {
+    position: relative;
+    z-index: 1;
+    max-width: 529px;
+  }
+
+  .cta-copy-block h2 {
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 16px;
+  }
+
+  .cta-copy-block p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 160%;
+    color: rgba(35, 31, 32, 0.8);
+  }
+
+  .cta-store-row {
+    display: flex;
+    gap: 13.33px;
+    margin-top: 40px;
+  }
+
+  .cta-badge {
+    width: 134.45px;
+    height: 40px;
+    object-fit: cover;
+  }
+
+  .cta-phone {
+    position: absolute;
+    right: -30px;
+    bottom: -24px;
+    width: 588px;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 28px 40px rgba(35, 31, 32, 0.10));
+  }
+
+  .site-footer {
+    background: linear-gradient(0deg, rgba(35,31,32,0.05), rgba(35,31,32,0.05)), #ffffff;
+    border-top: 1px solid rgba(35, 31, 32, 0.1);
+  }
+
+  .footer-inner {
+    max-width: 1440px;
+    height: 91px;
+    margin: 0 auto;
+    padding: 24px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .footer-brand img { width: 101.75px; height: 32px; }
+
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav a {
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(35, 31, 32, 0.8);
+    font-weight: 400;
+  }
+
+  .hamburger-btn {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 1100px) {
+    .hero-frame,
+    .reason-card,
+    .cta-card {
+      width: calc(100% - 32px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-content { grid-template-columns: 1fr; padding: 120px 16px 24px; }
+    .product-inner {
+      flex-direction: column;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .product-copy, .feature-grid { width: 100%; }
+    .reason-section,
+    .team-section,
+    .footer-inner {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .team-grid { grid-template-columns: 1fr; }
+    .cta-card { padding: 52px 24px 120px; }
+    .cta-phone { opacity: 0.75; right: -120px; }
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      position: relative;
+      left: auto;
+      transform: none;
+      width: calc(100% - 32px);
+      margin: 0 auto;
+      padding: 12px 14px;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-height: 72px;
+    }
+
+    .nav-links-desktop,
+    .signup-btn-desktop {
+      display: none;
+    }
+
+    .hamburger-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 24px;
+      height: 24px;
+      margin-left: auto;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #231F20;
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 50;
+    }
+
+    .mobile-menu[hidden] { display: none; }
+
+    .mobile-menu a {
+      padding: 12px 16px;
+      font-family: 'Cabin', sans-serif;
+      font-size: 16px;
+      color: rgba(35,31,32,0.8);
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .mobile-menu a:active { background: rgba(255,72,0,0.08); }
+
+    .signup-btn-mobile {
+      margin-top: 8px;
+      width: 100%;
+      padding: 14px;
+      background: #FF4800;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Cabin', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .hero-frame,
+    .reason-card,
+    .cta-card {
+      width: calc(100% - 32px);
+      border-radius: 18px;
+    }
+
+    .hero-content {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .product-inner,
+    .reason-section,
+    .team-section,
+    .footer-inner,
+    .cta-strip {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .reason-card,
+    .cta-card {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .hero-copy h1,
+    .product-copy h2,
+    .reason-copy h2,
+    .team-header h2,
+    .cta-copy-block h2 {
+      font-size: 40px;
+      line-height: 46px;
+    }
+
+    .app-badges,
+    .cta-store-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-phone-mockup {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      margin: 24px auto 0;
+      right: auto;
+      top: auto;
+    }
+
+    .product-section,
+    .reason-section,
+    .team-section,
+    .cta-strip {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .footer-inner {
+      padding: 20px 16px;
+      height: auto;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+</style>
