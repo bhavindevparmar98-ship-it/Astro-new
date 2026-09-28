@@ -9,13 +9,16 @@ import teamOne from '../assets/Team Member image-1.png';
 import teamTwo from '../assets/Team Member image-2.png';
 import teamThree from '../assets/Team Member image-3.png';
 import heroVisual from '../assets/ab savio img.png';
-import tapShare from '../assets/tap share.svg';
-import autoOrganized from '../assets/auto organized.svg';
-import searchEverything from '../assets/Search everything.svg';
-import smartResurfacing from '../assets/Smart resurfacing-4.svg';
-import dailyDigest from '../assets/Daily digest-3.svg';
-import musicPlaylist from '../assets/music playlist.svg';
-import backgroundDecor from '../assets/background.svg';
+import heroBg from '../assets/hero bg.png';
+import frameImg2 from '../assets/Frame img-2.svg';
+import frameImg3 from '../assets/Frame img-3.svg';
+import frameImg4 from '../assets/Frame img-4.svg';
+import frameImg5 from '../assets/Frame img-5.svg';
+import appImg from '../assets/app.png';
+import galleryImg3 from '../assets/gallery-img-3.png';
+import galleryImg4 from '../assets/gallery-img-4.png';
+import galleryImg5 from '../assets/gallery-img-5.png';
+import galleryImg6 from '../assets/gallery-img-6.png';
 
 const heroStats = [
   { value: '120K+', label: 'Active users' },
@@ -106,7 +109,7 @@ const collectionRows = [
 
             <div class="hero-visual" aria-label="Savio app preview">
               <div class="hero-phone-stack">
-                <img src="/src/assets/hero bg.png" alt="Savio app overview" class="hero-main-image" />
+                <Image src={heroBg} alt="Savio app overview" class="hero-main-image" />
               </div>
             </div>
           </div>
@@ -141,7 +144,7 @@ const collectionRows = [
 
               <div class="feature-visual visual-orange">
                 <div class="phone-panel">
-             <img src="/src/assets/Frame img-2.svg" alt="Feature phone preview" class="phone-panel-image" />
+                  <Image src={frameImg2} alt="Feature phone preview" class="phone-panel-image" />
                 </div>
               </div>
             </article>
@@ -149,7 +152,7 @@ const collectionRows = [
             <article class="feature-row reverse">
               <div class="feature-visual visual-soft">
                 <div class="phone-panel">
-                  <img src="/src/assets/Frame img-3.svg" alt="Feature phone preview" class="phone-panel-image" />
+                  <Image src={frameImg3} alt="Feature phone preview" class="phone-panel-image" />
                 </div>
               </div>
 
@@ -169,7 +172,7 @@ const collectionRows = [
 
               <div class="feature-visual visual-soft">
                 <div class="phone-panel">
-                  <img src="/src/assets/Frame img-4.svg" alt="Feature phone preview" class="phone-panel-image" />
+                  <Image src={frameImg4} alt="Feature phone preview" class="phone-panel-image" />
                 </div>
               </div>
             </article>
@@ -177,7 +180,7 @@ const collectionRows = [
             <article class="feature-row reverse">
               <div class="feature-visual visual-soft">
                 <div class="phone-panel">
-                  <img src="/src/assets/Frame img-5.svg" alt="Feature phone preview" class="phone-panel-image" />
+                  <Image src={frameImg5} alt="Feature phone preview" class="phone-panel-image" />
                 </div>
               </div>
 
@@ -219,7 +222,7 @@ const collectionRows = [
           </div>
 
           <div class="phone-row">
-            {[teamOne, teamTwo, teamThree, heroVisual, backgroundDecor, dailyDigest, musicPlaylist].map((screen, index) => (
+            {[heroVisual, appImg, galleryImg3, galleryImg4, galleryImg5, galleryImg6].map((screen, index) => (
               <div class={`app-phone${index === 0 ? ' phone-splash' : ''}`} key={index}>
                 <PhoneMockup width={229} height={473} screenSrc={screen} />
               </div>
@@ -382,7 +385,7 @@ const collectionRows = [
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('/src/assets/hero-box-bg.svg');
+    background-image: url('../assets/hero-box-bg.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -1269,7 +1272,7 @@ const collectionRows = [
   }
 
 .cta-card::after {
-    background-image: url(/Users/macmini1/adorable-asteroid/src/assets/hero-box-bg.svg);
+    background-image: url('../assets/hero-box-bg.svg');
     background-position: center;
     background-size: contain;
 }
