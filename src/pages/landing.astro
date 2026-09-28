@@ -1,0 +1,1409 @@
+---
+import { Image } from 'astro:assets';
+import PhoneMockup from '../components/PhoneMockup.astro';
+import '../components/styles.astro/global.css';
+import appStoreBadge from '../assets/app-store-apple-logo.svg';
+import googlePlayBadge from '../assets/google-play-badge-logo1.svg';
+import phoneMockup from '../assets/iphone-15-pro-max-hand-mockup.png';
+import teamOne from '../assets/Team Member image-1.png';
+import teamTwo from '../assets/Team Member image-2.png';
+import teamThree from '../assets/Team Member image-3.png';
+import heroVisual from '../assets/ab savio img.png';
+import tapShare from '../assets/tap share.svg';
+import autoOrganized from '../assets/auto organized.svg';
+import searchEverything from '../assets/Search everything.svg';
+import smartResurfacing from '../assets/Smart resurfacing-4.svg';
+import dailyDigest from '../assets/Daily digest-3.svg';
+import musicPlaylist from '../assets/music playlist.svg';
+import backgroundDecor from '../assets/background.svg';
+
+const heroStats = [
+  { value: '120K+', label: 'Active users' },
+  { value: '4.9+', label: 'App Store rating' },
+  { value: '8M+', label: 'Items saved' },
+  { value: '8+', label: 'Platforms supported' },
+];
+
+const steps = [
+  { step: 'STEP 01', title: 'Save', text: 'Share anything to Savio in a single tap.', icon: 'save' },
+  { step: 'STEP 02', title: 'Organize', text: 'Drop it into a collection or let us suggest one.', icon: 'organize' },
+  { step: 'STEP 03', title: 'Revisit', text: 'Get gentle reminders and your daily digest.', icon: 'remind' },
+];
+
+const testimonials = [
+  { quote: 'Savio replaced 4 apps. My screenshots folder finally has peace.', name: 'Rhea S.', role: 'Product designer' },
+  { quote: 'I save less and remember more. The reminder system feels calm, not noisy.', name: 'Miles D.', role: 'Writer' },
+  { quote: 'The collections are clean, searchable, and actually useful every single day.', name: 'Preeti A.', role: 'Research lead' },
+  { quote: 'It finally feels like a place for my internet life instead of a graveyard of tabs.', name: 'Aarav N.', role: 'Creator' },
+];
+
+const faqs = [
+  {
+    q: 'What is Savio and how is it different from bookmarks?',
+    a: 'Savio is not just a place to dump links. It helps you save content with intention, organize it into collections, and come back to it with smart reminders so nothing important gets lost.',
+    open: true,
+  },
+  { q: 'Does Savio store everything privately?', a: 'Yes. Savio is built to keep your saved content personal and private while still making it easy to revisit and share the things that matter.' },
+  { q: 'Can I save from mobile apps and the web?', a: 'Absolutely. Savio works across popular apps and URLs so you can keep your saves in one place without extra effort.' },
+  { q: 'Is it free to use?', a: 'Yes. Savio is free to download and use, with a calming, no-friction experience at the core of the product.' },
+];
+
+const collectionRows = [
+  { icon: '📍', title: 'Bangalore Places', count: '12 items' },
+  { icon: '☯', title: 'Philosophy', count: '18 items' },
+  { icon: '♥', title: 'Fitness & Health', count: '9 items' },
+  { icon: '📍', title: 'Travel Destinations', count: '25 items' },
+  { icon: '☯', title: 'Culinary Delights', count: '14 items' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Savio landing page" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Savio | Landing Page</title>
+  </head>
+  <body>
+    <div class="landing-shell">
+      <header class="hero-header">
+        <div class="hero-frame">
+          <nav class="navbar" aria-label="Main navigation">
+            <a href="/landing" class="brand-mark" aria-label="Savio home">
+              <img src="/savio-logo.svg" alt="Savio logo" />
+            </a>
+
+            <div class="nav-links">
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How it works</a>
+              <a href="#app">App</a>
+              <a href="#testimonials">Testimonials</a>
+            </div>
+
+            <button type="button" class="cta-pill">Signup</button>
+          </nav>
+
+          <div class="hero-content">
+            <div class="hero-copy">
+              <span class="eyebrow">SMART REMINDERS</span>
+              <h1>
+                Smart <span class="accent">Reminders.</span><br />
+                Save what matters.
+              </h1>
+              <p>
+                Savio turns endless scrolling into intentional saving so your best ideas, links,
+                and moments are easy to revisit later.
+              </p>
+
+              <div class="store-row" aria-label="Download app badges">
+                <Image src={appStoreBadge} alt="Download on the App Store" class="badge" width={161} height={48} />
+                <Image src={googlePlayBadge} alt="Get it on Google Play" class="badge" width={161} height={48} />
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-label="Savio app preview">
+              <div class="hero-phone-stack">
+                <img src="/src/assets/hero bg.png" alt="Savio app overview" class="hero-main-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="stats-bar">
+          <div class="stats-strip">
+            {heroStats.map((item) => (
+              <div class="stat-cell" key={item.value}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="features-section" id="features">
+          <div class="section-head center">
+            <span class="eyebrow eyebrow-dark">FEATURES</span>
+            <h2>A calmer way to keep what you love.</h2>
+          </div>
+
+          <div class="feature-stack">
+            <article class="feature-row">
+              <div class="feature-copy">
+                <span class="eyebrow eyebrow-dark">SAVE IN ONE TAP</span>
+                <h3>From any app, straight to Savio.</h3>
+                <p>Hit share, choose Savio, and keep your best links, clips, and ideas in one place without breaking flow.</p>
+              </div>
+
+              <div class="feature-visual visual-orange">
+                <div class="phone-panel">
+             <img src="/src/assets/Frame img-2.svg" alt="Feature phone preview" class="phone-panel-image" />
+                </div>
+              </div>
+            </article>
+
+            <article class="feature-row reverse">
+              <div class="feature-visual visual-soft">
+                <div class="phone-panel">
+                  <img src="/src/assets/Frame img-3.svg" alt="Feature phone preview" class="phone-panel-image" />
+                </div>
+              </div>
+
+              <div class="feature-copy">
+                <span class="eyebrow eyebrow-dark">ORGANIZE YOUR WORLD</span>
+                <h3>Collections that actually feel yours.</h3>
+                <p>Group saves by mood, topic, or intent with automatic organization that keeps things searchable and easy to revisit.</p>
+              </div>
+            </article>
+
+            <article class="feature-row">
+              <div class="feature-copy">
+                <span class="eyebrow eyebrow-dark">DAILY DIGEST</span>
+                <h3>Come back to what matters, gently.</h3>
+                <p>Get a calm digest of content you saved with enough context to act quickly and enough spacing to stay relaxed.</p>
+              </div>
+
+              <div class="feature-visual visual-soft">
+                <div class="phone-panel">
+                  <img src="/src/assets/Frame img-4.svg" alt="Feature phone preview" class="phone-panel-image" />
+                </div>
+              </div>
+            </article>
+
+            <article class="feature-row reverse">
+              <div class="feature-visual visual-soft">
+                <div class="phone-panel">
+                  <img src="/src/assets/Frame img-5.svg" alt="Feature phone preview" class="phone-panel-image" />
+                </div>
+              </div>
+
+              <div class="feature-copy">
+                <span class="eyebrow eyebrow-dark">SMART REMINDERS</span>
+                <h3>The right save, at the right moment.</h3>
+                <p>Savio knows when you are ready to watch, read, or revisit and gently brings it back at the ideal time.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="how-section" id="how-it-works">
+          <div class="section-head center">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h2>Three steps. Zero friction.</h2>
+          </div>
+
+          <div class="steps-strip">
+            {steps.map((item) => (
+              <div class="step-card" key={item.step}>
+                <div class="icon-box">
+                  {item.icon === 'save' && <span>⇪</span>}
+                  {item.icon === 'organize' && <span>▣</span>}
+                  {item.icon === 'remind' && <span>◔</span>}
+                </div>
+                <span class="step-label">{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="app-showcase" id="app">
+          <div class="section-head center">
+            <span class="eyebrow eyebrow-dark">THE APP</span>
+            <h2>Designed with the same care you save with.</h2>
+          </div>
+
+          <div class="phone-row">
+            {[teamOne, teamTwo, teamThree, heroVisual, backgroundDecor, dailyDigest, musicPlaylist].map((screen, index) => (
+              <div class={`app-phone${index === 0 ? ' phone-splash' : ''}`} key={index}>
+                <PhoneMockup width={229} height={473} screenSrc={screen} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="testimonial-section" id="testimonials">
+          <div class="section-head center">
+            <span class="eyebrow">LOVED BY QUIET READERS</span>
+            <h2>Built for people, not for feeds.</h2>
+          </div>
+
+          <div class="marquee-wrap">
+            <div class="marquee marquee-one">
+              {[...testimonials, ...testimonials].map((item, idx) => (
+                <article class="testimonial-card" key={`${item.name}-${idx}`}>
+                  <div class="stars" aria-label="5 star rating">★★★★★</div>
+                  <p>“{item.quote}”</p>
+                  <div class="person-row">
+                    <span class="person-badge">{item.name.slice(0, 2).toUpperCase()}</span>
+                    <div>
+                      <strong>{item.name}</strong>
+                      <span>{item.role}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div class="marquee marquee-two">
+              {[...testimonials, ...testimonials].map((item, idx) => (
+                <article class="testimonial-card" key={`${item.name}-b-${idx}`}>
+                  <div class="stars" aria-label="5 star rating">★★★★★</div>
+                  <p>“{item.quote}”</p>
+                  <div class="person-row">
+                    <span class="person-badge">{item.name.slice(0, 2).toUpperCase()}</span>
+                    <div>
+                      <strong>{item.name}</strong>
+                      <span>{item.role}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section class="faq-section">
+          <div class="faq-layout">
+            <div class="faq-copy">
+              <span class="eyebrow">FAQs</span>
+              <h2>Frequently asked questions</h2>
+            </div>
+
+            <div class="faq-list">
+              {faqs.map((item) => (
+                <div class={`faq-item ${item.open ? 'open' : ''}`}>
+                  <div class="faq-question-row">
+                    <span>{item.q}</span>
+                    <span class="faq-toggle">{item.open ? '−' : '+'}</span>
+                  </div>
+                  {item.open && <p>{item.a}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="cta-card">
+            <div class="cta-copy">
+              <span class="eyebrow">FREE TO DOWNLOAD</span>
+              <h2>Your saved world, one tap away.</h2>
+              <p>Free to download. Built for the people who like to revisit.</p>
+              <div class="store-row compact" aria-label="App downloads">
+                <Image src={appStoreBadge} alt="Download on the App Store" class="badge small-badge" width={134} height={40} />
+                <Image src={googlePlayBadge} alt="Get it on Google Play" class="badge small-badge" width={134} height={40} />
+              </div>
+            </div>
+
+            <Image src={phoneMockup} alt="Savio phone mockup" class="cta-phone" />
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <img src="/savio-logo.svg" alt="Savio logo" />
+          </div>
+
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#app">App</a>
+            <a href="#testimonials">Testimonials</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --orange: #ff4800;
+    --orange-soft: rgba(255, 72, 0, 0.12);
+    --text: #231f20;
+    --muted-60: rgba(35, 31, 32, 0.6);
+    --muted-70: rgba(35, 31, 32, 0.7);
+    --muted-80: rgba(35, 31, 32, 0.8);
+    --line: rgba(35, 31, 32, 0.12);
+    --card: rgba(255, 255, 255, 0.8);
+    --surface: #f4f4f4;
+    --soft-bg: rgba(35, 31, 32, 0.05);
+    --white: #fff;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Cabin', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; }
+  button { font: inherit; }
+
+  .landing-shell { width: 100%; background: #fff; overflow-x: hidden; }
+  .hero-header { padding: 16px 16px 0; }
+
+  .hero-frame {
+    position: relative;
+    max-width: none;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 24px;
+    background: linear-gradient(133deg, rgba(255,199,176,0.4) 0%, rgba(255,72,0,0.4) 94.86%);
+    overflow: hidden;
+    min-height: 992px;
+    isolation: isolate;
+  }
+
+  .hero-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* background-image: linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px); */
+    background-size: 64px 64px;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .hero-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/src/assets/hero-box-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .navbar {
+    position: relative;
+    z-index: 2;
+    width: min(1110px, calc(100% - 64px));
+    height: 72px;
+    margin: 24px auto 0;
+    padding: 0 20px 0 18px;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(35,31,32,0.1);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand-mark { display: flex; align-items: center; justify-content: center; width: 104px; }
+  .brand-mark img { width: auto; height: 32px; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .nav-links a {
+    padding: 12px 16px;
+    color: var(--muted-80);
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
+  }
+
+  .cta-pill {
+    border: none;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 12px;
+    width: 112px;
+    height: 43px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 48px 0 18px;
+    display: block;
+    padding-bottom:0px
+  }
+
+  .hero-copy {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow-dark { color: var(--orange); }
+  h1, h2, h3, p { margin: 0; }
+
+  .hero-copy h1 {
+    font-size: clamp(3.2rem, 5vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .hero-copy h1 .accent {
+    color: var(--orange);
+  }
+
+  .hero-copy p {
+    margin: 22px auto 0;
+    max-width: 760px;
+    font-size: 20px;
+    line-height: 1.35;
+    color: var(--muted-60);
+  }
+
+.store-row {
+    margin-top: 32px;
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+  .badge {
+    width: 161.34px;
+    height: 48px;
+    object-fit: cover;
+  }
+
+  .badge.small-badge {
+    width: 134.45px;
+    height: 40px;
+  }
+
+  .hero-visual {
+    position: relative;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 18px;
+    overflow: visible;
+    align-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .glow-ring {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.18) 32%, rgba(255,72,0,0.04) 68%, rgba(255,72,0,0) 100%);
+    filter: blur(10px);
+    z-index: 0;
+  }
+
+  .floating-box {
+    position: absolute;
+    z-index: 4;
+    background: rgba(255,255,255,0.94);
+    border: 1px solid rgba(35,31,32,0.08);
+    box-shadow: 0 10px 24px rgba(35,31,32,0.08);
+  }
+
+  .reel-pill {
+    top: 66px;
+    left: 34px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    transform: rotate(-12deg);
+    font-size: 19.3px;
+    font-weight: 500;
+    color: var(--text);
+    background: rgba(255,255,255,0.97);
+  }
+
+  .play-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    color: var(--orange);
+  }
+
+  .instagram-card {
+    bottom: 46px;
+    left: 28px;
+    width: 91px;
+    height: 92px;
+    padding: 8px 8px 10px;
+    border-radius: 12px;
+    transform: rotate(-1.95deg);
+    background: rgba(255,255,255,0.94);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .instagram-thumb {
+    flex: 1;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffd6b5 0%, #ff8a00 26%, #fe2c55 58%, #9a4dff 100%);
+    border: 1px solid rgba(35,31,32,0.08);
+  }
+
+  .instagram-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 2px;
+  }
+
+  .instagram-lines span {
+    display: block;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(35,31,32,0.12);
+  }
+
+  .share-card {
+    right: 28px;
+    top: 170px;
+    width: 190px;
+    padding: 12px 12px 10px;
+    border-radius: 12px;
+  }
+
+  .share-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    background: rgba(242,243,245,0.9);
+  }
+
+  .avatar {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .a1 { background: linear-gradient(135deg, #ffb086, #ff4800); }
+  .a2 { background: linear-gradient(135deg, #ffd55c, #f6ab00); }
+  .a3 { background: linear-gradient(135deg, #79b7ff, #2d6efb); }
+  .a4 { background: linear-gradient(135deg, #c7c7c7, #8d8d8d); }
+
+  .share-button {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: var(--orange);
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+
+  .hero-phone-stack {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: 0;
+    width: 954px;
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .hero-main-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    filter: drop-shadow(0 22px 24px rgba(35, 31, 32, 0.18));
+  }
+
+  .features-section,
+  .how-section,
+  .app-showcase,
+  .testimonial-section,
+  .faq-section,
+  .cta-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-head {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .section-head h2 {
+    font-size: clamp(2.2rem, 3vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .stats-bar { padding: 36px 20px 26px; }
+
+  .stats-strip {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 18px;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(35,31,32,0.08);
+    border-radius: 24px;
+    padding: 24px 26px;
+    box-shadow: 0 8px 30px rgba(35,31,32,0.04);
+  }
+
+  .stat-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .stat-cell strong {
+    font-size: clamp(1.7rem, 2vw, 2.25rem);
+    line-height: 1;
+  }
+
+  .stat-cell span {
+    font-size: 14px;
+    color: var(--muted-60);
+  }
+
+  .feature-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 28px;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 34px;
+    align-items: center;
+  }
+
+  .feature-row.reverse { grid-template-columns: 1.08fr 0.92fr; }
+
+  .feature-copy { max-width: 460px; }
+
+  .feature-copy h3 {
+    font-size: clamp(2rem, 2.4vw, 2.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  .feature-copy p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--muted-60);
+  }
+
+  .feature-visual {
+    position: relative;
+    min-height: 512px;
+    background: rgba(255,72,0,0.08);
+    border-radius: 24px;
+    border: 1px solid rgba(255,72,0,0.08);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-phone { position: relative; z-index: 2; }
+
+  .phone-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .phone-panel-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .sheet-card {
+    position: absolute;
+    top: 128px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 255px;
+    background: rgba(255,255,255,0.98);
+    border-radius: 22px;
+    box-shadow: 0 18px 30px rgba(35,31,32,0.09);
+    padding: 14px 10px;
+    z-index: 3;
+  }
+
+  .sheet-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 6px;
+    border-bottom: 1px solid rgba(35,31,32,0.06);
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .sheet-row:last-child { border-bottom: none; }
+
+  .sheet-app {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+  }
+
+  .sheet-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 1px rgba(35,31,32,0.04);
+  }
+
+  .sheet-icon.orange { background: rgba(255,72,0,0.2); color: var(--orange); }
+  .sheet-icon.gray { background: rgba(35,31,32,0.08); color: #5a5a5a; }
+  .sheet-icon.gold { background: rgba(255,176,0,0.15); color: #d28700; }
+  .sheet-icon.note { background: rgba(168,214,255,0.35); color: #2563eb; }
+
+  .sheet-meta { font-size: 11px; color: rgba(35,31,32,0.52); }
+
+  .collection-panel {
+    position: relative;
+    width: min(390px, 80%);
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(35,31,32,0.06);
+    border-radius: 18px;
+    box-shadow: 0 16px 20px rgba(35,31,32,0.04);
+    padding: 18px 18px 12px;
+    z-index: 3;
+  }
+
+  .collection-row {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(35,31,32,0.06);
+  }
+
+  .collection-row:last-child { border-bottom: none; }
+
+  .collection-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(255,72,0,0.08);
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .collection-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .collection-copy strong { font-size: 16px; line-height: 1.2; }
+  .collection-copy span { font-size: 12px; color: rgba(35,31,32,0.6); }
+
+  .collection-arrow { font-size: 24px; color: rgba(35,31,32,0.45); }
+
+  .mini-chip {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(35,31,32,0.08);
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(35,31,32,0.06);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    z-index: 4;
+  }
+
+  .mini-chip.reel { right: 26px; bottom: 32px; transform: rotate(-8deg); }
+  .mini-chip.thumb { left: 42px; top: 42px; transform: rotate(8deg); }
+
+  .thumb-mini {
+    width: 46px;
+    height: 46px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(255,72,0,0.2), rgba(255,193,7,0.7));
+    border: 1px solid rgba(35,31,32,0.06);
+  }
+
+  .video-card {
+    position: absolute;
+    right: 24px;
+    top: 62px;
+    width: 230px;
+    background: rgba(255,255,255,0.96);
+    border-radius: 16px;
+    box-shadow: 0 18px 30px rgba(35,31,32,0.09);
+    padding: 12px;
+    z-index: 3;
+  }
+
+  .video-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(35,31,32,0.7);
+    margin-bottom: 8px;
+  }
+
+  .video-channel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .channel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .video-thumb {
+    position: relative;
+    height: 96px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255,72,0,0.18), rgba(255,72,0,0.7));
+    overflow: hidden;
+  }
+
+  .video-thumb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.26));
+  }
+
+  .video-thumb::after {
+    content: "▶";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    display: grid;
+    place-items: center;
+    color: var(--orange);
+    font-size: 16px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  }
+
+  .video-copy {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .video-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 10px;
+    color: rgba(35,31,32,0.6);
+  }
+
+  .reminder-panel {
+    position: relative;
+    width: min(430px, 82%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 3;
+  }
+
+  .panel-card {
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    padding: 14px 14px;
+    border: 1px solid rgba(35,31,32,0.04);
+    box-shadow: 0 14px 24px rgba(35,31,32,0.05);
+  }
+
+  .panel-card strong { font-size: 16px; line-height: 1.2; }
+  .panel-card span {
+    display: block;
+    font-size: 12px;
+    color: rgba(35,31,32,0.62);
+    margin-top: 4px;
+  }
+
+  .panel-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .panel-icon.orange { background: rgba(255,72,0,0.12); color: var(--orange); }
+  .panel-icon.muted { background: rgba(35,31,32,0.06); color: rgba(35,31,32,0.8); }
+
+  .details-pill {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255,72,0,0.14), rgba(255,72,0,0.4));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .details-pill::before {
+    content: "▶";
+    color: var(--orange);
+    font-size: 16px;
+  }
+
+  .how-section { margin-top: 64px; }
+
+  .steps-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 22px;
+    margin-top: 26px;
+  }
+
+  .step-card {
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(35,31,32,0.08);
+    border-radius: 24px;
+    padding: 22px 20px;
+    box-shadow: 0 18px 28px rgba(35,31,32,0.04);
+  }
+
+  .icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,72,0,0.12);
+    font-size: 24px;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .step-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .step-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+
+  .step-card p {
+    color: var(--muted-60);
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .app-showcase { margin-top: 80px; }
+
+  .phone-row {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 26px;
+    width: 130%;
+    margin-left: -15%;
+    overflow: hidden;
+    padding: 20px 0 12px;
+  }
+
+  .app-phone {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 0;
+    opacity: 0.98;
+  }
+
+  .app-phone:nth-child(odd) { transform: translateY(18px); }
+  .app-phone:nth-child(3n) { transform: translateY(34px); }
+
+  .app-phone.phone-splash .screen-placeholder {
+    background: linear-gradient(180deg, rgba(255,166,70,0.9) 0%, rgba(255,72,0,0.9) 42%, rgba(255,72,0,0.72) 100%);
+  }
+
+  .testimonial-section { margin-top: 80px; }
+
+  .marquee-wrap {
+    display: grid;
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .marquee {
+    display: flex;
+    gap: 18px;
+    animation: marquee 28s linear infinite;
+    min-width: max-content;
+  }
+
+  .marquee-two { animation-direction: reverse; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(35,31,32,0.08);
+    border-radius: 20px;
+    padding: 18px 18px 16px;
+    width: 300px;
+    box-shadow: 0 18px 28px rgba(35,31,32,0.04);
+  }
+
+  .stars { color: #ffb327; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px; }
+  .testimonial-card p {
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .person-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .person-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FF48001A;
+    color: var(--orange);
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 9px;
+  }
+
+  .person-row strong { display: block; font-size: 14px; }
+ .person-row span {
+    display: flex;
+    font-size: 12px;
+    color: rgba(35, 31, 32, 0.62);
+    align-items: center;
+}
+
+  .faq-section { margin-top: 84px; }
+
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 34px;
+    align-items: start;
+    padding-bottom: 30px;
+  }
+
+  .faq-copy h2 {
+    font-size: clamp(2.2rem, 3vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq-item {
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(35,31,32,0.08);
+    border-radius: 18px;
+    padding: 18px 20px;
+  }
+
+  .faq-question-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .faq-item p {
+    margin-top: 14px;
+    color: rgba(35,31,32,0.66);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .faq-toggle {
+    color: var(--orange);
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .cta-section { margin-top: 36px; padding-bottom: 60px; }
+
+  .cta-card {
+    position: relative;
+    background: linear-gradient(132.6deg, rgba(255,199,176,0.6) 0%, rgba(255,72,0,0.6) 100%);
+    border-radius: 30px;
+    max-width: 1200px;
+    min-height: 420px;
+    margin: 0 auto;
+    padding: 52px 72px 0px 72px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+.cta-card::after {
+    background-image: url(/Users/macmini1/adorable-asteroid/src/assets/hero-box-bg.svg);
+    background-position: center;
+    background-size: contain;
+}
+
+
+  .cta-copy {
+    max-width: 540px;
+    position: relative;
+    z-index: 2;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .cta-copy h2 {
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin: 0 0 18px;
+  }
+
+  .cta-copy p {
+    font-size: 18px;
+    color: rgba(35,31,32,0.72);
+    line-height: 1.5;
+  }
+.cta-phone {
+    position: absolute;
+    left: 531px;
+    top: 101px;
+    width: auto;
+    max-width: 560px;
+    height: auto;
+    z-index: 1;
+    filter: drop-shadow(0 30px 30px rgba(35, 31, 32, 0.12));
+}
+
+ .site-footer {
+    background: #0f172a00;
+    border-top: 1px solid #231F201A;
+    color: #e2e8f0;
+    padding: 1.5rem 5rem;
+}
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-brand img { height: 28px; width: auto; }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+
+  .footer-links a {
+    color: rgba(35,31,32,0.74);
+    font-size: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-content,
+    .feature-row,
+    .feature-row.reverse,
+    .faq-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-visual { height: 540px; }
+    .hero-phone-stack { transform: translateX(-50%) scale(0.9); }
+
+    .cta-card {
+      padding: 52px 28px 180px;
+      min-height: 480px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cta-phone {
+      left: 50%;
+      transform: translateX(-50%);
+      top: auto;
+      bottom: -40px;
+      width: 430px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .navbar {
+      width: calc(100% - 24px);
+      height: auto;
+      padding: 14px 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .hero-frame { min-height: auto; }
+
+    .hero-copy p,
+    .feature-copy p,
+    .step-card p,
+    .cta-copy p {
+      font-size: 16px;
+    }
+
+    .hero-visual { height: 460px; }
+
+    .hero-phone-stack {
+      width: 300px;
+      height: 420px;
+      transform: translateX(-50%) scale(0.8);
+    }
+
+    .stats-strip,
+    .steps-strip { grid-template-columns: 1fr; }
+
+    .phone-row {
+      width: 170%;
+      margin-left: -35%;
+      gap: 12px;
+    }
+  }
+</style>
+  </body>
+</html>
