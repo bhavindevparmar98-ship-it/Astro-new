@@ -1,51 +1,115 @@
 ---
-import { Image } from 'astro:assets';
-import PhoneMockup from '../components/PhoneMockup.astro';
-import '../components/styles.astro/global.css';
-import appStoreBadge from '../assets/app-store-apple-logo.svg';
-import googlePlayBadge from '../assets/google-play-badge-logo1.svg';
-import phoneMockup from '../assets/iphone-15-pro-max-hand-mockup.png';
-import heroVisual from '../assets/ab savio img.png';
-import heroBg from '../assets/hero bg.png';
-import frameImg1 from '../assets/Frame img-4.svg';
-import frameImg3 from '../assets/Frame img-3.svg';
-import frameImg4 from '../assets/frame-img-1.svg';
-import frameImg5 from '../assets/Frame img-2.svg';
-import appImg from '../assets/app.png';
-import galleryImg3 from '../assets/gallery-img-3.png';
-import galleryImg4 from '../assets/gallery-img-4.png';
-import galleryImg5 from '../assets/gallery-img-5.png';
-import galleryImg6 from '../assets/gallery-img-6.png';
+import { Image } from "astro:assets";
+import PhoneMockup from "../components/PhoneMockup.astro";
+import "../components/styles.astro/global.css";
+import appStoreBadge from "../assets/app-store-apple-logo.svg";
+import googlePlayBadge from "../assets/google-play-badge-logo1.svg";
+import phoneMockup from "../assets/iphone-15-pro-max-hand-mockup.png";
+import heroVisual from "../assets/ab savio img.png";
+import heroBg from "../assets/hero bg.png";
+import frameImg1 from "../assets/Frame img-4.svg";
+import frameImg3 from "../assets/Frame img-3.svg";
+import frameImg4 from "../assets/frame-img-1.svg";
+import frameImg5 from "../assets/Frame img-2.svg";
+import appImg from "../assets/app.png";
+import galleryImg3 from "../assets/gallery-img-3.png";
+import galleryImg4 from "../assets/gallery-img-4.png";
+import galleryImg5 from "../assets/gallery-img-5.png";
+import galleryImg6 from "../assets/gallery-img-6.png";
+import saveIcon from "../assets/Bookmark--Streamline-Carbon.svg";
+import organizeIcon from "../assets/Categories--Streamline-Carbon.svg";
+import remindIcon from "../assets/Collections, your way.svg";
+
+import PhoneMockup from "../components/PhoneMockup.astro";
+
+import galleryImg1 from "../assets/gallery-img-1.svg";
+import galleryImg2 from "../assets/gallery-img-2.svg";
+import galleryImg3 from "../assets/gallery-img-3.svg";
+import galleryImg4 from "../assets/gallery-img-4.png";
+import galleryImg5 from "../assets/gallery-img-5.svg";
+import galleryImg6 from "../assets/gallery-img-6.svg";
+
+const screens = [
+  galleryImg1,
+  galleryImg2,
+  galleryImg3,
+  galleryImg4,
+  galleryImg5,
+  galleryImg6,
+];
 
 const heroStats = [
-  { value: '120K+', label: 'Active users' },
-  { value: '4.9+', label: 'App Store rating' },
-  { value: '8M+', label: 'Items saved' },
-  { value: '8+', label: 'Platforms supported' },
+  { value: "120K+", label: "Active users" },
+  { value: "4.9+", label: "App Store rating" },
+  { value: "8M+", label: "Items saved" },
+  { value: "8+", label: "Platforms supported" },
 ];
 
 const steps = [
-  { step: 'STEP 01', title: 'Save', text: 'Share anything to Savio in a single tap.', icon: 'save' },
-  { step: 'STEP 02', title: 'Organize', text: 'Drop it into a collection or let us suggest one.', icon: 'organize' },
-  { step: 'STEP 03', title: 'Revisit', text: 'Get gentle reminders and your daily digest.', icon: 'remind' },
+  {
+    step: "STEP 01",
+    title: "Save",
+    text: "Share anything to Savio in a single tap.",
+    icon: "save",
+  },
+  {
+    step: "STEP 02",
+    title: "Organize",
+    text: "Drop it into a collection or let us suggest one.",
+    icon: "organize",
+  },
+  {
+    step: "STEP 03",
+    title: "Revisit",
+    text: "Get gentle reminders and your daily digest.",
+    icon: "remind",
+  },
 ];
 
 const testimonials = [
-  { quote: 'Savio replaced 4 apps. My screenshots folder finally has peace.', name: 'Rhea S.', role: 'Product designer' },
-  { quote: 'I save less and remember more. The reminder system feels calm, not noisy.', name: 'Miles D.', role: 'Writer' },
-  { quote: 'The collections are clean, searchable, and actually useful every single day.', name: 'Preeti A.', role: 'Research lead' },
-  { quote: 'It finally feels like a place for my internet life instead of a graveyard of tabs.', name: 'Aarav N.', role: 'Creator' },
+  {
+    quote: "Savio replaced 4 apps. My screenshots folder finally has peace.",
+    name: "Rhea S.",
+    role: "Product designer",
+  },
+  {
+    quote:
+      "I save less and remember more. The reminder system feels calm, not noisy.",
+    name: "Miles D.",
+    role: "Writer",
+  },
+  {
+    quote:
+      "The collections are clean, searchable, and actually useful every single day.",
+    name: "Preeti A.",
+    role: "Research lead",
+  },
+  {
+    quote:
+      "It finally feels like a place for my internet life instead of a graveyard of tabs.",
+    name: "Aarav N.",
+    role: "Creator",
+  },
 ];
 
 const faqs = [
   {
-    q: 'What is Savio and how is it different from bookmarks?',
-    a: 'Savio is not just a place to dump links. It helps you save content with intention, organize it into collections, and come back to it with smart reminders so nothing important gets lost.',
+    q: "What is Savio and how is it different from bookmarks?",
+    a: "Savio is not just a place to dump links. It helps you save content with intention, organize it into collections, and come back to it with smart reminders so nothing important gets lost.",
     open: true,
   },
-  { q: 'Does Savio store everything privately?', a: 'Yes. Savio is built to keep your saved content personal and private while still making it easy to revisit and share the things that matter.' },
-  { q: 'Can I save from mobile apps and the web?', a: 'Absolutely. Savio works across popular apps and URLs so you can keep your saves in one place without extra effort.' },
-  { q: 'Is it free to use?', a: 'Yes. Savio is free to download and use, with a calming, no-friction experience at the core of the product.' },
+  {
+    q: "Does Savio store everything privately?",
+    a: "Yes. Savio is built to keep your saved content personal and private while still making it easy to revisit and share the things that matter.",
+  },
+  {
+    q: "Can I save from mobile apps and the web?",
+    a: "Absolutely. Savio works across popular apps and URLs so you can keep your saves in one place without extra effort.",
+  },
+  {
+    q: "Is it free to use?",
+    a: "Yes. Savio is free to download and use, with a calming, no-friction experience at the core of the product.",
+  },
 ];
 ---
 
@@ -56,7 +120,10 @@ const faqs = [
     <meta name="description" content="Savio landing page" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Savio | Landing Page</title>
   </head>
   <body>
@@ -91,25 +158,40 @@ const faqs = [
 
           <div class="hero-content">
             <div class="hero-copy">
-              <span class="eyebrow">SMART REMINDERS</span>
               <h1>
                 Smart <span class="accent">Reminders.</span><br />
                 Save what matters.
               </h1>
               <p>
-                Savio turns endless scrolling into intentional saving so your best ideas, links,
-                and moments are easy to revisit later.
+                Savio turns endless scrolling into intentional saving so your
+                best ideas, links, and moments are easy to revisit later.
               </p>
 
               <div class="store-row" aria-label="Download app badges">
-                <Image src={appStoreBadge} alt="Download on the App Store" class="badge" width={161} height={48} />
-                <Image src={googlePlayBadge} alt="Get it on Google Play" class="badge" width={161} height={48} />
+                <Image
+                  src={appStoreBadge}
+                  alt="Download on the App Store"
+                  class="badge"
+                  width={161}
+                  height={48}
+                />
+                <Image
+                  src={googlePlayBadge}
+                  alt="Get it on Google Play"
+                  class="badge"
+                  width={161}
+                  height={48}
+                />
               </div>
             </div>
 
             <div class="hero-visual" aria-label="Savio app preview">
               <div class="hero-phone-stack">
-                <Image src={heroBg} alt="Savio app overview" class="hero-main-image" />
+                <Image
+                  src={heroBg}
+                  alt="Savio app overview"
+                  class="hero-main-image"
+                />
               </div>
             </div>
           </div>
@@ -119,12 +201,14 @@ const faqs = [
       <main>
         <section class="stats-bar">
           <div class="stats-strip">
-            {heroStats.map((item) => (
-              <div class="stat-cell">
-                <strong>{item.value}</strong>
-                <span>{item.label}</span>
-              </div>
-            ))}
+            {
+              heroStats.map((item) => (
+                <div class="stat-cell">
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))
+            }
           </div>
         </section>
 
@@ -139,12 +223,19 @@ const faqs = [
               <div class="feature-copy">
                 <span class="eyebrow eyebrow-dark">SAVE IN ONE TAP</span>
                 <h3>From any app, straight to Savio.</h3>
-                <p>Hit share, choose Savio, and keep your best links, clips, and ideas in one place without breaking flow.</p>
+                <p>
+                  Hit share, choose Savio, and keep your best links, clips, and
+                  ideas in one place without breaking flow.
+                </p>
               </div>
 
               <div class="feature-visual visual-orange">
                 <div class="phone-panel">
-                  <Image src={frameImg1} alt="Feature phone preview" class="phone-panel-image" />
+                  <Image
+                    src={frameImg1}
+                    alt="Feature phone preview"
+                    class="phone-panel-image"
+                  />
                 </div>
               </div>
             </article>
@@ -152,14 +243,21 @@ const faqs = [
             <article class="feature-row reverse">
               <div class="feature-visual visual-soft">
                 <div class="phone-panel">
-                  <Image src={frameImg3} alt="Feature phone preview" class="phone-panel-image" />
+                  <Image
+                    src={frameImg3}
+                    alt="Feature phone preview"
+                    class="phone-panel-image"
+                  />
                 </div>
               </div>
 
               <div class="feature-copy">
                 <span class="eyebrow eyebrow-dark">ORGANIZE YOUR WORLD</span>
                 <h3>Collections that actually feel yours.</h3>
-                <p>Group saves by mood, topic, or intent with automatic organization that keeps things searchable and easy to revisit.</p>
+                <p>
+                  Group saves by mood, topic, or intent with automatic
+                  organization that keeps things searchable and easy to revisit.
+                </p>
               </div>
             </article>
 
@@ -167,12 +265,19 @@ const faqs = [
               <div class="feature-copy">
                 <span class="eyebrow eyebrow-dark">DAILY DIGEST</span>
                 <h3>Come back to what matters, gently.</h3>
-                <p>Get a calm digest of content you saved with enough context to act quickly and enough spacing to stay relaxed.</p>
+                <p>
+                  Get a calm digest of content you saved with enough context to
+                  act quickly and enough spacing to stay relaxed.
+                </p>
               </div>
 
               <div class="feature-visual visual-soft">
                 <div class="phone-panel">
-                  <Image src={frameImg4} alt="Feature phone preview" class="phone-panel-image" />
+                  <Image
+                    src={frameImg4}
+                    alt="Feature phone preview"
+                    class="phone-panel-image"
+                  />
                 </div>
               </div>
             </article>
@@ -180,14 +285,21 @@ const faqs = [
             <article class="feature-row reverse">
               <div class="feature-visual visual-soft">
                 <div class="phone-panel">
-                  <Image src={frameImg5} alt="Feature phone preview" class="phone-panel-image" />
+                  <Image
+                    src={frameImg5}
+                    alt="Feature phone preview"
+                    class="phone-panel-image"
+                  />
                 </div>
               </div>
 
               <div class="feature-copy">
                 <span class="eyebrow eyebrow-dark">SMART REMINDERS</span>
                 <h3>The right save, at the right moment.</h3>
-                <p>Savio knows when you are ready to watch, read, or revisit and gently brings it back at the ideal time.</p>
+                <p>
+                  Savio knows when you are ready to watch, read, or revisit and
+                  gently brings it back at the ideal time.
+                </p>
               </div>
             </article>
           </div>
@@ -200,23 +312,30 @@ const faqs = [
           </div>
 
           <div class="steps-strip">
-            {steps.map((item) => (
-              <div class="step-card">
-                <div class="icon-box">
-                  {item.icon === 'save' && <span>⇪</span>}
-                  {item.icon === 'organize' && <span>▣</span>}
-                  {item.icon === 'remind' && <span>◔</span>}
+            {
+              steps.map((item) => (
+                <div class="step-card">
+                  <div class="icon-box">
+                    {item.icon === "save" && (
+                      <img src={saveIcon.src} alt="Save" />
+                    )}
+                    {item.icon === "organize" && (
+                      <img src={organizeIcon.src} alt="Organize" />
+                    )}
+                    {item.icon === "remind" && (
+                      <img src={remindIcon.src} alt="Remind" />
+                    )}
+                  </div>
+                  <div class="step-content">
+                    <span class="step-label">{item.step}</span>
+                    <div class="step-text">
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
                 </div>
-                <div class="step-content">
-                  <span class="step-label">{item.step}</span>
-                <div class="step-text">
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-                </div>              
-
-              </div>
-            ))}
+              ))
+            }
           </div>
         </section>
 
@@ -226,51 +345,71 @@ const faqs = [
             <h2>Designed with the same care you save with.</h2>
           </div>
 
-          <div class="phone-row">
-            {[heroVisual, appImg, galleryImg3, galleryImg4, galleryImg5, galleryImg6].map((screen, index) => (
-              <div class={`app-phone${index === 0 ? ' phone-splash' : ''}`}>
-                <PhoneMockup width={229} height={473} screenSrc={screen} />
-              </div>
-            ))}
+          <div class="phone-slider">
+            <!-- <button class="nav prev" type="button" aria-label="Previous">‹</button > -->
+
+            <div class="phone-row" id="phoneRow">
+              {
+                screens.map((screen, index) => (
+                  <div class={`app-phone${index === 0 ? " phone-splash" : ""}`}>
+                    <PhoneMockup screenSrc={screen} />
+                  </div>
+                ))
+              }
+            </div>
+
+            <!-- <button class="nav next" type="button" aria-label="Next">›</button> -->
           </div>
         </section>
 
         <section class="testimonial-section" id="testimonials">
-          <div class="section-head center">
+          <div class="testimonial-head center">
             <span class="eyebrow">LOVED BY QUIET READERS</span>
             <h2>Built for people, not for feeds.</h2>
           </div>
 
           <div class="marquee-wrap">
             <div class="marquee marquee-one">
-              {[...testimonials, ...testimonials].map((item) => (
-                <article class="testimonial-card">
-                  <div class="stars" aria-label="5 star rating">★★★★★</div>
-                  <p>“{item.quote}”</p>
-                  <div class="person-row">
-                    <span class="person-badge">{item.name.slice(0, 2).toUpperCase()}</span>
-                    <div>
-                      <strong>{item.name}</strong>
-                      <span>{item.role}</span>
+              {
+                [...testimonials, ...testimonials].map((item) => (
+                  <article class="testimonial-card">
+                    <div class="stars" aria-label="5 star rating">
+                      ★★★★★
                     </div>
-                  </div>
-                </article>
-              ))}
+                    <p>“{item.quote}”</p>
+                    <div class="person-row">
+                      <span class="person-badge">
+                        {item.name.slice(0, 2).toUpperCase()}
+                      </span>
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span>{item.role}</span>
+                      </div>
+                    </div>
+                  </article>
+                ))
+              }
             </div>
             <div class="marquee marquee-two">
-              {[...testimonials, ...testimonials].map((item) => (
-                <article class="testimonial-card">
-                  <div class="stars" aria-label="5 star rating">★★★★★</div>
-                  <p>“{item.quote}”</p>
-                  <div class="person-row">
-                    <span class="person-badge">{item.name.slice(0, 2).toUpperCase()}</span>
-                    <div>
-                      <strong>{item.name}</strong>
-                      <span>{item.role}</span>
+              {
+                [...testimonials, ...testimonials].map((item) => (
+                  <article class="testimonial-card">
+                    <div class="stars" aria-label="5 star rating">
+                      ★★★★★
                     </div>
-                  </div>
-                </article>
-              ))}
+                    <p>“{item.quote}”</p>
+                    <div class="person-row">
+                      <span class="person-badge">
+                        {item.name.slice(0, 2).toUpperCase()}
+                      </span>
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span>{item.role}</span>
+                      </div>
+                    </div>
+                  </article>
+                ))
+              }
             </div>
           </div>
         </section>
@@ -283,15 +422,17 @@ const faqs = [
             </div>
 
             <div class="faq-list">
-              {faqs.map((item) => (
-                <div class={`faq-item ${item.open ? 'open' : ''}`}>
-                  <div class="faq-question-row">
-                    <span>{item.q}</span>
-                    <span class="faq-toggle">{item.open ? '−' : '+'}</span>
+              {
+                faqs.map((item) => (
+                  <div class={`faq-item ${item.open ? "open" : ""}`}>
+                    <div class="faq-question-row">
+                      <span>{item.q}</span>
+                      <span class="faq-toggle">{item.open ? "−" : "+"}</span>
+                    </div>
+                    {item.open && <p>{item.a}</p>}
                   </div>
-                  {item.open && <p>{item.a}</p>}
-                </div>
-              ))}
+                ))
+              }
             </div>
           </div>
         </section>
@@ -303,12 +444,28 @@ const faqs = [
               <h2>Your saved world, one tap away.</h2>
               <p>Free to download. Built for the people who like to revisit.</p>
               <div class="cta-social compact" aria-label="App downloads">
-                <Image src={appStoreBadge} alt="Download on the App Store" class="badge small-badge" width={134} height={40} />
-                <Image src={googlePlayBadge} alt="Get it on Google Play" class="badge small-badge" width={134} height={40} />
+                <Image
+                  src={appStoreBadge}
+                  alt="Download on the App Store"
+                  class="badge small-badge"
+                  width={134}
+                  height={40}
+                />
+                <Image
+                  src={googlePlayBadge}
+                  alt="Get it on Google Play"
+                  class="badge small-badge"
+                  width={134}
+                  height={40}
+                />
               </div>
             </div>
 
-            <Image src={phoneMockup} alt="Savio phone mockup" class="cta-phone" />
+            <Image
+              src={phoneMockup}
+              alt="Savio phone mockup"
+              class="cta-phone"
+            />
           </div>
         </section>
       </main>
@@ -341,24 +498,49 @@ const faqs = [
     --white: #fff;
   }
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0;
-    font-family: 'Cabin', system-ui, sans-serif;
+    font-family: "Cabin", system-ui, sans-serif;
     background: #ffffff;
     color: var(--text);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  img { display: block; max-width: 100%; }
-  a { text-decoration: none; }
-  button { font: inherit; }
-  h1, h2, h3, p { margin: 0; }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  a {
+    text-decoration: none;
+  }
+  button {
+    font: inherit;
+  }
+  h2{
+    font-weight: 600;
+  }
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
 
-  .landing-shell { width: 100%; background: #fff; overflow-x: hidden; }
-  .hero-header { padding: 16px 16px 0; }
+  .landing-shell {
+    width: 100%;
+    background: #fff;
+    overflow-x: hidden;
+  }
+  .hero-header {
+    padding: 16px 16px 0;
+  }
 
   /* ---------- HERO ---------- */
   .hero-frame {
@@ -366,7 +548,11 @@ const faqs = [
     width: 100%;
     margin: 0 auto;
     border-radius: 24px;
-    background: linear-gradient(133deg, rgba(255,199,176,0.4) 0%, rgba(255,72,0,0.4) 94.86%);
+    background: linear-gradient(
+      133deg,
+      rgba(255, 199, 176, 0.4) 0%,
+      rgba(255, 72, 0, 0.4) 94.86%
+    );
     overflow: hidden;
     min-height: 992px;
     isolation: isolate;
@@ -376,7 +562,7 @@ const faqs = [
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('../assets/hero-box-bg.svg');
+    background-image: url("../assets/hero-box-bg.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -408,7 +594,10 @@ const faqs = [
     width: 104px;
     background: none;
   }
-  .brand-mark img { width: auto; height: 32px; }
+  .brand-mark img {
+    width: auto;
+    height: 32px;
+  }
 
   .nav-links {
     display: flex;
@@ -463,15 +652,29 @@ const faqs = [
     height: 2px;
     border-radius: 2px;
     background: #231f20;
-    transition: transform .25s ease, opacity .2s ease;
+    transition:
+      transform 0.25s ease,
+      opacity 0.2s ease;
   }
-  .nav-toggle span:nth-child(1) { top: 15px; }
-  .nav-toggle span:nth-child(2) { top: 21px; }
-  .nav-toggle span:nth-child(3) { top: 27px; }
+  .nav-toggle span:nth-child(1) {
+    top: 15px;
+  }
+  .nav-toggle span:nth-child(2) {
+    top: 21px;
+  }
+  .nav-toggle span:nth-child(3) {
+    top: 27px;
+  }
 
-  .navbar.is-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .navbar.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
-  .navbar.is-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .navbar.is-open .nav-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .navbar.is-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar.is-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
 
   .nav-toggle:focus-visible {
     outline: 2px solid var(--orange);
@@ -484,7 +687,7 @@ const faqs = [
     z-index: 2;
     max-width: 1110px;
     margin: 0 auto;
-    padding: 48px 16px 0;
+    padding: 64px 16px 0;
   }
 
   .hero-copy {
@@ -506,13 +709,15 @@ const faqs = [
 
   .hero-copy h1 {
     font-size: clamp(3.2rem, 5vw, 6rem);
-    line-height: 0.9;
+    line-height: 100%;
     letter-spacing: -0.065em;
     font-weight: 700;
     color: var(--text);
   }
 
-  .hero-copy h1 .accent { color: var(--orange); }
+  .hero-copy h1 .accent {
+    color: var(--orange);
+  }
 
   .hero-copy p {
     margin: 22px auto 0;
@@ -544,7 +749,8 @@ const faqs = [
   .hero-visual {
     display: flex;
     justify-content: center;
-    margin: 18px auto 0;
+    margin: 0px auto;
+    align-items: flex-end;
   }
 
   .hero-phone-stack {
@@ -572,7 +778,7 @@ const faqs = [
     align-items: center;
     gap: 80px;
     padding: 80px 0px;
-}
+  }
 
   .how-section,
   .testimonial-section,
@@ -587,8 +793,8 @@ const faqs = [
     flex-direction: column;
   }
 
-  .how-section-head{
-     width: 100%;
+  .how-section-head {
+    width: 100%;
     max-width: 100%;
     display: flex;
     align-items: center;
@@ -600,13 +806,13 @@ const faqs = [
     text-align: center;
     width: 100%;
     max-width: 426px;
-}
-.how-section-head h2{
-  font-size: clamp(2.2rem, 3vw, 3.1rem);
+  }
+  .how-section-head h2 {
+    font-size: clamp(2.2rem, 3vw, 3.1rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     color: var(--text);
-}
+  }
 
   .section-head h2 {
     font-size: clamp(2.2rem, 3vw, 3.1rem);
@@ -616,7 +822,9 @@ const faqs = [
   }
 
   /* ---------- STATS ---------- */
-  .stats-bar { padding: 40px 16px; }
+  .stats-bar {
+    padding: 40px 16px;
+  }
 
   .stats-strip {
     --ink: 35, 31, 32;
@@ -629,7 +837,7 @@ const faqs = [
     border: 1px solid rgba(var(--ink), 0.2);
     border-radius: 24px;
     overflow: hidden;
-    font-family: 'Cabin', system-ui, sans-serif;
+    font-family: "Cabin", system-ui, sans-serif;
   }
 
   .stat-cell {
@@ -657,7 +865,7 @@ const faqs = [
     display: flex;
     flex-direction: column;
     gap: 12px;
-}
+  }
   .stat-cell strong {
     font-size: 36px;
     line-height: 44px;
@@ -678,7 +886,6 @@ const faqs = [
     display: flex;
     flex-direction: column;
     gap: 60px;
-   
   }
 
   .feature-row {
@@ -688,9 +895,13 @@ const faqs = [
     align-items: center;
   }
 
-  .feature-row.reverse { grid-template-columns: 1.08fr 0.92fr; }
+  .feature-row.reverse {
+    grid-template-columns: 1.08fr 0.92fr;
+  }
 
-  .feature-copy { max-width: 460px; }
+  .feature-copy {
+    max-width: 460px;
+  }
 
   .feature-copy h3 {
     font-size: clamp(2rem, 2.4vw, 2.8rem);
@@ -708,9 +919,9 @@ const faqs = [
   .feature-visual {
     position: relative;
     min-height: 512px;
-    background: rgba(255,72,0,0.08);
+    background: rgba(255, 72, 0, 0.08);
     border-radius: 24px;
-    border: 1px solid rgba(255,72,0,0.08);
+    border: 1px solid rgba(255, 72, 0, 0.08);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -734,153 +945,159 @@ const faqs = [
   }
 
   /* ---------- HOW IT WORKS ---------- */
-  .how-section {    
-      width: 100%;
-      padding: 96px 0px;
-      background-color: hsl(345deg 6% 13% / 5%);
-      max-width: 100%;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      gap:80px
+  .how-section {
+    width: 100%;
+    padding: 96px 0px;
+    background-color: hsl(345deg 6% 13% / 5%);
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 80px;
   }
 
   .steps-strip {
-  position: relative;
-  isolation: isolate;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: 100%;
-  max-width: 1280px;
-  overflow: hidden;
-  border: 1px solid rgb(35 31 32 / 20%);
-  border-radius: 24px;
-}
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 1280px;
+    overflow: hidden;
+    border: 1px solid rgb(35 31 32 / 20%);
+    border-radius: 24px;
+  }
 
-.step-card {
-  --line: rgba(35, 31, 32, 0.2);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  min-height: 270px;
-  padding: 40px;
-  background: #fff;
-  
-}
+  .step-card {
+    --line: rgba(35, 31, 32, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: 270px;
+    padding: 40px;
+    background: #fff;
+  }
 
-/* first card */
-.step-card:first-child {
-  border-right-width: 0;
-  border-radius: 24px 0 0 24px;
-}
+  /* first card */
+  .step-card:first-child {
+    border-right-width: 0;
+    border-radius: 24px 0 0 24px;
+  }
 
-/* center card */
-.step-card:nth-child(2) {
-  border-left-width: 0;
-  border-right-width: 0;
-  border-radius: 0;
-}
+  /* center card */
+  .step-card:nth-child(2) {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: 0;
+  }
 
-/* last card */
-.step-card:last-child {
-  border-left-width: 0;
-  border-radius: 0 24px 24px 0;
-}
+  /* last card */
+  .step-card:last-child {
+    border-left-width: 0;
+    border-radius: 0 24px 24px 0;
+  }
 
-/* dashed vertical divider (150px) */
-.step-card + .step-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 150px;
-  transform: translate(-1px, -50%);
-  border-left: 2px dashed var(--line);
-  z-index: 1;
-}
+  /* dashed vertical divider (150px) */
+  .step-card + .step-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 150px;
+    transform: translate(-1px, -50%);
+    border-left: 2px dashed var(--line);
+    z-index: 1;
+  }
 
-.icon-box {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 60px;
-  height: 60px;
-  padding: 18px;
-  border-radius: 16px;
-  background: rgba(255, 72, 0, 0.15);
-  color: var(--orange);
-}
+  .icon-box {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 60px;
+    height: 60px;
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(255, 72, 0, 0.15);
+    color: var(--orange);
+  }
 
-.step-body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+  .step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-.step-label {
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: var(--orange);
-}
+  .step-label {
+    font-size: 14px;
+    line-height: 100%;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
 
-.step-content {
+  .step-content {
     display: flex;
     flex-direction: column;
     gap: 12px;
-}
+  }
 
-.step-text {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+  .step-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-.step-card h3 {
-  font-size: 24px;
-  line-height: 29px;
-  font-weight: 600;
-  color: var(--text);
-}
+  .step-card h3 {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 600;
+    color: var(--text);
+  }
 
-.step-card p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--muted-70);
-}
+  .step-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted-70);
+  }
   /* ---------- APP SHOWCASE ---------- */
-  .app-showcase{width:100%; align-items: center;}
-  .app-showcase { padding-top: 80px; padding-bottom:80px; display: flex; gap: 116px; flex-direction: column;}
+  .app-showcase {
+    width: 100%;
+    align-items: center;
+  }
+  .app-showcase {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    gap: 116px;
+    flex-direction: column;
+  }
 
-  .app-showcase-header{
-    width:100%;
+  .app-showcase-header {
+    width: 100%;
     max-width: 622px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap:16px;
+    gap: 16px;
   }
 
-.app-showcase-header h2{
-  font-size: clamp(2.2rem, 3vw, 3.1rem);
+  .app-showcase-header h2 {
+    font-size: clamp(2.2rem, 3vw, 3.1rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     color: var(--text);
     text-align: center;
+  }
 
-}
-
-  .phone-row {
+ .phone-row {
     position: relative;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 18px;
+    gap: 40px;
     width: 100%;
-  }
+    margin: 0px;
+}
 
   .app-phone {
     position: relative;
@@ -891,15 +1108,74 @@ const faqs = [
     opacity: 0.98;
   }
 
-  .app-phone:nth-child(odd) { transform: translateY(18px); }
-  .app-phone:nth-child(3n) { transform: translateY(34px); }
+  .app-phone:nth-child(odd) {
+   transform: unset;
+  }
+  .app-phone:nth-child(3n) {
+   transform: unset;
+  }
+  .phone-mockup[data-astro-cid-dgzf4czg]{
+   padding: 0;
+   border: none;
+   border-radius: 0px;
+   background: transparent;
+  box-sizing: unset;
+  margin-inline: none;
+  box-shadow: unset;  
+  }
+ 
+  .phone-notch[data-astro-cid-dgzf4czg] { display: none;}
+.screen-image[data-astro-cid-dgzf4czg] {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.phone-mockup {
+    width: 229px;
+    height: auto;
+}
+
+.phone-screen[data-astro-cid-dgzf4czg] {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px; 
+    background:transparent;
+    position: unset;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+}
+  
 
   .app-phone.phone-splash .screen-placeholder {
-    background: linear-gradient(180deg, rgba(255,166,70,0.9) 0%, rgba(255,72,0,0.9) 42%, rgba(255,72,0,0.72) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 166, 70, 0.9) 0%,
+      rgba(255, 72, 0, 0.9) 42%,
+      rgba(255, 72, 0, 0.72) 100%
+    );
   }
 
   /* ---------- TESTIMONIALS ---------- */
-  .testimonial-section { margin-top: 80px; }
+  .testimonial-section {
+    padding-top: 80px;
+    padding-bottom: 113px;
+  }
+  .testimonial-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap:16px;
+
+  }
+
+  .testimonial-head h2{
+    font-size: clamp(2.2rem, 3vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
 
   .marquee-wrap {
     display: grid;
@@ -914,24 +1190,39 @@ const faqs = [
     min-width: max-content;
   }
 
-  .marquee-two { animation-direction: reverse; }
+  .marquee-two {
+    animation-direction: reverse;
+  }
 
   @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   .testimonial-card {
-    background: rgba(255,255,255,0.96);
-    border: 1px solid rgba(35,31,32,0.08);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(35, 31, 32, 0.08);
     border-radius: 20px;
     padding: 18px 18px 16px;
     width: 300px;
-    box-shadow: 0 18px 28px rgba(35,31,32,0.04);
+    box-shadow: 0 18px 28px rgba(35, 31, 32, 0.04);
   }
 
-  .stars { color: #ffb327; letter-spacing: 2px; font-size: 14px; margin-bottom: 8px; }
+  .stars {
+    color: #ffb327;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 
+  .testimonial-section{
+    gap:80px;
+
+  }
   .testimonial-card p {
     color: var(--text);
     font-size: 18px;
@@ -958,7 +1249,17 @@ const faqs = [
     padding: 9px;
   }
 
-  .person-row strong { display: block; font-size: 14px; }
+  .person-row strong {
+    display: block;
+    font-size: 14px;
+  }
+  
+ span.person-badge {
+    color: var(--orange)!important;
+    padding: 0px;   
+    display: flex;
+    justify-content: center;
+}
 
   .person-row span {
     display: flex;
@@ -968,14 +1269,20 @@ const faqs = [
   }
 
   /* ---------- FAQ ---------- */
-  .faq-section { margin-top: 84px; }
+  .faq-section {
+   padding: 32px 0px;
+   width: 100%;
+
+    
+  }
 
   .faq-layout {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
-    gap: 34px;
+    gap: 80px;
     align-items: start;
-    padding-bottom: 30px;
+    width: 100%;
+    max-width: 1280px;
   }
 
   .faq-copy h2 {
@@ -990,8 +1297,8 @@ const faqs = [
   }
 
   .faq-item {
-    background: rgba(255,255,255,0.96);
-    border: 1px solid rgba(35,31,32,0.08);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(35, 31, 32, 0.08);
     border-radius: 18px;
     padding: 18px 20px;
   }
@@ -1008,7 +1315,7 @@ const faqs = [
 
   .faq-item p {
     margin-top: 14px;
-    color: rgba(35,31,32,0.66);
+    color: rgba(35, 31, 32, 0.66);
     font-size: 15px;
     line-height: 1.65;
   }
@@ -1020,11 +1327,31 @@ const faqs = [
   }
 
   /* ---------- CTA ---------- */
-  .cta-section { margin-top: 36px; padding-bottom: 60px; width: 100%; padding: 96px 0px; }
+.cta-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('src/assets/hero-box-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    z-index: 0;
+    pointer-events: none;}
+
+  .cta-section {
+    margin-top: 36px;
+    padding-bottom: 60px;
+    width: 100%;
+    padding: 96px 0px;
+  }
 
   .cta-card {
     position: relative;
-    background: linear-gradient(132.6deg, rgba(255,199,176,0.6) 0%, rgba(255,72,0,0.6) 100%);
+    background: linear-gradient(
+      132.6deg,
+      rgba(255, 199, 176, 0.6) 0%,
+      rgba(255, 72, 0, 0.6) 100%
+    );
     border-radius: 30px;
     max-width: none;
     width: 100%;
@@ -1041,6 +1368,8 @@ const faqs = [
   .cta-copy {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 437px;
   }
 
   .cta-copy h2 {
@@ -1052,11 +1381,11 @@ const faqs = [
 
   .cta-copy p {
     font-size: 18px;
-    color: rgba(35,31,32,0.72);
+    color: rgba(35, 31, 32, 0.72);
     line-height: 1.5;
   }
 
-  .cta-social{
+  .cta-social {
     display: flex;
     align-items: left;
     gap: 13px;
@@ -1066,7 +1395,7 @@ const faqs = [
   .cta-phone {
     position: absolute;
     left: 54%;
-    top: 20px;
+    top: 9%;
     width: auto;
     max-width: 560px;
     height: auto;
@@ -1090,7 +1419,10 @@ const faqs = [
     gap: 24px;
   }
 
-  .footer-brand img { height: 28px; width: auto; }
+  .footer-brand img {
+    height: 28px;
+    width: auto;
+  }
 
   .footer-links {
     display: flex;
@@ -1099,7 +1431,7 @@ const faqs = [
   }
 
   .footer-links a {
-    color: rgba(35,31,32,0.74);
+    color: rgba(35, 31, 32, 0.74);
     font-size: 15px;
   }
 
@@ -1109,12 +1441,31 @@ const faqs = [
 
   /* Tablet: hamburger menu + single column layouts */
   @media (max-width: 1024px) {
-    .steps-strip { grid-template-columns: 1fr; }
-    .how-section-head{ width: 100%; max-width: 100%; }
 
-    .features-section{padding: 64px 16px;}
+    .app-showcase{
+      padding-top: 64px;
+      padding-bottom: 64px;
+      gap: 80px;
+    }
+    .phone-row{
+    margin-left: 0;
+    }
+    .steps-strip {
+      grid-template-columns: 1fr;
+    }
+    .how-section-head {
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+    }
 
-    .nav-toggle { display: block; }
+    .features-section {
+      padding: 64px 16px;
+    }
+
+    .nav-toggle {
+      display: block;
+    }
 
     .nav-links {
       position: absolute;
@@ -1137,7 +1488,10 @@ const faqs = [
       opacity: 0;
       visibility: hidden;
       transform: translateY(-8px);
-      transition: opacity .2s ease, transform .2s ease, visibility .2s;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s;
     }
 
     .navbar.is-open .nav-links {
@@ -1150,9 +1504,14 @@ const faqs = [
       padding: 14px 0;
       border-bottom: 1px solid rgba(35, 31, 32, 0.08);
     }
-    .nav-links a:last-child { border-bottom: 0; }
+    .nav-links a:last-child {
+      border-bottom: 0;
+    }
 
-    .hero-frame { min-height: auto; padding-bottom: 0; }
+    .hero-frame {
+      min-height: auto;
+      padding-bottom: 0;
+    }
 
     .feature-row,
     .feature-row.reverse,
@@ -1160,17 +1519,16 @@ const faqs = [
       grid-template-columns: 1fr;
     }
 
-    .feature-copy { max-width: none; }
+    .feature-copy {
+      max-width: none;
+    }
 
     .cta-card {
       padding: 52px 28px 180px;
       min-height: 480px;
       justify-content: center;
       text-align: center;
-    }
-
-    .cta-copy { padding-top: 2rem; padding-bottom: 2rem; }
-
+   }
     .cta-phone {
       left: 50%;
       transform: translateX(-50%);
@@ -1179,66 +1537,116 @@ const faqs = [
       width: 430px;
     }
 
-    .section-head { width: 100%;max-width: 100%;}
+    .section-head {
+      width: 100%;
+      max-width: 100%;
+    }
 
-  .how-section{gap: 48px; padding: 64px 16px;}
+ .cta-copy {
+  position: relative;z-index: 2;width: 100%; max-width: 100%; padding-top: 2rem;
+      padding-bottom: 2rem; 
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  step-card + .step-card::before {
-    content: "";
-    position: absolute;
-    /* left: 50%; */
-    /* right: 50%; */
-    top: 0%;
-    /* height: 150px; */
-    transform: translate(-1px, -50%);
-    border-top: 2px dashed var(--line);
-    z-index: 1;
-    width: 85%;
-    /* align-items: center; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-}
+    .how-section {
+      gap: 48px;
+      padding: 64px 16px;
+    }
 
+    .step-card + .step-card::before {
+      content: "";
+      position: absolute;
+      /* left: 50%; */
+      /* right: 50%; */
+      top: 0%;
+      /* height: 150px; */
+      transform: translate(-1px, -50%);
+      border-top: 2px dashed var(--line);
+      z-index: 1;
+      width: 85%;
+      /* align-items: center; */
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* justify-content: center; */
+    }
+
+    .faq-layout{
+      padding: 0px 16px;
+    }
+
+   
   }
 
   /* Small tablet / large phone */
   @media (max-width: 768px) {
-    .how-section-head{
-     width: 100%;
-    max-width: 100%;
-  }
-    .features-section{padding: 64px 16px;}
-    .stats-strip { grid-template-columns: repeat(2, 1fr); }
-    .stat-cell { padding: 24px 16px; }
-    .stat-cell strong { font-size: 28px; line-height: 34px; }
-    .stat-cell:nth-child(odd)::before { display: none; }
-    .stat-cell:nth-child(n+3) { border-top: 1px solid rgba(var(--ink), 0.2); }
+    .how-section-head {
+      width: 100%;
+      max-width: 100%;
+    }
+    .features-section {
+      padding: 64px 16px;
+    }
+    .stats-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-cell {
+      padding: 24px 16px;
+    }
+    .stat-cell strong {
+      font-size: 28px;
+      line-height: 34px;
+    }
+    .stat-cell:nth-child(odd)::before {
+      display: none;
+    }
+    .stat-cell:nth-child(n + 3) {
+      border-top: 1px solid rgba(var(--ink), 0.2);
+    }
 
-    .steps-strip { grid-template-columns: 1fr; }
+    .steps-strip {
+      grid-template-columns: 1fr;
+    }
 
-    .site-footer { padding: 1.5rem 20px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-     .section-head { width: 100%;max-width: 100%;}
+    .site-footer {
+      padding: 1.5rem 20px;
+    }
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .section-head {
+      width: 100%;
+      max-width: 100%;
+    }
 
-     .steps-strip { grid-template-columns: 1fr; }
+    .steps-strip {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* Phone */
   @media (max-width: 720px) {
-    .how-section-head{
-     width: 100%;
-    max-width: 100%;
-  }
+    .how-section-head {
+      width: 100%;
+      max-width: 100%;
+    }
 
-  .steps-strip { grid-template-columns: 1fr; }
-    .features-section{padding: 64px 16px;}
+    .steps-strip {
+      grid-template-columns: 1fr;
+    }
+    .features-section {
+      padding: 64px 16px;
+    }
     .navbar {
       width: calc(100% - 32px);
       padding: 0 12px 0 14px;
     }
 
-    .cta-pill { width: 96px; }
+    .cta-pill {
+      width: 96px;
+    }
 
     .hero-copy p,
     .feature-copy p,
@@ -1247,73 +1655,124 @@ const faqs = [
       font-size: 16px;
     }
 
-    .feature-visual { min-height: 360px; }
-
-    .phone-row {
-      width: 170%;
-      margin-left: -35%;
-      gap: 12px;
+    .feature-visual {
+      min-height: 360px;
     }
 
-    .cta-card { padding: 40px 20px 180px; }
-    .cta-phone { width: min(430px, 90%); }
-     .section-head { width: 100%;max-width: 100%;}
+
+    .cta-card {
+      padding: 40px 20px 180px;
+    }
+    .cta-phone {
+      width: min(430px, 90%);
+    }
+    .section-head {
+      width: 100%;
+      max-width: 100%;
+    }
 
     .step-card + .step-card::before {
+      top: 0%;
+      transform: translate(-1px, -50%);
+      border-top: 2px dashed var(--line);
+      z-index: 1;
+      width: 100%;
+      height: 0px;
+    }
    
-    top: 0%;  
-    transform: translate(-1px, -50%);
-    border-top: 2px dashed var(--line);
-    z-index: 1;
-    width: 100%;
-    height:0px;
-    
-}
   }
+  @media (max-width: 414px) {
+  .store-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
   @media (prefers-reduced-motion: reduce) {
-    .nav-links, .nav-toggle span { transition: none; }
-    .marquee { animation: none; }
-    html { scroll-behavior: auto; }
+    .nav-links,
+    .nav-toggle span {
+      transition: none;
+    }
+    .marquee {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 </style>
 
 <script>
-  const navbar = document.querySelector<HTMLElement>('.navbar');
-  const toggle = navbar?.querySelector<HTMLButtonElement>('.nav-toggle');
-  const links = navbar?.querySelector<HTMLElement>('.nav-links');
+  const navbar = document.querySelector<HTMLElement>(".navbar");
+  const toggle = navbar?.querySelector<HTMLButtonElement>(".nav-toggle");
+  const links = navbar?.querySelector<HTMLElement>(".nav-links");
 
   function setMenu(open: boolean) {
-    navbar?.classList.toggle('is-open', open);
-    toggle?.setAttribute('aria-expanded', String(open));
-    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    navbar?.classList.toggle("is-open", open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
 
   // hamburger click
-  toggle?.addEventListener('click', () => {
-    setMenu(!navbar?.classList.contains('is-open'));
+  toggle?.addEventListener("click", () => {
+    setMenu(!navbar?.classList.contains("is-open"));
   });
 
   // link click par menu band
-  links?.addEventListener('click', (e) => {
-    if ((e.target as HTMLElement).closest('a')) setMenu(false);
+  links?.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).closest("a")) setMenu(false);
   });
 
   // Escape thi band + focus button par pacho
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navbar?.classList.contains('is-open')) {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navbar?.classList.contains("is-open")) {
       setMenu(false);
       toggle?.focus();
     }
   });
 
   // bahar click par band
-  document.addEventListener('click', (e) => {
+  document.addEventListener("click", (e) => {
     if (navbar && !navbar.contains(e.target as Node)) setMenu(false);
   });
 
   // desktop size par jaao to reset
-  window.matchMedia('(min-width: 1025px)').addEventListener('change', (e) => {
+  window.matchMedia("(min-width: 1025px)").addEventListener("change", (e) => {
     if (e.matches) setMenu(false);
   });
+</script>
+<script>
+  const row = document.getElementById("phoneRow");
+  const prev = document.querySelector(".phone-slider .prev");
+  const next = document.querySelector(".phone-slider .next");
+
+  if (row) {
+    const step = 229 + 40; // phone width + gap
+
+    prev?.addEventListener("click", () =>
+      row.scrollBy({ left: -step * 2, behavior: "smooth" })
+    );
+    next?.addEventListener("click", () =>
+      row.scrollBy({ left: step * 2, behavior: "smooth" })
+    );
+
+    // mouse drag
+    let down = false, startX = 0, startLeft = 0;
+
+    row.addEventListener("pointerdown", (e) => {
+      if (e.pointerType !== "mouse") return;
+      down = true;
+      startX = e.clientX;
+      startLeft = row.scrollLeft;
+      row.classList.add("dragging");
+    });
+    window.addEventListener("pointerup", () => {
+      down = false;
+      row.classList.remove("dragging");
+    });
+    window.addEventListener("pointermove", (e) => {
+      if (!down) return;
+      row.scrollLeft = startLeft - (e.clientX - startX);
+    });
+  }
 </script>
