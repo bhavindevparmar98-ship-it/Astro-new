@@ -778,13 +778,12 @@ const faqs = [
     flex-direction: column;
     align-items: center;
     gap: 80px;
-    padding: 80px 0px;
+    padding: 80px 16px;
   }
 
   .how-section,
   .testimonial-section,
-  .faq-section,
-  .cta-section {
+  .faq-section {
     max-width: 1280px;
     margin: 0 auto;
     padding-left: 20px;
@@ -961,7 +960,7 @@ const faqs = [
   /* ---------- HOW IT WORKS ---------- */
   .how-section {
     width: 100%;
-    padding: 96px 0px;
+    padding: 96px 16px;
     background-color: hsl(345deg 6% 13% / 5%);
     max-width: 100%;
     display: flex;
@@ -1289,7 +1288,7 @@ const faqs = [
 
   /* ---------- FAQ ---------- */
   .faq-section {
-    padding: 32px 0px;
+    padding: 32px 16px;
     width: 100%;
     background-color: #F4F4F4;
     max-width: none;
@@ -1353,7 +1352,7 @@ const faqs = [
   }
 
   /* ---------- CTA ---------- */
-  .cta-section::after {
+  /* .cta-section::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -1363,73 +1362,129 @@ const faqs = [
     background-size: contain;
     z-index: 0;
     pointer-events: none;
-  }
+  } */
 
-  .cta-section {
-    padding-bottom: 60px;
-    width: 100%;
-    padding: 96px 0px;
-    background-color: #f4f4f4;
-    max-width: 100%;
-  }
+ 
+ .cta-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;            /* card center ma */
+  box-sizing: border-box;
+  padding: 96px 189px;
+  background: #f4f4f4;
+}
+.cta-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/src/assets/hero-box-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: 1;
+  pointer-events: none;
+}
 
-  .cta-card {
-    position: relative;
-    background: linear-gradient(
-      132.6deg,
-      rgba(255, 199, 176, 0.6) 0%,
-      rgba(255, 72, 0, 0.6) 100%
-    );
-    border-radius: 30px;
-    max-width: 1062px;
-    width: 100%;
-    min-height: 401px;
-    margin: 0 auto;
-    padding: 80px 100px;
-    overflow: visible;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
+/* White blur glow behind phone (Figma "Ellipse 2458") */
+.cta-card::before {
+  content: "";
+  position: absolute;
+  width: 563px;
+  height: 448px;
+  left: 50%;                      /* 531px of 1062px */
+  top: -23px;
+  filter: blur(225px);
+  z-index: 1;
+  pointer-events: none;
+}
 
-  .cta-copy {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 437px;
-  }
+
+  /* ===== Card (Desktop: 1062 x 401) ===== */
+.cta-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;              /* hand/phone card ni bahar cut thase */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1062px;
+  height: 401px;
+  padding: 80px 100px;
+  border-radius: 24px;
+  background:
+    linear-gradient(132.6deg, rgba(255, 199, 176, 0.6) 0%, rgba(255, 72, 0, 0.6) 100%),
+    #ffffff;
+}
+/* ===== Copy ===== */
+.cta-copy {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 437px;
+  max-width: 100%;
+}
+
 
   .cta-copy h2 {
-    font-size: clamp(2.4rem, 4vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    margin: 0 0 16px;
-  }
+  margin: 0;
+  width: 100%;
+  font-family: "Cabin", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 100%;
+  color: #231f20;
+}
 
-  .cta-copy p {
-    font-size: 18px;
-    color: rgba(35, 31, 32, 0.72);
-    line-height: 160%;
-  }
+.cta-copy p {
+  margin: 16px 0 0;               /* heading ane text vache 16px gap */
+  width: 100%;
+  font-family: "Cabin", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  color: rgba(35, 31, 32, 0.8);
+}
+/* ===== Store badges ===== */
+.cta-social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13.33px;
+  width: 282.24px;
+  height: 40px;
+  padding: 0;
+  margin-top: 40px;
+}
 
-  .cta-social {
-    display: flex;
-    align-items: left;
-    gap: 13px;
-    margin-top: 40px;
-  }
+.cta-social .badge,
+.cta-social .small-badge {
+  width: 134.45px;
+  height: 40px;
+  flex: none;
+  display: block;
+}
+  /* ===== Phone mockup (Figma: 560 x 560, left 531, top -68) ===== */
+.cta-phone {
+  position: absolute;
+  z-index: 2;
+  left: 50%;                      /* 531px / 1062px */
+  top: 0px;
+  width: 560px;
+  height: auto;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
 
-  .cta-phone {
-    position: absolute;
-    left: 54%;
-    top: 5%;
-    width: auto;
-    max-width: 560px;
-    height: auto;
-    z-index: 1;
-    filter: drop-shadow(0 30px 30px rgba(35, 31, 32, 0.12));
-  }
+
 
   /* ---------- FOOTER ---------- */
   .site-footer {
@@ -1468,7 +1523,9 @@ const faqs = [
      ===================================================== */
 
   /* Tablet: hamburger menu + single column layouts */
-  @media (max-width: 1023.98px) {
+  @media (max-width: 1023.99px) {
+
+    .cta-section
     .testimonial-head h2{
       text-align: center ;
     }
@@ -1589,21 +1646,26 @@ const faqs = [
     .feature-copy {
       max-width: none;
     }
-
-    .cta-card {
+    .cta-section{
+      padding: 96px 16px;
+    }
+      .cta-card {
       padding: 32px 28px 180px;
       min-height: 721px;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       align-items: stretch;
     }
     .cta-phone {
       left: 50%;
       transform: translateX(-50%);
-      top: auto;
       bottom: -40px;
       width: 430px;
+       top: 36%;   
+        width: 100%;
+        max-width: 66%;
     }
+    
 
     .section-head {
       width: 100%;
@@ -1625,12 +1687,7 @@ const faqs = [
       flex-direction: column;
       align-items: center;
     }
-    .cta-phone {
-        top: 36%;
-        bottom: 0px;
-        width: 100%;
-        max-width: 90%;
-    }
+    
 
     .how-section {
       gap: 48px;
@@ -1668,8 +1725,12 @@ const faqs = [
   /* Small tablet / large phone */
   @media (max-width: 767.99px) {
 
+    .cta-card{
+      padding: 32px 24px;
+    }
+
     .cta-phone {
-        top: 36%;
+        top: auto;
         bottom: 0px;
         width: 100%;
         max-width: 100%;
@@ -1801,12 +1862,7 @@ const faqs = [
       min-height: 360px;
     }
 
-    .cta-card {
-      padding: 40px 20px 180px;
-    }
-    .cta-phone {
-      width: min(430px, 90%);
-    }
+     
     .section-head {
       width: 100%;
       max-width: 100%;
