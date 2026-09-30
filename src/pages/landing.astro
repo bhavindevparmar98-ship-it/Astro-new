@@ -6,7 +6,7 @@ import appStoreBadge from "../assets/app-store-apple-logo.svg";
 import googlePlayBadge from "../assets/google-play-badge-logo1.svg";
 import phoneMockup from "../assets/iphone-15-pro-max-hand-mockup.png";
 import heroVisual from "../assets/ab savio img.png";
-import heroBg from "../assets/hero bg.png";
+import heroBg from "../assets/home-hero-img.png";
 import frameImg1 from "../assets/Frame img-4.svg";
 import frameImg3 from "../assets/Frame img-3.svg";
 import frameImg4 from "../assets/frame-img-1.svg";
@@ -18,10 +18,8 @@ import galleryImg5 from "../assets/gallery-img-5.png";
 import galleryImg6 from "../assets/gallery-img-6.png";
 import saveIcon from "../assets/Bookmark--Streamline-Carbon.svg";
 import organizeIcon from "../assets/Categories--Streamline-Carbon.svg";
-import remindIcon from "../assets/Collections, your way.svg";
-
+import remindIcon from "../assets/Mobile.svg";
 import PhoneMockup from "../components/PhoneMockup.astro";
-
 import galleryImg1 from "../assets/gallery-img-1.svg";
 import galleryImg2 from "../assets/gallery-img-2.svg";
 import galleryImg3 from "../assets/gallery-img-3.svg";
@@ -163,26 +161,25 @@ const faqs = [
                 Save what matters.
               </h1>
               <p>
-                Savio turns endless scrolling into intentional saving so your
-                best ideas, links, and moments are easy to revisit later.
+                Savio turns endless scrolling into intentional saving. Capture,
+                organize and revisit content from anywhere — beautifully.
               </p>
-
-              <div class="store-row" aria-label="Download app badges">
-                <Image
-                  src={appStoreBadge}
-                  alt="Download on the App Store"
-                  class="badge"
-                  width={161}
-                  height={48}
-                />
-                <Image
-                  src={googlePlayBadge}
-                  alt="Get it on Google Play"
-                  class="badge"
-                  width={161}
-                  height={48}
-                />
-              </div>
+            </div>
+            <div class="store-row" aria-label="Download app badges">
+              <Image
+                src={appStoreBadge}
+                alt="Download on the App Store"
+                class="badge"
+                width={161}
+                height={48}
+              />
+              <Image
+                src={googlePlayBadge}
+                alt="Get it on Google Play"
+                class="badge"
+                width={161}
+                height={48}
+              />
             </div>
 
             <div class="hero-visual" aria-label="Savio app preview">
@@ -222,7 +219,7 @@ const faqs = [
             <article class="feature-row">
               <div class="feature-copy">
                 <span class="eyebrow eyebrow-dark">SAVE IN ONE TAP</span>
-                <h3>From any app, straight to Savio.</h3>
+                <h3>From any app, <br />straight to Savio.</h3>
                 <p>
                   Hit share, choose Savio, and keep your best links, clips, and
                   ideas in one place without breaking flow.
@@ -264,10 +261,10 @@ const faqs = [
             <article class="feature-row">
               <div class="feature-copy">
                 <span class="eyebrow eyebrow-dark">DAILY DIGEST</span>
-                <h3>Come back to what matters, gently.</h3>
+                <h3>One quiet moment, instead of a thousand.</h3>
                 <p>
-                  Get a calm digest of content you saved with enough context to
-                  act quickly and enough spacing to stay relaxed.
+                  A handpicked digest of what you saved, ready when you wake up.
+                  Read what matters, then close the app.
                 </p>
               </div>
 
@@ -297,8 +294,8 @@ const faqs = [
                 <span class="eyebrow eyebrow-dark">SMART REMINDERS</span>
                 <h3>The right save, at the right moment.</h3>
                 <p>
-                  Savio knows when you are ready to watch, read, or revisit and
-                  gently brings it back at the ideal time.
+                  Savio learns when you actually read, watch and revisit — and
+                  gently surfaces the right things at the right time.
                 </p>
               </div>
             </article>
@@ -363,7 +360,7 @@ const faqs = [
         </section>
 
         <section class="testimonial-section" id="testimonials">
-          <div class="testimonial-head center">
+          <div class="testimonial-head">
             <span class="eyebrow">LOVED BY QUIET READERS</span>
             <h2>Built for people, not for feeds.</h2>
           </div>
@@ -440,7 +437,6 @@ const faqs = [
         <section class="cta-section">
           <div class="cta-card">
             <div class="cta-copy">
-              <span class="eyebrow">FREE TO DOWNLOAD</span>
               <h2>Your saved world, one tap away.</h2>
               <p>Free to download. Built for the people who like to revisit.</p>
               <div class="cta-social compact" aria-label="App downloads">
@@ -523,7 +519,7 @@ const faqs = [
   button {
     font: inherit;
   }
-  h2{
+  h2 {
     font-weight: 600;
   }
   h1,
@@ -687,13 +683,17 @@ const faqs = [
     z-index: 2;
     max-width: 1110px;
     margin: 0 auto;
-    padding: 64px 16px 0;
+    padding: 80px 0px;
+    padding-bottom: 0px;
   }
 
   .hero-copy {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .eyebrow {
@@ -708,10 +708,10 @@ const faqs = [
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.2rem, 5vw, 6rem);
+    font-size: 4rem;
     line-height: 100%;
-    letter-spacing: -0.065em;
-    font-weight: 700;
+    letter-spacing: -1%;
+    font-weight: 600;
     color: var(--text);
   }
 
@@ -720,7 +720,6 @@ const faqs = [
   }
 
   .hero-copy p {
-    margin: 22px auto 0;
     max-width: 760px;
     font-size: 20px;
     line-height: 1.35;
@@ -754,10 +753,12 @@ const faqs = [
   }
 
   .hero-phone-stack {
-    position: relative;
+    position: absolute;
     width: min(954px, 100%);
-    display: flex;
     margin: 0 auto;
+    top: 24%;
+    left: auto;
+    right: auto;
   }
 
   .hero-main-image {
@@ -771,7 +772,7 @@ const faqs = [
 
   /* ---------- SECTION WRAPPERS ---------- */
   .features-section {
-    max-width: 1110px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -794,11 +795,12 @@ const faqs = [
   }
 
   .how-section-head {
-    width: 100%;
+    width: auto;
     max-width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 1rem;
   }
 
   .section-head {
@@ -806,18 +808,22 @@ const faqs = [
     text-align: center;
     width: 100%;
     max-width: 426px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
   .how-section-head h2 {
-    font-size: clamp(2.2rem, 3vw, 3.1rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    font-size: 3rem;
+    line-height: 100%;
+    letter-spacing: 0%;
     color: var(--text);
   }
 
   .section-head h2 {
-    font-size: clamp(2.2rem, 3vw, 3.1rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    font-size: 3rem;
+    line-height: 100%;
+    letter-spacing: 0%;
     color: var(--text);
   }
 
@@ -886,12 +892,14 @@ const faqs = [
     display: flex;
     flex-direction: column;
     gap: 60px;
+    width: 100%;
+    max-width: 1110px;
   }
 
   .feature-row {
     display: grid;
     grid-template-columns: 0.92fr 1.08fr;
-    gap: 34px;
+    gap: 164px;
     align-items: center;
   }
 
@@ -900,19 +908,25 @@ const faqs = [
   }
 
   .feature-copy {
-    max-width: 460px;
+    max-width: 437px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
 
   .feature-copy h3 {
-    font-size: clamp(2rem, 2.4vw, 2.8rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 14px;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-weight: 600;
+    color: var(--text);
   }
 
   .feature-copy p {
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 150%;
+    letter-spacing: 0%;
     color: var(--muted-60);
   }
 
@@ -1063,8 +1077,7 @@ const faqs = [
   }
   /* ---------- APP SHOWCASE ---------- */
   .app-showcase {
-    width: 100%;
-    align-items: center;
+    
   }
   .app-showcase {
     padding-top: 80px;
@@ -1072,6 +1085,10 @@ const faqs = [
     display: flex;
     gap: 116px;
     flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: #f4f4f4;
+
   }
 
   .app-showcase-header {
@@ -1084,20 +1101,20 @@ const faqs = [
   }
 
   .app-showcase-header h2 {
-    font-size: clamp(2.2rem, 3vw, 3.1rem);
-    line-height: 1.05;
+    font-size: 3rem;
+    line-height: 100%;
     letter-spacing: -0.03em;
     color: var(--text);
     text-align: center;
   }
 
- .phone-row {
+  .phone-row {
     position: relative;
     display: flex;
     gap: 40px;
     width: 100%;
     margin: 0px;
-}
+  }
 
   .app-phone {
     position: relative;
@@ -1109,44 +1126,45 @@ const faqs = [
   }
 
   .app-phone:nth-child(odd) {
-   transform: unset;
+    transform: unset;
   }
   .app-phone:nth-child(3n) {
-   transform: unset;
+    transform: unset;
   }
-  .phone-mockup[data-astro-cid-dgzf4czg]{
-   padding: 0;
-   border: none;
-   border-radius: 0px;
-   background: transparent;
-  box-sizing: unset;
-  margin-inline: none;
-  box-shadow: unset;  
+  .phone-mockup[data-astro-cid-dgzf4czg] {
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+    background: transparent;
+    box-sizing: unset;
+    margin-inline: none;
+    box-shadow: unset;
   }
- 
-  .phone-notch[data-astro-cid-dgzf4czg] { display: none;}
-.screen-image[data-astro-cid-dgzf4czg] {
+
+  .phone-notch[data-astro-cid-dgzf4czg] {
+    display: none;
+  }
+  .screen-image[data-astro-cid-dgzf4czg] {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
-}
-.phone-mockup {
+  }
+  .phone-mockup {
     width: 229px;
     height: auto;
-}
+  }
 
-.phone-screen[data-astro-cid-dgzf4czg] {
+  .phone-screen[data-astro-cid-dgzf4czg] {
     width: 100%;
     height: 100%;
-    border-radius: 0px; 
-    background:transparent;
+    border-radius: 0px;
+    background: transparent;
     position: unset;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     align-items: center;
-}
-  
+  }
 
   .app-phone.phone-splash .screen-placeholder {
     background: linear-gradient(
@@ -1161,18 +1179,20 @@ const faqs = [
   .testimonial-section {
     padding-top: 80px;
     padding-bottom: 113px;
+    background-color: #F4F4F4;
+    width: 100%;
+    max-width: none;
   }
-  .testimonial-head{
+  .testimonial-head {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    gap:16px;
-
+    align-items: center;
+    gap: 16px;
   }
 
-  .testimonial-head h2{
-    font-size: clamp(2.2rem, 3vw, 3.1rem);
-    line-height: 1.05;
+  .testimonial-head h2 {
+    font-size: 3rem;
+    line-height: 100%;
     letter-spacing: -0.03em;
     color: var(--text);
   }
@@ -1219,9 +1239,8 @@ const faqs = [
     margin-bottom: 8px;
   }
 
-  .testimonial-section{
-    gap:80px;
-
+  .testimonial-section {
+    gap: 80px;
   }
   .testimonial-card p {
     color: var(--text);
@@ -1253,13 +1272,13 @@ const faqs = [
     display: block;
     font-size: 14px;
   }
-  
- span.person-badge {
-    color: var(--orange)!important;
-    padding: 0px;   
+
+  span.person-badge {
+    color: var(--orange) !important;
+    padding: 0px;
     display: flex;
     justify-content: center;
-}
+  }
 
   .person-row span {
     display: flex;
@@ -1270,10 +1289,10 @@ const faqs = [
 
   /* ---------- FAQ ---------- */
   .faq-section {
-   padding: 32px 0px;
-   width: 100%;
-
-    
+    padding: 32px 0px;
+    width: 100%;
+    background-color: #F4F4F4;
+    max-width: none;
   }
 
   .faq-layout {
@@ -1285,9 +1304,16 @@ const faqs = [
     max-width: 1280px;
   }
 
+.faq-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
   .faq-copy h2 {
-    font-size: clamp(2.2rem, 3vw, 3.2rem);
-    line-height: 1.1;
+    font-size: 3rem;
+    line-height: 100%;
   }
 
   .faq-list {
@@ -1327,22 +1353,24 @@ const faqs = [
   }
 
   /* ---------- CTA ---------- */
-.cta-section::after {
+  .cta-section::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('src/assets/hero-box-bg.svg');
+    background-image: url("src/assets/hero-box-bg.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
     z-index: 0;
-    pointer-events: none;}
+    pointer-events: none;
+  }
 
   .cta-section {
-    margin-top: 36px;
     padding-bottom: 60px;
     width: 100%;
     padding: 96px 0px;
+    background-color: #f4f4f4;
+    max-width: 100%;
   }
 
   .cta-card {
@@ -1353,9 +1381,9 @@ const faqs = [
       rgba(255, 72, 0, 0.6) 100%
     );
     border-radius: 30px;
-    max-width: none;
+    max-width: 1062px;
     width: 100%;
-    min-height: 420px;
+    min-height: 401px;
     margin: 0 auto;
     padding: 80px 100px;
     overflow: visible;
@@ -1376,13 +1404,13 @@ const faqs = [
     font-size: clamp(2.4rem, 4vw, 4rem);
     line-height: 1.05;
     letter-spacing: -0.04em;
-    margin: 0 0 18px;
+    margin: 0 0 16px;
   }
 
   .cta-copy p {
     font-size: 18px;
     color: rgba(35, 31, 32, 0.72);
-    line-height: 1.5;
+    line-height: 160%;
   }
 
   .cta-social {
@@ -1395,7 +1423,7 @@ const faqs = [
   .cta-phone {
     position: absolute;
     left: 54%;
-    top: 9%;
+    top: 5%;
     width: auto;
     max-width: 560px;
     height: auto;
@@ -1440,15 +1468,36 @@ const faqs = [
      ===================================================== */
 
   /* Tablet: hamburger menu + single column layouts */
-  @media (max-width: 1024px) {
+  @media (max-width: 1023.98px) {
+    .testimonial-head h2{
+      text-align: center ;
+    }
 
-    .app-showcase{
+    .hero-header {
+      padding: 0px;
+    }
+    .hero-frame {
+      border-radius: 0px;
+    }
+
+    .hero-copy h1 {
+      font-size: 3rem;
+      line-height: 100%;
+    }
+    .hero-content {
+      padding: 60px 16px;
+    }
+    .hero-phone-stack {
+      top: 30%;
+    }
+
+    .app-showcase {
       padding-top: 64px;
       padding-bottom: 64px;
       gap: 80px;
     }
-    .phone-row{
-    margin-left: 0;
+    .phone-row {
+      margin-left: 0;
     }
     .steps-strip {
       grid-template-columns: 1fr;
@@ -1461,6 +1510,23 @@ const faqs = [
 
     .features-section {
       padding: 64px 16px;
+    }
+    .feature-row {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .feature-visual {
+      order: 1;
+      width: 100%;
+    }
+
+    .feature-copy {
+      order: 2;
+      width: 100%;
+    }
+    .feature-stack {
+      gap: 48px;
     }
 
     .nav-toggle {
@@ -1517,6 +1583,7 @@ const faqs = [
     .feature-row.reverse,
     .faq-layout {
       grid-template-columns: 1fr;
+      gap: 40px;
     }
 
     .feature-copy {
@@ -1524,11 +1591,12 @@ const faqs = [
     }
 
     .cta-card {
-      padding: 52px 28px 180px;
-      min-height: 480px;
+      padding: 32px 28px 180px;
+      min-height: 721px;
       justify-content: center;
       text-align: center;
-   }
+      align-items: stretch;
+    }
     .cta-phone {
       left: 50%;
       transform: translateX(-50%);
@@ -1541,13 +1609,27 @@ const faqs = [
       width: 100%;
       max-width: 100%;
     }
+    .cta-section{
+      padding: 48px 16px;
+      margin: 0px;
+    }
 
- .cta-copy {
-  position: relative;z-index: 2;width: 100%; max-width: 100%; padding-top: 2rem;
-      padding-bottom: 2rem; 
+    .cta-copy {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 100%;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
       display: flex;
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta-phone {
+        top: 36%;
+        bottom: 0px;
+        width: 100%;
+        max-width: 90%;
     }
 
     .how-section {
@@ -1555,39 +1637,96 @@ const faqs = [
       padding: 64px 16px;
     }
 
+    .step-card{
+      padding: 2rem;
+    }
+
     .step-card + .step-card::before {
       content: "";
       position: absolute;
-      /* left: 50%; */
-      /* right: 50%; */
-      top: 0%;
-      /* height: 150px; */
+      left: 0%;
+      right: 0%;
+      top: 50%;
+      height: 270px;
       transform: translate(-1px, -50%);
       border-top: 2px dashed var(--line);
+      border-left: none;
       z-index: 1;
-      width: 85%;
-      /* align-items: center; */
-      /* display: flex; */
-      /* flex-direction: column; */
-      /* justify-content: center; */
+      width: 100%;
     }
 
-    .faq-layout{
+    /* .faq-layout {
       padding: 0px 16px;
-    }
+    } */
+     
+    .faq-section{padding: 48px 16px;}
 
-   
+
+
   }
 
   /* Small tablet / large phone */
-  @media (max-width: 768px) {
+  @media (max-width: 767.99px) {
+
+    .cta-phone {
+        top: 36%;
+        bottom: 0px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .faq-section{padding: 48px 16px;}
+    .app-showcase-header h2 {
+      font-size: 2.5rem;
+    }
+
+    .hero-phone-stack {
+      top: 32%;
+    }
     .how-section-head {
       width: 100%;
       max-width: 100%;
     }
+    .how-section-head h2 {
+      font-size: 2.5rem;
+    }
+
+    .feature-copy h3 {
+      font-size: 2rem;
+      line-height: 100%;
+    }
+
+    .feature-copy {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .feature-copy p {
+      font-size: 1rem;
+    }
+
+    .section-head h2 {
+      font-size: 40px;
+      line-height: 100%;
+      letter-spacing: 0%;
+    }
+
+    .hero-copy h1 {
+      font-size: 3rem;
+      line-height: 100%;
+    }
+    .hero-content {
+      padding: 60px 16px;
+      height: 844px;
+    }
+
     .features-section {
       padding: 64px 16px;
-    }
+    }   
+
     .stats-strip {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -1628,6 +1767,9 @@ const faqs = [
 
   /* Phone */
   @media (max-width: 720px) {
+    .hero-phone-stack {
+      top: 60%;
+    }
     .how-section-head {
       width: 100%;
       max-width: 100%;
@@ -1659,7 +1801,6 @@ const faqs = [
       min-height: 360px;
     }
 
-
     .cta-card {
       padding: 40px 20px 180px;
     }
@@ -1679,14 +1820,16 @@ const faqs = [
       width: 100%;
       height: 0px;
     }
-   
   }
   @media (max-width: 414px) {
-  .store-row {
-    flex-direction: column;
-    align-items: center;
+    .hero-phone-stack {
+      top: 33%;
+    }
+    .store-row {
+      flex-direction: column;
+      align-items: center;
+    }
   }
-}
 
   @media (prefers-reduced-motion: reduce) {
     .nav-links,
@@ -1750,14 +1893,16 @@ const faqs = [
     const step = 229 + 40; // phone width + gap
 
     prev?.addEventListener("click", () =>
-      row.scrollBy({ left: -step * 2, behavior: "smooth" })
+      row.scrollBy({ left: -step * 2, behavior: "smooth" }),
     );
     next?.addEventListener("click", () =>
-      row.scrollBy({ left: step * 2, behavior: "smooth" })
+      row.scrollBy({ left: step * 2, behavior: "smooth" }),
     );
 
     // mouse drag
-    let down = false, startX = 0, startLeft = 0;
+    let down = false,
+      startX = 0,
+      startLeft = 0;
 
     row.addEventListener("pointerdown", (e) => {
       if (e.pointerType !== "mouse") return;
