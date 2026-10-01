@@ -98,14 +98,17 @@ const faqs = [
   {
     q: "Does Savio store everything privately?",
     a: "Yes. Savio is built to keep your saved content personal and private while still making it easy to revisit and share the things that matter.",
+     open: true,
   },
   {
     q: "Can I save from mobile apps and the web?",
     a: "Absolutely. Savio works across popular apps and URLs so you can keep your saves in one place without extra effort.",
+     open: true,
   },
   {
     q: "Is it free to use?",
     a: "Yes. Savio is free to download and use, with a calming, no-friction experience at the core of the product.",
+     open: true,
   },
 ];
 ---
@@ -557,7 +560,7 @@ const faqs = [
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../assets/hero-box-bg.svg");
+    background-image: url("../assets/hero-box-bg.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -1350,6 +1353,14 @@ const faqs = [
     line-height: 1;
   }
 
+.faq-item:not(.open) p {
+  display: none;
+}
+
+.faq-question-row {
+  cursor: pointer;
+}
+
   /* ---------- CTA ---------- */
   /* .cta-section::after {
     content: "";
@@ -1940,39 +1951,27 @@ const faqs = [
   });
 </script>
 <script>
-  const row = document.getElementById("phoneRow");
-  const prev = document.querySelector(".phone-slider .prev");
-  const next = document.querySelector(".phone-slider .next");
+  const ONE_AT_A_TIME = true; // false = badha independently open/close thase
 
-  if (row) {
-    const step = 229 + 40; // phone width + gap
+  const items = document.querySelectorAll(".faq-item");
 
-    prev?.addEventListener("click", () =>
-      row.scrollBy({ left: -step * 2, behavior: "smooth" }),
-    );
-    next?.addEventListener("click", () =>
-      row.scrollBy({ left: step * 2, behavior: "smooth" }),
-    );
+  items.forEach((item) => {
+    const row = item.querySelector(".faq-question-row");
 
-    // mouse drag
-    let down = false,
-      startX = 0,
-      startLeft = 0;
+    row?.addEventListener("click", () => {
+      const willOpen = !item.classList.contains("open");
 
-    row.addEventListener("pointerdown", (e) => {
-      if (e.pointerType !== "mouse") return;
-      down = true;
-      startX = e.clientX;
-      startLeft = row.scrollLeft;
-      row.classList.add("dragging");
+      if (ONE_AT_A_TIME && willOpen) {
+        items.forEach((other) => {
+          other.classList.remove("open");
+          const t = other.querySelector(".faq-toggle");
+          if (t) t.textContent = "+";
+        });
+      }
+
+      item.classList.toggle("open", willOpen);
+      const toggle = item.querySelector(".faq-toggle");
+      if (toggle) toggle.textContent = willOpen ? "−" : "+";
     });
-    window.addEventListener("pointerup", () => {
-      down = false;
-      row.classList.remove("dragging");
-    });
-    window.addEventListener("pointermove", (e) => {
-      if (!down) return;
-      row.scrollLeft = startLeft - (e.clientX - startX);
-    });
-  }
+  });
 </script>
