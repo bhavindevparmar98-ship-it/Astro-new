@@ -9,15 +9,123 @@
 		<title>PulseBoard App</title>
 	</head>
 	<body>
-		<slot />
-	</body>
-</html>
+		<header class="hero-shell">
+			<div class="hero-frame">
+				<svg
+					class="card-grid-overlay"
+					viewBox="0 0 1408 640"
+					preserveAspectRatio="xMidYMid slice"
+					aria-hidden="true">
+					<defs>
+						<mask id="hero-grid-mask" maskUnits="userSpaceOnUse">
+							<rect width="1408" height="640" fill="black"></rect>
+							<path
+								d="M0 0 L0 640 M64 0 L64 640 M128 0 L128 640 M192 0 L192 640 M256 0 L256 640 M320 0 L320 640 M384 0 L384 640 M448 0 L448 640 M512 0 L512 640 M576 0 L576 640 M640 0 L640 640 M704 0 L704 640 M768 0 L768 640 M832 0 L832 640 M896 0 L896 640 M960 0 L960 640 M1024 0 L1024 640 M1088 0 L1088 640 M1152 0 L1152 640 M1216 0 L1216 640 M1280 0 L1280 640 M1344 0 L1344 640 M1408 0 L1408 640 M0 0 L1408 0 M0 64 L1408 64 M0 128 L1408 128 M0 192 L1408 192 M0 256 L1408 256 M0 320 L1408 320 M0 384 L1408 384 M0 448 L1408 448 M0 512 L1408 512 M0 576 L1408 576 M0 640 L1408 640"
+								stroke="white"
+								stroke-opacity="0.2"
+								stroke-width="1.5"
+								fill="none"></path>
+						</mask>
+						<filter	id="hero-soft-blur"	x="-50%" y="-50%" width="200%"	height="200%">
+							<feGaussianBlur stdDeviation="225"></feGaussianBlur>
+						</filter>
+						<clipPath id="hero-grid-clip">
+							<rect width="1408" height="640" rx="24"></rect>
+						</clipPath>
+					</defs>
+					<g clip-path="url(#hero-grid-clip)">
+						<g mask="url(#hero-grid-mask)">
+							<ellipse
+								cx="920"
+								cy="330"
+								rx="360"
+								ry="250"
+								fill="#FF4800"
+								filter="url(#hero-soft-blur)"></ellipse>
+						</g>
+					</g>
+				</svg>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+				<nav class="floating-nav navbar" aria-label="Main navigation">
+					<a href="/" class="nav-logo" aria-label="Savio home">
+						<img src="/savio-logo.svg" alt="Savio logo" />
+					</a>
+
+					<div class="nav-links-desktop">
+						<a href="#features">Features</a>
+						<a href="#how-it-works">How it works</a>
+						<a href="#app">App</a>
+						<a href="#testimonials">Testimonials</a>
+					</div>
+
+					<button class="signup-btn signup-btn-desktop" type="button">Signup</button>
+
+					<button class="hamburger-btn" type="button" aria-label="Open menu"	aria-expanded="false">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+
+					<div class="mobile-menu" hidden>
+						<a href="#features">Features</a>
+						<a href="#how-it-works">How it works</a>
+						<a href="#app">App</a>
+						<a href="#testimonials">Testimonials</a>
+						<button class="signup-btn-mobile" type="button">Signup</button>
+					</div>
+				</nav>
+
+				<div class="hero-content">
+					<div class="hero-copy">
+						<span class="eyebrow">ABOUT SAVIO</span>
+						<h1>Why we built <span class="accent">Savio.</span></h1>
+						<p>
+							Reels in Instagram, videos on YouTube, threads in X,
+							links in a dozen notes — all bookmarked with the
+							best intentions, none of them ever seen again. So we
+							built a calmer way.
+						</p>
+
+						<div class="app-badges"	aria-label="Download app badges">
+							<Image
+								src={appStoreBadge}
+								alt="Download on the App Store"
+								width={161}
+								height={48}
+								class="store-badge"
+							/>
+							<Image
+								src={googlePlayBadge}
+								alt="Get it on Google Play"
+								width={161}
+								height={48}
+								class="store-badge"
+							/>
+						</div>
+					</div>
+
+					<div class="hero-visual" aria-label="Savio app preview">
+						<Image
+							src={savioHeroImage}
+							alt="Savio app preview"
+							class="hero-phone-mockup"
+						/>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<slot />
+			
+		</main>
+	</body>
+
+	<style>
+		html,
+		body {
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</html>
