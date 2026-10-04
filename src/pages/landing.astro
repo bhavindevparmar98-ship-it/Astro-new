@@ -1,39 +1,47 @@
 ---
 import { Image } from "astro:assets";
-import PhoneMockup from "../components/PhoneMockup.astro";
 import "../components/styles.astro/global.css";
 import appStoreBadge from "../assets/app-store-apple-logo.svg";
 import googlePlayBadge from "../assets/google-play-badge-logo1.svg";
 import phoneMockup from "../assets/iphone-15-pro-max-hand-mockup.png";
-import heroVisual from "../assets/ab savio img.png";
 import heroBg from "../assets/home-hero-img.png";
 import frameImg1 from "../assets/Frame img-4.svg";
 import frameImg3 from "../assets/Frame img-3.svg";
 import frameImg4 from "../assets/frame-img-1.svg";
 import frameImg5 from "../assets/Frame img-2.svg";
-import appImg from "../assets/app.png";
-import galleryImg3 from "../assets/gallery-img-3.png";
-import galleryImg4 from "../assets/gallery-img-4.png";
-import galleryImg5 from "../assets/gallery-img-5.png";
-import galleryImg6 from "../assets/gallery-img-6.png";
 import saveIcon from "../assets/Bookmark--Streamline-Carbon.svg";
 import organizeIcon from "../assets/Categories--Streamline-Carbon.svg";
 import remindIcon from "../assets/Mobile.svg";
-import galleryImg1 from "../assets/gallery-img-1.svg";
-import galleryImg2 from "../assets/gallery-img-2.svg";
-// import galleryImg3 from "../assets/gallery-img-3.svg";
-// import galleryImg4 from "../assets/gallery-img-4.png";
-// import galleryImg5 from "../assets/gallery-img-5.svg";
-// import galleryImg6 from "../assets/gallery-img-6.svg";
 
-const screens = [
-  galleryImg1,
+import galleryImg2 from "../assets/gallery-img-2.svg";
+import galleryImg3 from "../assets/gallery-img-3.png";
+import galleryImg4 from "../assets/gallery-img-4.png";
+import galleryImg5 from "../assets/gallery-img-5.png";
+import galleryImg7 from "../assets/gallery-img-12.png";
+import galleryImg8 from "../assets/gallery-img-13.png";
+import galleryImg9 from "../assets/gallery-img-14.png";
+import galleryImg10 from "../assets/gallery-img-15.png";
+import galleryImg11 from "../assets/gallery-img-16.png";
+import galleryImg12 from "../assets/gallery-img-17.png";
+
+const slides = [
   galleryImg2,
   galleryImg3,
   galleryImg4,
   galleryImg5,
-  galleryImg6,
+  galleryImg7,
+  galleryImg8,
+  galleryImg9,
+  galleryImg10,
+  galleryImg11,
+  galleryImg12,
 ];
+// Figma screen = 207.6 x 451.68 (2x for retina)
+const PHONE_WIDTH = 416;
+const PHONE_HEIGHT = 904;
+// Infinite slider without Swiper's loop mode: 3 identical copies, we always
+// stay inside the middle copy (see script) so left/right never run empty.
+const loopSlides = [...slides, ...slides, ...slides];
 
 const heroStats = [
   { value: "120K+", label: "Active users" },
@@ -89,6 +97,7 @@ const testimonials = [
   },
 ];
 
+// Only the first FAQ is open on load
 const faqs = [
   {
     q: "What is Savio and how is it different from bookmarks?",
@@ -98,17 +107,17 @@ const faqs = [
   {
     q: "Does Savio store everything privately?",
     a: "Yes. Savio is built to keep your saved content personal and private while still making it easy to revisit and share the things that matter.",
-     open: true,
+    open: false,
   },
   {
     q: "Can I save from mobile apps and the web?",
     a: "Absolutely. Savio works across popular apps and URLs so you can keep your saves in one place without extra effort.",
-     open: true,
+    open: false,
   },
   {
     q: "Is it free to use?",
     a: "Yes. Savio is free to download and use, with a calming, no-friction experience at the core of the product.",
-     open: true,
+    open: false,
   },
 ];
 ---
@@ -338,26 +347,69 @@ const faqs = [
           </div>
         </section>
 
-        <section class="app-showcase" id="app">
-          <div class="app-showcase-header center">
-            <span class="eyebrow eyebrow-dark">THE APP</span>
-            <h2>Designed with the same care you save with.</h2>
-          </div>
-
-          <div class="phone-slider">
-            <!-- <button class="nav prev" type="button" aria-label="Previous">‹</button > -->
-
-            <div class="phone-row" id="phoneRow">
-              {
-                screens.map((screen, index) => (
-                  <div class={`app-phone${index === 0 ? " phone-splash" : ""}`}>
-                    <PhoneMockup screenSrc={screen} />
-                  </div>
-                ))
-              }
+        <!-- ============ APP SHOWCASE (SWIPER) ============ -->
+        <section class="showcase-section" id="app">
+          <div class="phone-swiper-wrap">
+            <div class="swiper phone-swiper">
+              <div class="swiper-wrapper">
+                {
+                  loopSlides.map((src, i) => (
+                    <div
+                      class="swiper-slide"
+                      aria-hidden={
+                        Math.floor(i / slides.length) !== 1 ? "true" : undefined
+                      }
+                    >
+                      <div class="phone-mockup">
+                        <div class="phone-frame">
+                          <div class="phone-screen">
+                            <div class="phone-notch" aria-hidden="true" />
+                            <Image
+                              src={src}
+                              alt="Savio app screen"
+                              class="screen-image"
+                              loading="eager"
+                              width={PHONE_WIDTH}
+                              height={PHONE_HEIGHT}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+              <div class="phone-pagination"></div>
             </div>
 
-            <!-- <button class="nav next" type="button" aria-label="Next">›</button> -->
+            <button
+              class="phone-nav phone-nav-prev"
+              type="button"
+              aria-label="Previous"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                ><path
+                  d="M15 18l-6-6 6-6"
+                  stroke="#231F20"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path></svg
+              >
+            </button>
+            <button
+              class="phone-nav phone-nav-next"
+              type="button"
+              aria-label="Next"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                ><path
+                  d="M9 18l6-6-6-6"
+                  stroke="#231F20"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path></svg
+              >
+            </button>
           </div>
         </section>
 
@@ -424,11 +476,18 @@ const faqs = [
               {
                 faqs.map((item) => (
                   <div class={`faq-item ${item.open ? "open" : ""}`}>
-                    <div class="faq-question-row">
+                    <div
+                      class="faq-question-row"
+                      role="button"
+                      tabindex="0"
+                      aria-expanded={item.open ? "true" : "false"}
+                    >
                       <span>{item.q}</span>
-                      <span class="faq-toggle">{item.open ? "−" : "+"}</span>
+                      <span class="faq-toggle" aria-hidden="true">
+                        {item.open ? "−" : "+"}
+                      </span>
                     </div>
-                    {item.open && <p>{item.a}</p>}
+                    <p>{item.a}</p>
                   </div>
                 ))
               }
@@ -571,7 +630,7 @@ const faqs = [
   /* ---------- NAVBAR ---------- */
   .navbar {
     position: relative;
-    z-index: 10; /* hero-content (z-index 2) na upar dropdown dekhay */
+    z-index: 10;
     width: min(1110px, calc(100% - 64px));
     height: 72px;
     margin: 24px auto 0;
@@ -631,7 +690,6 @@ const faqs = [
     font-size: 16px;
   }
 
-  /* Desktop ma hamburger chhupavo */
   .nav-toggle {
     display: none;
     position: relative;
@@ -674,7 +732,9 @@ const faqs = [
     transform: translateY(-6px) rotate(-45deg);
   }
 
-  .nav-toggle:focus-visible {
+  .nav-toggle:focus-visible,
+  .faq-question-row:focus-visible,
+  .phone-nav:focus-visible {
     outline: 2px solid var(--orange);
     outline-offset: 2px;
   }
@@ -685,8 +745,7 @@ const faqs = [
     z-index: 2;
     max-width: 1110px;
     margin: 0 auto;
-    padding: 80px 0px;
-    padding-bottom: 0px;
+    padding: 80px 0 0;
   }
 
   .hero-copy {
@@ -695,6 +754,7 @@ const faqs = [
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 24px;
   }
 
@@ -712,7 +772,7 @@ const faqs = [
   .hero-copy h1 {
     font-size: 4rem;
     line-height: 100%;
-    letter-spacing: -1%;
+    letter-spacing: -0.01em;
     font-weight: 600;
     color: var(--text);
   }
@@ -750,7 +810,7 @@ const faqs = [
   .hero-visual {
     display: flex;
     justify-content: center;
-    margin: 0px auto;
+    margin: 0 auto;
     align-items: flex-end;
   }
 
@@ -802,10 +862,10 @@ const faqs = [
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
   }
 
   .section-head {
-    margin-bottom: 0px;
     text-align: center;
     width: 100%;
     max-width: 426px;
@@ -814,17 +874,11 @@ const faqs = [
     align-items: center;
     gap: 16px;
   }
-  .how-section-head h2 {
-    font-size: 3rem;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: var(--text);
-  }
 
+  .how-section-head h2,
   .section-head h2 {
     font-size: 3rem;
     line-height: 100%;
-    letter-spacing: 0%;
     color: var(--text);
   }
 
@@ -844,7 +898,6 @@ const faqs = [
     border: 1px solid rgba(var(--ink), 0.2);
     border-radius: 24px;
     overflow: hidden;
-    font-family: "Cabin", system-ui, sans-serif;
   }
 
   .stat-cell {
@@ -858,7 +911,6 @@ const faqs = [
     text-align: center;
   }
 
-  /* dashed vertical divider (60px) */
   .stat-cell + .stat-cell::before {
     content: "";
     position: absolute;
@@ -868,11 +920,7 @@ const faqs = [
     transform: translateY(-50%);
     border-left: 2px dashed rgba(var(--ink), 0.2);
   }
-  .step-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+
   .stat-cell strong {
     font-size: 36px;
     line-height: 44px;
@@ -919,7 +967,6 @@ const faqs = [
   .feature-copy h3 {
     font-size: 40px;
     line-height: 100%;
-    letter-spacing: 0%;
     font-weight: 600;
     color: var(--text);
   }
@@ -927,7 +974,6 @@ const faqs = [
   .feature-copy p {
     font-size: 18px;
     line-height: 150%;
-    letter-spacing: 0%;
     color: var(--muted-60);
   }
 
@@ -965,9 +1011,6 @@ const faqs = [
     padding: 96px 16px;
     background-color: hsl(345deg 6% 13% / 5%);
     max-width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     gap: 80px;
   }
 
@@ -994,26 +1037,6 @@ const faqs = [
     background: #fff;
   }
 
-  /* first card */
-  .step-card:first-child {
-    border-right-width: 0;
-    border-radius: 24px 0 0 24px;
-  }
-
-  /* center card */
-  .step-card:nth-child(2) {
-    border-left-width: 0;
-    border-right-width: 0;
-    border-radius: 0;
-  }
-
-  /* last card */
-  .step-card:last-child {
-    border-left-width: 0;
-    border-radius: 0 24px 24px 0;
-  }
-
-  /* dashed vertical divider (150px) */
   .step-card + .step-card::before {
     content: "";
     position: absolute;
@@ -1037,27 +1060,15 @@ const faqs = [
     color: var(--orange);
   }
 
-  .step-body {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
   .step-label {
     font-size: 14px;
     line-height: 100%;
     font-weight: 400;
-    letter-spacing: 0;
     text-transform: uppercase;
     color: var(--orange);
   }
 
-  .step-content {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
+  .step-content,
   .step-text {
     display: flex;
     flex-direction: column;
@@ -1076,113 +1087,199 @@ const faqs = [
     line-height: 1.5;
     color: var(--muted-70);
   }
+
   /* ---------- APP SHOWCASE ---------- */
-  .app-showcase {
-    
-  }
-  .app-showcase {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    display: flex;
-    gap: 116px;
-    flex-direction: column;
+  /*
+    Figma: phone 229.49 x 473, gap 40  ->  pitch = 269.49
+    Slider width = 2 * m * pitch, centered on a phone, so the
+    left + right edge phone is exactly 50% visible.
+    --m = how many phones on each side of the center one (tune here).
+  */
+
+  .showcase-section {
     width: 100%;
-    align-items: center;
-    background-color: #f4f4f4;
-
+    padding: 80px 0 96px;
+    background: #f4f4f4;
+    overflow: hidden;
+    container-type: inline-size;
   }
 
-  .app-showcase-header {
-    width: 100%;
-    max-width: 622px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .phone-swiper-wrap {
+    --m: 3;
+    --max: 229.49px;
+    --gap-ratio: 0.1743; /* 40 / 229.49 */
+    --slide-w: min(
+      var(--max),
+      calc(100cqw / (2 * var(--m) * (1 + var(--gap-ratio))))
+    );
 
-  .app-showcase-header h2 {
-    font-size: 3rem;
-    line-height: 100%;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    text-align: center;
-  }
-
-  .phone-row {
+    --pitch: calc(var(--slide-w) * (1 + var(--gap-ratio)));
     position: relative;
-    display: flex;
+    width: 100%;
+    overflow: hidden;
+    overflow: clip;
+  } 
+ 
+
+  .swiper-wrapper{
     gap: 40px;
+  }
+
+  .phone-swiper {
     width: 100%;
-    margin: 0px;
+    overflow: hidden;
+    padding: 16px 0 24px;
   }
 
-  .app-phone {
-    position: relative;
-    display: inline-flex;
-    align-items: flex-end;
+  /* each slide = phone + half gap on both sides */
+  .phone-swiper .swiper-slide {
+    width: 229px;
+    height: 100%;    
+    display: flex;
     justify-content: center;
-    min-width: 0;
-    opacity: 0.98;
   }
 
-  .app-phone:nth-child(odd) {
-    transform: unset;
-  }
-  .app-phone:nth-child(3n) {
-    transform: unset;
-  }
-  .phone-mockup[data-astro-cid-dgzf4czg] {
-    padding: 0;
-    border: none;
-    border-radius: 0px;
-    background: transparent;
-    box-sizing: unset;
-    margin-inline: none;
-    box-shadow: unset;
+  .phone-mockup {
+    position: relative;
+    isolation: isolate;
+    width: var(--slide-w);
+    aspect-ratio: 229.49 / 473;
+    container-type: inline-size; /* 1cqw = 1% of phone width */
   }
 
-  .phone-notch[data-astro-cid-dgzf4czg] {
-    display: none;
-  }
-  .screen-image[data-astro-cid-dgzf4czg] {
+  /* titanium ring (inset) + black bezel, sizes straight from Figma */
+  .phone-frame {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    padding: 10px;
+   
+  }
+
+  /* left side buttons: action / volume up / volume down */
+  /* .phone-frame::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -0.74cqw;
+    top: 42.54cqw;
+    width: 1.22cqw;
+    height: 50.12cqw;
+    background:
+      linear-gradient(#e8e8e8, #e8e8e8) 0 0 / 100% 7.58cqw no-repeat,
+      linear-gradient(#e8e8e8, #e8e8e8) 0 14.92cqw / 100% 15.65cqw no-repeat,
+      linear-gradient(#e8e8e8, #e8e8e8) 0 34.47cqw / 100% 15.65cqw no-repeat;
+  } */
+  /* right side button */
+  /* .phone-frame::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -0.74cqw;
+    top: 62.84cqw;
+    width: 1.22cqw;
+    height: 24.21cqw;
+    background: #e8e8e8;
+    border-radius: 0 0.5cqw 0.5cqw 0;
+  } */
+
+  .phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12.22cqw;
+    overflow: hidden;
+  }
+  /* .phone-notch {
+    position: absolute;
+    top: 2.5cqw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 29cqw;
+    height: 8.62cqw;
+    background: #030303;
+    border-radius: 999px;
+    z-index: 2;
+  } */
+  .screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
-  .phone-mockup {
-    width: 229px;
-    height: auto;
-  }
 
-  .phone-screen[data-astro-cid-dgzf4czg] {
-    width: 100%;
-    height: 100%;
-    border-radius: 0px;
-    background: transparent;
-    position: unset;
-    overflow: hidden;
+  /* arrows */
+  .phone-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba(35, 31, 32, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+  }
+  .phone-nav:hover {
+    background: #f7f7f7;
+  }
+  .phone-nav-prev {
+    left: 24px;
+  }
+  .phone-nav-next {
+    right: 24px;
   }
 
-  .app-phone.phone-splash .screen-placeholder {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 166, 70, 0.9) 0%,
-      rgba(255, 72, 0, 0.9) 42%,
-      rgba(255, 72, 0, 0.72) 100%
-    );
+  /* dots (created in script, always 6) */
+  .phone-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+  }
+  .phone-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(35, 31, 32, 0.2);
+    cursor: pointer;
+    transition:
+      width 0.25s ease,
+      background 0.25s ease;
+  }
+  .phone-dot.is-active {
+    width: 24px;
+    background: var(--orange);
+  }
+
+  /* tablet: 2 phones each side of center, mobile: 1 each side */
+  @media (max-width: 1279.99px) {
+    .phone-swiper-wrap {
+      --m: 2;
+      --max: 9999px;
+    }
+  }
+  @media (max-width: 767.99px) {
+    .phone-swiper-wrap {
+      --m: 1;
+    }
   }
 
   /* ---------- TESTIMONIALS ---------- */
   .testimonial-section {
     padding-top: 80px;
     padding-bottom: 113px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     width: 100%;
     max-width: none;
+    gap: 80px;
   }
   .testimonial-head {
     display: flex;
@@ -1240,9 +1337,6 @@ const faqs = [
     margin-bottom: 8px;
   }
 
-  .testimonial-section {
-    gap: 80px;
-  }
   .testimonial-card p {
     color: var(--text);
     font-size: 18px;
@@ -1266,7 +1360,6 @@ const faqs = [
     place-items: center;
     font-size: 11px;
     font-weight: 700;
-    padding: 9px;
   }
 
   .person-row strong {
@@ -1276,7 +1369,7 @@ const faqs = [
 
   span.person-badge {
     color: var(--orange) !important;
-    padding: 0px;
+    padding: 0;
     display: flex;
     justify-content: center;
   }
@@ -1292,7 +1385,7 @@ const faqs = [
   .faq-section {
     padding: 32px 16px;
     width: 100%;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     max-width: none;
   }
 
@@ -1305,12 +1398,12 @@ const faqs = [
     max-width: 1280px;
   }
 
-.faq-copy {
+  .faq-copy {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-}
+  }
 
   .faq-copy h2 {
     font-size: 3rem;
@@ -1338,6 +1431,7 @@ const faqs = [
     font-size: 20px;
     font-weight: 500;
     color: var(--text);
+    cursor: pointer;
   }
 
   .faq-item p {
@@ -1347,154 +1441,129 @@ const faqs = [
     line-height: 1.65;
   }
 
+  .faq-item:not(.open) p {
+    display: none;
+  }
+
   .faq-toggle {
     color: var(--orange);
     font-size: 26px;
     line-height: 1;
   }
 
-.faq-item:not(.open) p {
-  display: none;
-}
-
-.faq-question-row {
-  cursor: pointer;
-}
-
   /* ---------- CTA ---------- */
-  /* .cta-section::after {
+  .cta-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 96px 189px;
+    background: #f4f4f4;
+  }
+
+  .cta-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    max-width: 1062px;
+    height: 401px;
+    padding: 80px 100px;
+    border-radius: 24px;
+    background:
+      linear-gradient(
+        132.6deg,
+        rgba(255, 199, 176, 0.6) 0%,
+        rgba(255, 72, 0, 0.6) 100%
+      ),
+      #ffffff;
+  }
+
+  .cta-card::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("src/assets/hero-box-bg.svg");
+    background-image: url("../assets/hero-box-bg.svg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: contain;
-    z-index: 0;
+    background-size: cover;
+    z-index: 1;
     pointer-events: none;
-  } */
+  }
 
- 
- .cta-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;            /* card center ma */
-  box-sizing: border-box;
-  padding: 96px 189px;
-  background: #f4f4f4;
-}
-.cta-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/src/assets/hero-box-bg.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  z-index: 1;
-  pointer-events: none;
-}
+  .cta-card::before {
+    content: "";
+    position: absolute;
+    width: 563px;
+    height: 448px;
+    left: 50%;
+    top: -23px;
+    filter: blur(225px);
+    z-index: 1;
+    pointer-events: none;
+  }
 
-/* White blur glow behind phone (Figma "Ellipse 2458") */
-.cta-card::before {
-  content: "";
-  position: absolute;
-  width: 563px;
-  height: 448px;
-  left: 50%;                      /* 531px of 1062px */
-  top: -23px;
-  filter: blur(225px);
-  z-index: 1;
-  pointer-events: none;
-}
-
-
-  /* ===== Card (Desktop: 1062 x 401) ===== */
-.cta-card {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;              /* hand/phone card ni bahar cut thase */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 1062px;
-  height: 401px;
-  padding: 80px 100px;
-  border-radius: 24px;
-  background:
-    linear-gradient(132.6deg, rgba(255, 199, 176, 0.6) 0%, rgba(255, 72, 0, 0.6) 100%),
-    #ffffff;
-}
-/* ===== Copy ===== */
-.cta-copy {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 437px;
-  max-width: 100%;
-}
-
+  .cta-copy {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 437px;
+    max-width: 100%;
+  }
 
   .cta-copy h2 {
-  margin: 0;
-  width: 100%;
-  font-family: "Cabin", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 100%;
-  color: #231f20;
-}
+    width: 100%;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 100%;
+    color: #231f20;
+  }
 
-.cta-copy p {
-  margin: 16px 0 0;               /* heading ane text vache 16px gap */
-  width: 100%;
-  font-family: "Cabin", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 160%;
-  color: rgba(35, 31, 32, 0.8);
-}
-/* ===== Store badges ===== */
-.cta-social {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 13.33px;
-  width: 282.24px;
-  height: 40px;
-  padding: 0;
-  margin-top: 40px;
-}
+  .cta-copy p {
+    margin: 16px 0 0;
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    color: rgba(35, 31, 32, 0.8);
+  }
 
-.cta-social .badge,
-.cta-social .small-badge {
-  width: 134.45px;
-  height: 40px;
-  flex: none;
-  display: block;
-}
-  /* ===== Phone mockup (Figma: 560 x 560, left 531, top -68) ===== */
-.cta-phone {
-  position: absolute;
-  z-index: 2;
-  left: 50%;                      /* 531px / 1062px */
-  top: 0px;
-  width: 560px;
-  height: auto;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
-  pointer-events: none;
-}
+  .cta-social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 13.33px;
+    width: 282.24px;
+    height: 40px;
+    margin-top: 40px;
+  }
 
+  .cta-social .badge,
+  .cta-social .small-badge {
+    width: 134.45px;
+    height: 40px;
+    flex: none;
+    display: block;
+  }
 
+  .cta-phone {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 0;
+    width: 560px;
+    height: auto;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+  }
 
   /* ---------- FOOTER ---------- */
   .site-footer {
@@ -1532,21 +1601,20 @@ const faqs = [
      RESPONSIVE
      ===================================================== */
 
-  /* Tablet: hamburger menu + single column layouts */
+  /* Tablet */
   @media (max-width: 1023.99px) {
-
-    .cta-section
-    .testimonial-head h2{
-      text-align: center ;
+    .testimonial-head h2 {
+      text-align: center;
     }
 
     .hero-header {
-      padding: 0px;
+      padding: 0;
     }
     .hero-frame {
-      border-radius: 0px;
+      border-radius: 0;
+      min-height: auto;
+      padding-bottom: 0;
     }
-
     .hero-copy h1 {
       font-size: 3rem;
       line-height: 100%;
@@ -1558,48 +1626,77 @@ const faqs = [
       top: 30%;
     }
 
-    .app-showcase {
-      padding-top: 64px;
-      padding-bottom: 64px;
-      gap: 80px;
-    }
-    .phone-row {
-      margin-left: 0;
-    }
-    .steps-strip {
-      grid-template-columns: 1fr;
-    }
-    .how-section-head {
-      width: 100%;
-      max-width: 100%;
-      text-align: center;
-    }
-
     .features-section {
       padding: 64px 16px;
-    }
-    .feature-row {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    .feature-visual {
-      order: 1;
-      width: 100%;
-    }
-
-    .feature-copy {
-      order: 2;
-      width: 100%;
     }
     .feature-stack {
       gap: 48px;
     }
+    .feature-row,
+    .feature-row.reverse,
+    .faq-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .feature-visual {
+      order: 1;
+      width: 100%;
+    }
+    .feature-copy {
+      order: 2;
+      width: 100%;
+      max-width: none;
+    }
 
-    .nav-toggle {
+    .how-section {
+      gap: 48px;
+      padding: 64px 16px;
+    }
+    .how-section-head {
+      width: 100%;
+      max-width: 100%;
+    }
+    .steps-strip {
+      grid-template-columns: 1fr;
+    }
+    .step-card {
+      padding: 2rem;
+    }
+    .step-card + .step-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 270px;
+      width: 100%;
+      transform: translate(-1px, -50%);
+      border-top: 2px dashed var(--line);
+      border-left: none;
+      z-index: 1;
+    }
+
+    .section-head {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .faq-section {
+      padding: 48px 16px;
+    }
+
+    /* showcase: left/right half-cut phones */
+    .showcase-section {
+      padding: 64px 0 72px;
+    }
+    .phone-nav {
       display: block;
     }
 
+    /* nav menu */
+    .nav-toggle {
+      display: block;
+    }
     .nav-links {
       position: absolute;
       top: calc(100% + 8px);
@@ -1616,8 +1713,6 @@ const faqs = [
       border-radius: 16px;
       box-shadow: 0 12px 24px rgba(35, 31, 32, 0.08);
       z-index: 50;
-
-      /* closed state (visibility hidden = links focusable pan nahi) */
       opacity: 0;
       visibility: hidden;
       transform: translateY(-8px);
@@ -1626,13 +1721,11 @@ const faqs = [
         transform 0.2s ease,
         visibility 0.2s;
     }
-
     .navbar.is-open .nav-links {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
-
     .nav-links a {
       padding: 14px 0;
       border-bottom: 1px solid rgba(35, 31, 32, 0.08);
@@ -1641,162 +1734,79 @@ const faqs = [
       border-bottom: 0;
     }
 
-    .hero-frame {
-      min-height: auto;
-      padding-bottom: 0;
+    /* CTA */
+    .cta-section {
+      padding: 48px 16px;
+      margin: 0;
     }
-
-    .feature-row,
-    .feature-row.reverse,
-    .faq-layout {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .feature-copy {
-      max-width: none;
-    }
-    .cta-section{
-      padding: 96px 16px;
-    }
-      .cta-card {
+    .cta-card {
       padding: 32px 28px 180px;
       min-height: 721px;
       justify-content: flex-start;
       text-align: center;
       align-items: stretch;
     }
-    .cta-phone {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -40px;
-      width: 430px;
-       top: 36%;   
-        width: 100%;
-        max-width: 66%;
-    }
-    
-
-    .section-head {
-      width: 100%;
-      max-width: 100%;
-    }
-    .cta-section{
-      padding: 48px 16px;
-      margin: 0px;
-    }
-
     .cta-copy {
-      position: relative;
-      z-index: 2;
       width: 100%;
       max-width: 100%;
       padding-top: 2rem;
       padding-bottom: 2rem;
-      display: flex;
-      flex-direction: column;
       align-items: center;
     }
-    
-
-    .how-section {
-      gap: 48px;
-      padding: 64px 16px;
-    }
-
-    .step-card{
-      padding: 2rem;
-    }
-
-    .step-card + .step-card::before {
-      content: "";
-      position: absolute;
-      left: 0%;
-      right: 0%;
-      top: 50%;
-      height: 270px;
-      transform: translate(-1px, -50%);
-      border-top: 2px dashed var(--line);
-      border-left: none;
-      z-index: 1;
+    .cta-phone {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 36%;
       width: 100%;
+      max-width: 66%;
     }
-
-    /* .faq-layout {
-      padding: 0px 16px;
-    } */
-     
-    .faq-section{padding: 48px 16px;}
-
-
-
   }
 
   /* Small tablet / large phone */
   @media (max-width: 767.99px) {
 
-    .cta-card{
+    .phone-swiper .swiper-slide{
+      width: 174px;
+      height: 100%;
+    }
+
+    .cta-card {
       padding: 32px 24px;
     }
-
     .cta-phone {
-        top: auto;
-        bottom: 0px;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .faq-section{padding: 48px 16px;}
-    .app-showcase-header h2 {
-      font-size: 2.5rem;
+      top: auto;
+      bottom: 0;
+      width: 100%;
+      max-width: 100%;
     }
 
     .hero-phone-stack {
       top: 32%;
     }
-    .how-section-head {
-      width: 100%;
-      max-width: 100%;
-    }
-    .how-section-head h2 {
-      font-size: 2.5rem;
-    }
-
-    .feature-copy h3 {
-      font-size: 2rem;
-      line-height: 100%;
-    }
-
-    .feature-copy {
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .feature-copy p {
-      font-size: 1rem;
-    }
-
-    .section-head h2 {
-      font-size: 40px;
-      line-height: 100%;
-      letter-spacing: 0%;
-    }
-
     .hero-copy h1 {
       font-size: 3rem;
-      line-height: 100%;
     }
     .hero-content {
       padding: 60px 16px;
       height: 844px;
     }
 
-    .features-section {
-      padding: 64px 16px;
-    }   
+    .how-section-head h2 {
+      font-size: 2.5rem;
+    }
+    .section-head h2 {
+      font-size: 40px;
+    }
+
+    .feature-copy {
+      gap: 16px;
+    }
+    .feature-copy h3 {
+      font-size: 2rem;
+    }
+    .feature-copy p {
+      font-size: 1rem;
+    }
 
     .stats-strip {
       grid-template-columns: repeat(2, 1fr);
@@ -1815,24 +1825,12 @@ const faqs = [
       border-top: 1px solid rgba(var(--ink), 0.2);
     }
 
-    .steps-strip {
-      grid-template-columns: 1fr;
-    }
-
     .site-footer {
       padding: 1.5rem 20px;
     }
     .footer-inner {
       flex-direction: column;
       align-items: flex-start;
-    }
-    .section-head {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .steps-strip {
-      grid-template-columns: 1fr;
     }
   }
 
@@ -1841,52 +1839,35 @@ const faqs = [
     .hero-phone-stack {
       top: 60%;
     }
-    .how-section-head {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .steps-strip {
-      grid-template-columns: 1fr;
-    }
-    .features-section {
-      padding: 64px 16px;
-    }
     .navbar {
       width: calc(100% - 32px);
       padding: 0 12px 0 14px;
     }
-
     .cta-pill {
       width: 96px;
     }
-
     .hero-copy p,
     .feature-copy p,
     .step-card p,
     .cta-copy p {
       font-size: 16px;
     }
-
     .feature-visual {
       min-height: 360px;
     }
-
-     
-    .section-head {
-      width: 100%;
-      max-width: 100%;
-    }
-
     .step-card + .step-card::before {
-      top: 0%;
+      top: 0;
+      height: 0;
       transform: translate(-1px, -50%);
-      border-top: 2px dashed var(--line);
-      z-index: 1;
-      width: 100%;
-      height: 0px;
     }
   }
+
+  @media (max-width: 640px) {
+    .showcase-section {
+      padding: 48px 0 56px;
+    }
+  }
+
   @media (max-width: 414px) {
     .hero-phone-stack {
       top: 33%;
@@ -1912,6 +1893,7 @@ const faqs = [
 </style>
 
 <script>
+  // ---------- Mobile navbar ----------
   const navbar = document.querySelector<HTMLElement>(".navbar");
   const toggle = navbar?.querySelector<HTMLButtonElement>(".nav-toggle");
   const links = navbar?.querySelector<HTMLElement>(".nav-links");
@@ -1922,17 +1904,14 @@ const faqs = [
     toggle?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
 
-  // hamburger click
   toggle?.addEventListener("click", () => {
     setMenu(!navbar?.classList.contains("is-open"));
   });
 
-  // link click par menu band
   links?.addEventListener("click", (e) => {
     if ((e.target as HTMLElement).closest("a")) setMenu(false);
   });
 
-  // Escape thi band + focus button par pacho
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && navbar?.classList.contains("is-open")) {
       setMenu(false);
@@ -1940,38 +1919,145 @@ const faqs = [
     }
   });
 
-  // bahar click par band
   document.addEventListener("click", (e) => {
     if (navbar && !navbar.contains(e.target as Node)) setMenu(false);
   });
 
-  // desktop size par jaao to reset
-  window.matchMedia("(min-width: 1025px)").addEventListener("change", (e) => {
+  window.matchMedia("(min-width: 1024px)").addEventListener("change", (e) => {
     if (e.matches) setMenu(false);
   });
-</script>
-<script>
-  const ONE_AT_A_TIME = true; // false = badha independently open/close thase
 
-  const items = document.querySelectorAll(".faq-item");
+  // ---------- FAQ accordion ----------
+  const ONE_AT_A_TIME = true; // false = each item opens/closes independently
+  const items = document.querySelectorAll<HTMLElement>(".faq-item");
+
+  function setFaq(item: HTMLElement, open: boolean) {
+    item.classList.toggle("open", open);
+    const row = item.querySelector(".faq-question-row");
+    const sign = item.querySelector(".faq-toggle");
+    row?.setAttribute("aria-expanded", String(open));
+    if (sign) sign.textContent = open ? "−" : "+";
+  }
 
   items.forEach((item) => {
-    const row = item.querySelector(".faq-question-row");
+    const row = item.querySelector<HTMLElement>(".faq-question-row");
 
-    row?.addEventListener("click", () => {
+    const handle = () => {
       const willOpen = !item.classList.contains("open");
-
       if (ONE_AT_A_TIME && willOpen) {
-        items.forEach((other) => {
-          other.classList.remove("open");
-          const t = other.querySelector(".faq-toggle");
-          if (t) t.textContent = "+";
-        });
+        items.forEach((other) => setFaq(other, false));
       }
+      setFaq(item, willOpen);
+    };
 
-      item.classList.toggle("open", willOpen);
-      const toggle = item.querySelector(".faq-toggle");
-      if (toggle) toggle.textContent = willOpen ? "−" : "+";
+    row?.addEventListener("click", handle);
+    row?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handle();
+      }
     });
   });
+</script>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Autoplay } from "swiper/modules";
+  import "swiper/css";
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const wrap = document.querySelector<HTMLElement>(".phone-swiper-wrap")!;
+
+  // Figma: phone 229.49, gap 40 -> gap = 17.43% of phone width
+  const GAP_RATIO = 0.1743;
+  const FIGMA_W = 229.49;
+
+  /**
+   * Slider width = 2 * m * pitch  -> edge phones are exactly 50% cut.
+   * m = phones on each side of the center one (tune here).
+   */
+  function layout() {
+    const vw = window.innerWidth;
+    const m = vw >= 1280 ? 3 : vw >= 768 ? 2 : 1;
+    const max = m === 3 ? FIGMA_W : Infinity;
+    const w = wrap.clientWidth;
+    const slide = Math.min(max, w / (2 * m * (1 + GAP_RATIO)));
+    wrap.style.setProperty("--slide-w", `${slide}px`);
+    wrap.style.setProperty("--pitch", `${slide * (1 + GAP_RATIO)}px`);
+  }
+  layout();
+
+  // markup has 3 identical copies -> N = real screens
+  const TOTAL = document.querySelectorAll(".phone-swiper .swiper-slide").length;
+  const N = TOTAL / 3;
+
+  const dotsWrap = document.querySelector<HTMLElement>(".phone-pagination");
+  const dots: HTMLButtonElement[] = Array.from({ length: N }, (_, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "phone-dot";
+    b.setAttribute("aria-label", `Go to screen ${i + 1}`);
+    dotsWrap?.appendChild(b);
+    return b;
+  });
+
+  const setActive = (index: number) => {
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index % N));
+  };
+
+  const swiper = new Swiper(".phone-swiper", {
+    modules: [Navigation, Autoplay],
+    slidesPerView: "auto",
+    centeredSlides: true, // center phone full, both edge phones 50% cut
+    spaceBetween: 0, // gap is built into slide width (--pitch)
+    loop: false,
+    initialSlide: N, // start on the first screen of the MIDDLE copy
+    grabCursor: true,
+    speed: 700,
+    autoplay: reduceMotion
+      ? false
+      : {
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+    navigation: {
+      nextEl: ".phone-nav-next",
+      prevEl: ".phone-nav-prev",
+    },
+    on: {
+      init: (s) => setActive(s.activeIndex),
+      slideChange: (s) => setActive(s.activeIndex),
+      // after each move, silently jump back into the middle copy
+      slideChangeTransitionEnd: (s) => {
+        if (s.activeIndex < N) s.slideTo(s.activeIndex + N, 0, false);
+        else if (s.activeIndex >= 2 * N) s.slideTo(s.activeIndex - N, 0, false);
+      },
+    },
+  });
+
+  // re-measure on any width change (resize, scrollbar, fonts, orientation)
+  let raf = 0;
+  new ResizeObserver(() => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      layout();
+      swiper.update();
+    });
+  }).observe(wrap);
+
+  window.addEventListener("load", () => {
+    layout();
+    swiper.update();
+  });
+
+  dots.forEach((d, i) =>
+    d.addEventListener("click", () => {
+      const base = Math.floor(swiper.activeIndex / N) * N;
+      swiper.slideTo(base + i);
+    }),
+  );
 </script>
