@@ -444,9 +444,13 @@ import teamMember3 from "../assets/Team Member image-3.png";
             </svg>
 
             <div class="cta-copy-block">
-              <span class="eyebrow">FREE TO DOWNLOAD</span>
-              <h2>Give your saves a home.</h2>
-              <p>Capture, organize, and actually come back to what matters.</p>
+              <div class="cta-content-header">
+                <span class="eyebrow">FREE TO DOWNLOAD</span>
+                <h2>Give your saves a home.</h2>
+                <p>
+                  Capture, organize, and actually come back to what matters.
+                </p>
+              </div>
               <div class="cta-store-row" aria-label="App download options">
                 <Image
                   src={appStoreBadge}
@@ -1168,7 +1172,6 @@ import teamMember3 from "../assets/Team Member image-3.png";
     display: block;
   }
 
- 
   .member-copy h3 {
     margin: 0;
     font-size: 24px;
@@ -1184,7 +1187,7 @@ import teamMember3 from "../assets/Team Member image-3.png";
     display: contents;
   }
 
-  .member-copy{
+  .member-copy {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -1230,7 +1233,7 @@ import teamMember3 from "../assets/Team Member image-3.png";
     z-index: 0;
   }
 
-  .cta-card::after {
+  /* .cta-card::after {
     content: "";
     position: absolute;
     width: 440px;
@@ -1246,18 +1249,25 @@ import teamMember3 from "../assets/Team Member image-3.png";
     );
     filter: blur(20px);
     z-index: 0;
-  }
+  } */
 
   .cta-copy-block {
     position: relative;
     z-index: 1;
     max-width: 529px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .cta-content-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .cta-copy-block h2 {
     font-size: 48px;
-    line-height: 58px;
-    margin-bottom: 16px;
+    line-height: normal;
   }
 
   .cta-copy-block p {
@@ -1270,7 +1280,6 @@ import teamMember3 from "../assets/Team Member image-3.png";
   .cta-store-row {
     display: flex;
     gap: 13.33px;
-    margin-top: 40px;
   }
 
   .cta-badge {
@@ -1282,11 +1291,10 @@ import teamMember3 from "../assets/Team Member image-3.png";
   .cta-phone {
     position: absolute;
     right: -30px;
-    bottom: -24px;
-    width: 588px;
+    bottom: 0px;
+    width: 50%;
     height: auto;
     z-index: 2;
-    filter: drop-shadow(0 28px 40px rgba(35, 31, 32, 0.1));
   }
 
   .site-footer {
@@ -1395,12 +1403,16 @@ import teamMember3 from "../assets/Team Member image-3.png";
       padding: 52px 24px 120px;
     }
     .cta-phone {
-      opacity: 0.75;
-      right: -120px;
+      opacity: 1;
+      right: 0px;
     }
   }
 
   @media (max-width: 1024px) {
+    .team-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .hero-shell {
       margin: 0px;
     }
@@ -1413,7 +1425,7 @@ import teamMember3 from "../assets/Team Member image-3.png";
     }
 
     .reason-section {
-      padding: 48px 16px 64px;
+      padding: 64px 16px;
     }
 
     .reason-card {
@@ -1450,8 +1462,8 @@ import teamMember3 from "../assets/Team Member image-3.png";
 
     .quote-meta {
       width: 100%;
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: normal;
       text-align: left;
     }
     .hero-copy-inner {
@@ -1472,13 +1484,38 @@ import teamMember3 from "../assets/Team Member image-3.png";
     .hero-copy p {
       text-align: center;
     }
-    .team-section{
+    .team-section {
       gap: 48px;
+      padding: 64px 16px;
     }
-
   }
 
   @media (max-width: 768px) {
+    .cta-card {
+      min-height: 745px;
+      width: 100%;
+    }
+
+    .cta-copy-block {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta-content-header {
+      align-items: center;
+      text-align: center;
+    }
+    .cta-phone {
+      width: 100%;
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .member-card img {
+      height: auto;
+    }
     .feature-grid {
       width: 100%;
       grid-template-columns: repeat(1, minmax(0, 1fr));
