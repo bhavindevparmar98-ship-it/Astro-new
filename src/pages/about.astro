@@ -1302,13 +1302,14 @@ import teamMember3 from "../assets/Team Member image-3.png";
       linear-gradient(0deg, rgba(35, 31, 32, 0.05), rgba(35, 31, 32, 0.05)),
       #ffffff;
     border-top: 1px solid rgba(35, 31, 32, 0.1);
+    padding: 24px 80px;
+    width: 100%;
+    height: 91px;
   }
 
   .footer-inner {
-    max-width: 1440px;
-    height: 91px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 24px 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1409,16 +1410,32 @@ import teamMember3 from "../assets/Team Member image-3.png";
   }
 
   @media (max-width: 1024px) {
+
+    .site-footer {
+      height: auto;
+      padding: 24px 16px;
+    }
+    .footer-inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 0px;
+    }
     .team-grid {
       grid-template-columns: repeat(3, 1fr);
-    } 
-    .cta-strip{
+    }
+    .cta-strip {
       padding: 64px 16px;
+    }
+    .hero-frame{
+      border-radius: 0px !important;
     }
 
     .hero-shell {
       margin: 0px;
+      padding: 0px;
     }
+
     .product-section {
       padding: 64px 16px;
     }
@@ -1494,6 +1511,24 @@ import teamMember3 from "../assets/Team Member image-3.png";
   }
 
   @media (max-width: 768px) {
+    .footer-nav a {
+      padding: 12px;
+    }
+    .footer-nav {
+      gap: 0px;
+    }
+
+    .site-footer {
+      height: auto;
+      padding: 24px 16px;
+    }
+    .footer-inner {
+      flex-direction: column;
+      align-items: center !important;
+      gap: 16px;
+      padding: 0px !important;
+    }
+
     .cta-strip {
       background: var(--soft-gray);
       padding: 0px;
